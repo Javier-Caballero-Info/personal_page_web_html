@@ -208,8 +208,7 @@
                 <img src="img/Mensajeria/whatsapp.png" class="img-responsive img-rounded" width="300px" height="300px">
                 <div class="caption">
                   <h3>Whatsapp</h3>
-                  <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
+                  <h3 class="text-center"><small>&laquo; +54 - 263 - 420 - 0463  &raquo;</small></h3>
                 </div>
               </div>
             </div>
@@ -219,7 +218,7 @@
                 <div class="caption">
                   <h3>Telegram</h3>
                   <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
+                  <h3 class="text-center"><small>&laquo; +54 - 263 - 420 - 0463  &raquo;</small></h3>
                 </div>
               </div>
             </div>
@@ -229,7 +228,6 @@
                 <div class="caption">
                   <h3>Line</h3>
                   <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
                 </div>
               </div>
             </div>
@@ -239,8 +237,7 @@
                 <img src="img/Mensajeria/hangouts.png" class="img-responsive img-rounded" width="300px" height="300px">
                 <div class="caption">
                   <h3>Hangouts</h3>
-                  <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
+                  <h3 class="text-center"><small>&laquo; caballerojavier13@gmail.com &raquo;</small></h3>
                 </div>
               </div>
             </div>
@@ -250,7 +247,6 @@
                 <div class="caption">
                   <h3>Skype</h3>
                   <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
                 </div>
               </div>
             </div>
@@ -260,7 +256,6 @@
                 <div class="caption">
                   <h3>Zello</h3>
                   <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
                 </div>
               </div>
             </div>
@@ -270,8 +265,7 @@
                 <img src="img/Mensajeria/mail.png" class="img-responsive img-rounded" width="300px" height="300px">
                 <div class="caption">
                   <h3>E-Mail</h3>
-                  <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
+                  <h3 class="text-center"><small>&laquo; caballerojavier13@gmail.com &raquo;</small></h3>
                 </div>
               </div>
             </div>
@@ -280,8 +274,7 @@
                 <img src="img/Mensajeria/telefono.png" class="img-responsive img-rounded" width="300px" height="300px">
                 <div class="caption">
                   <h3>Teléfono</h3>
-                  <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
+                  <h3 class="text-center"><small>&laquo; +54 - 263 - 420 - 0463  &raquo;</small></h3>
                 </div>
               </div>
             </div>
@@ -290,8 +283,8 @@
                 <img src="img/Mensajeria/facetime.png" class="img-responsive img-rounded" width="300px" height="300px">
                 <div class="caption">
                   <h3>FaceTime</h3>
-                  <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <p><a href="#" target="_new" class="btn btn-default btn-block" role="button">Ver Más</a></p>
+                  <h3 class="text-center"><small>&laquo; caballerojavier13@gmail.com &raquo;</small></h3>
+                  <h3 class="text-center"><small>&laquo; caballerojavier13@icloud.com &raquo;</small></h3>
                 </div>
               </div>
             </div>
