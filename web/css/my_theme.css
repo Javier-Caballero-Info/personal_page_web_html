@@ -1,0 +1,162 @@
+.divisor{
+  position: relative;
+  width: 90%;
+  left: 5%;
+  border-top: solid gray 1px;
+  height: 2px;
+  margin-bottom: 20px;
+}
+
+.logo{
+  position: relative;
+  margin: 0 auto;
+  margin-top: 30px;
+  border-radius: 10px;
+  background: rgba(100,100,100,0.7);
+  height: 266px;
+  width: 266px;
+  border: solid 2px rgba(50,50,50,0.6);
+  z-index: 10;
+}
+.logo img{
+  position: relative;
+  top: 3px;
+  margin 0;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+#titulo_mobile{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 7px;
+}
+
+.jumbotron {
+  position: relative;
+  padding:0;
+  margin:0;
+  overflow:hidden;
+  border: solid 4px black;
+  margin-bottom: 20px;
+}
+.jumbotron>h1{
+  position: relative;
+  color: black;
+  z-index: 10;
+}
+.jumbotron>.lead{
+  position:relative;
+  z-index: 10;
+}
+
+#canvas{
+  position:absolute;
+  width: 100%;
+  left: 0;
+  z-index: 0;
+}
+@media (min-width: 991px){
+  .container{
+    background: url(../img/grey_2X.png) fixed;
+  }
+}
+@media (max-width: 991px){
+  .container{
+    background: url(../img/grey.png) fixed;
+  }
+}
+@media (max-width: 480px) {
+  .logo{
+    position: relative;
+    margin: 0 auto;
+    border-radius: 5px;
+    height: 128px;
+    width: 128px;
+    margin-top: 20px;
+  }
+  .logo img{
+    top: 0px;
+    border-radius: 5px;
+    height: 124px;
+    width: 124px;
+  }
+}
+
+@-webkit-keyframes STAR-MOVE {
+  from {
+    background-position: 5% 5%
+  }
+  to {
+    background-position: 1300% 600%
+  }
+}
+@-moz-keyframes STAR-MOVE {
+  from {
+    background-position: 5% 5%
+  }
+  to {
+    background-position: 1300% 600%
+  }
+}
+
+
+#background {
+  background: black url(../img/background.png) repeat 5% 5%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 200s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+
+  -moz-animation-name: STAR-MOVE;
+  -moz-animation-duration: 200s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+}
+
+#midground {
+  background: url(../img/midground.png) repeat 20% 20%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 2;
+
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 150s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+
+  -moz-animation-name: STAR-MOVE;
+  -moz-animation-duration: 150s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+}
+
+#foreground {
+  background: url(../img/foreground.png) repeat 35% 35%;
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 3;
+
+  -webkit-animation-name: STAR-MOVE;
+  -webkit-animation-duration: 100s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+
+  -moz-animation-name: STAR-MOVE;
+  -moz-animation-duration: 100s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+}
+
+.thumbnail h3{
+  text-align: center;
+}
+
+.img-rounded{
+  border: solid 1px gray;
+}
