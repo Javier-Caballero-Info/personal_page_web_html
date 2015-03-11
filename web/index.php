@@ -9,6 +9,9 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Javier Caballero</title>
+    <link rel="icon"
+    type="image/jpg" 
+    href="img/KnightLogo.jpg">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
     <link rel="stylesheet" type="text/css" href="./css/jquery.mobile-1.4.4.css" />
