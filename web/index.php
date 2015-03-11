@@ -209,7 +209,7 @@
                 <div class="caption">
                   <h3>Whatsapp</h3>
                   <h3 class="text-center"><small>&laquo; +54 - 263 - 420 - 0463  &raquo;</small></h3>
-                  <h3 class="text-center"><small></small></h3>
+                  <h3 class="text-center" style="height:16px;"><small></small></h3>
                 </div>
               </div>
             </div>
@@ -229,7 +229,7 @@
                 <div class="caption">
                   <h3>Line</h3>
                   <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <h3 class="text-center"><small></small></h3>
+                  <h3 class="text-center" style="height:16px;"><small></small></h3>
                 </div>
               </div>
             </div>
@@ -240,7 +240,7 @@
                 <div class="caption">
                   <h3>Hangouts</h3>
                   <h3 class="text-center"><small>&laquo; caballerojavier13@gmail.com &raquo;</small></h3>
-                  <h3 class="text-center"><small></small></h3>
+                  <h3 class="text-center" style="height:16px;"><small></small></h3>
                 </div>
               </div>
             </div>
@@ -249,8 +249,8 @@
                 <img src="img/Mensajeria/skype.png" class="img-responsive img-rounded" width="300px" height="300px">
                 <div class="caption">
                   <h3>Skype</h3>
-                  <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <h3 class="text-center"><small></small></h3>
+                  <h3 class="text-center"><small>&laquo; javiercaballero13 &raquo;</small></h3>
+                  <h3 class="text-center" style="height:16px;"><small></small></h3>
                 </div>
               </div>
             </div>
@@ -260,7 +260,7 @@
                 <div class="caption">
                   <h3>Zello</h3>
                   <h3 class="text-center"><small>&laquo; caballerojavier13 &raquo;</small></h3>
-                  <h3 class="text-center"><small></small></h3>
+                  <h3 class="text-center" style="height:16px;"><small></small></h3>
                 </div>
               </div>
             </div>
@@ -271,7 +271,7 @@
                 <div class="caption">
                   <h3>E-Mail</h3>
                   <h3 class="text-center"><small>&laquo; caballerojavier13@gmail.com &raquo;</small></h3>
-                  <h3 class="text-center"><small></small></h3>
+                  <h3 class="text-center" style="height:16px;"><small></small></h3>
                 </div>
               </div>
             </div>
@@ -281,7 +281,7 @@
                 <div class="caption">
                   <h3>Teléfono</h3>
                   <h3 class="text-center"><small>&laquo; +54 - 263 - 420 - 0463  &raquo;</small></h3>
-                  <h3 class="text-center"><small></small></h3>
+                  <h3 class="text-center" style="height:16px;"><small></small></h3>
                 </div>
               </div>
             </div>
