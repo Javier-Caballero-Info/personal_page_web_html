@@ -10,17 +10,26 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Javier Caballero</title>
     <link rel="icon"
-    type="image/jpg" 
+    type="image/jpg"
     href="img/KnightLogo.jpg">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
+    <link rel="stylesheet" type="text/css" href="./css/loading.css" />
     <link rel="stylesheet" type="text/css" href="./css/jquery.mobile-1.4.4.css" />
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="./css/my_theme.css" />
   </head>
   <body>
 
-    <div class="container" data-role="page" style="">
+    <div id="loader-wrapper">
+      <div id="loader"></div>
+
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+
+    </div>
+
+    <div id="content" class="container" data-role="page" style="">
 
       <div data-role="panel"  data-position="right" data-display="overlay" data-position-fixed="true" id="mobile_menu">
         <h3 style="text-align: center; margin-top: -4px">Menu</h3>
@@ -309,6 +318,7 @@
     <script type="text/javascript" src="js/jquery-2.1.1.min.js" ></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.4.min.js" ></script>
     <script type="text/javascript" src="js/bootstrap.js" ></script>
+    <script type="text/javascript" src="js/main.js" ></script>
 
   </body>
 </html>
