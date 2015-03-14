@@ -1,10 +1,9 @@
 $(function(){
     $(window).load(function() {
-        $("#content").show();
-        $('#loader-wrapper ').hide();
+        setTimeout(function() {
+            $("#content").show();
+            $('#loader-wrapper ').hide();
+-       }, 1000);
     });
-    if( navigator.userAgent.match( /iPhone/i ) ) {
-      $("#loader").addClass("loader-iphone");
-    }
 });
 
