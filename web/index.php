@@ -12,7 +12,7 @@
     <link rel="icon"
     type="image/jpg"
     href="img/KnightLogo.jpg">
-    <sript>
+    <script type="text/javascript" >
       if( navigator.userAgent.match( /iPhone/i ) ) {
         document.getElementById("loader").setAttribute("class", "loader-iphone");
       }
