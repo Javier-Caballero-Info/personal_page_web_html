@@ -22,11 +22,8 @@
   <body>
 
     <div id="loader-wrapper">
+      <p>Cargando</p>
       <div id="loader"></div>
-
-      <div class="loader-section section-left"></div>
-      <div class="loader-section section-right"></div>
-
     </div>
 
     <div id="content" class="container" data-role="page" style="">
@@ -316,9 +313,12 @@
       </div>
     </div> <!-- /container -->
     <script type="text/javascript" src="js/jquery-2.1.1.min.js" ></script>
+
     <script type="text/javascript" src="js/jquery.mobile-1.4.4.min.js" ></script>
     <script type="text/javascript" src="js/bootstrap.js" ></script>
-    <script type="text/javascript" src="js/main.js" ></script>
+    
+    <script type="text/javascript" src="js/loading.js" ></script>
+        <script type="text/javascript" src="js/main.js" ></script>
 
   </body>
 </html>
