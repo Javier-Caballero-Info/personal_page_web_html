@@ -12,6 +12,12 @@
     <link rel="icon"
     type="image/jpg"
     href="img/KnightLogo.jpg">
+    <sript>
+      if( navigator.userAgent.match( /iPhone/i ) ) {
+        document.getElementById("loader").setAttribute("class", "loader-iphone");
+      }
+    </script>
+    
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
     <link rel="stylesheet" type="text/css" href="./css/loading.css" />
@@ -24,7 +30,6 @@
   <body>
 
     <div id="loader-wrapper">
-      <p>Cargando</p>
       <div id="loader"></div>
     </div>
 
