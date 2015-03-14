@@ -319,7 +319,7 @@
     
     <script type="text/javascript" src="js/loading.js" ></script>
     <script type="text/javascript" src="js/main.js" ></script>
-    <script src="//fast.eager.io/.js"></script>
+    <script src="http://fast.eager.io/ZKXgrCB8MP.js"></script>
 
   </body>
 </html>
