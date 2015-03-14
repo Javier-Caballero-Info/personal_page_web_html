@@ -318,7 +318,8 @@
     <script type="text/javascript" src="js/bootstrap.js" ></script>
     
     <script type="text/javascript" src="js/loading.js" ></script>
-        <script type="text/javascript" src="js/main.js" ></script>
+    <script type="text/javascript" src="js/main.js" ></script>
+    <script src="//fast.eager.io/.js"></script>
 
   </body>
 </html>
