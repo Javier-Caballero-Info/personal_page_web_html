@@ -24,6 +24,7 @@
   margin 0;
   border-radius: 10px;
   padding: 5px;
+
 }
 
 #titulo_mobile{
@@ -45,6 +46,21 @@
   position: relative;
   color: black;
   z-index: 10;
+}
+@media (max-width: 361px){
+  .jumbotron>h1{
+    font-size: 120%;
+  }
+}
+@media (min-width: 361px) and (max-width: 480px){
+  .jumbotron>h1{
+    font-size: 200%;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px){
+  .jumbotron>h1{
+    font-size: 300%;
+  }
 }
 .jumbotron>.lead{
   position:relative;
@@ -159,4 +175,44 @@
 
 .img-rounded{
   border: solid 1px gray;
+}
+.active_my > a::after{
+  display: none;
+}
+.active_my > a{
+  border-bottom: 2px solid #D2D1D1;
+}
+.active_my > a:hover{
+  border-bottom: solid black 2px;
+}
+.listviewSeparado{
+  margin-top: 5px;
+}
+.listviewSeparado > li{
+  margin-bottom: 5px;
+}
+.listview_my > li{
+  border-bottom: solid #DFDFDF 1px;
+  padding-bottom: 5px;
+}
+.listview_my > li:hover{
+  background: none;
+}
+.listview_my > li > a{
+  text-align: left;
+  margin-left: 25px;
+  color: #696969;
+  font-weight: 10;
+}
+.listview_my > li > a:hover{
+  color: black;
+  background: none;
+}
+.listview_my > li > a::after{
+  float: left;
+  margin-left: -25px;
+  background-image: url("./images/icons-png/star-white.png");
+}
+.listview_my > li:last-child{
+  border-bottom: none;
 }

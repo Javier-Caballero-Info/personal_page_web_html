@@ -40,12 +40,12 @@
       <div data-role="panel"  data-position="right" data-display="overlay" data-position-fixed="true" id="mobile_menu">
         <h3 style="text-align: center; margin-top: -4px">Menu</h3>
 
-        <div style="height: 0px;width: 103%;margin: auto 0;position: relative;border-top: solid 1px rgb(223, 223, 223); margin-top: 10px; margin-bottom: 10px;"></div>
+        <div style="height: 0px; margin-left: -14px; margin-right: -14px; border-top: 1px solid #A19F9F; margin-top: 10px; margin-bottom: 10px;"></div>
 
-        <ul data-role="listview" class="listviewSeparado" style="margin-top: 10px;">
-          <li class="active_my"><a onclick="$.mobile.silentScroll(0);" class="btn btn-link">Home</a></li>
-          <li><a onclick="$.mobile.silentScroll($('#redes_sociales').offset().top - 70);" class="btn btn-link">Redes Sociales</a></li>
-          <li><a onclick="$.mobile.silentScroll($('#mensajeria').offset().top - 70);" class="btn btn-link">Mensajería</a></li>
+        <ul data-role="listview" class="nav navbar-nav navbar-nav_my listviewSeparado listview_my" style="margin-top: 10px;">
+          <li class="active_my_mobile"><a onclick="$.mobile.silentScroll(0);" class="btn btn-link ui-btn-icon-left">Home</a></li>
+          <li><a onclick="$.mobile.silentScroll($('#redes_sociales').offset().top - 70);" class="btn btn-link ui-btn-icon-left">Redes Sociales</a></li>
+          <li><a onclick="$.mobile.silentScroll($('#mensajeria').offset().top - 70);" class="btn btn-link ui-btn-icon-left">Mensajería</a></li>
         </ul>
       </div><!-- /panel -->
 
@@ -56,9 +56,9 @@
           </div>
           <div class="navbar-collapse collapse navbar-right">
             <ul class="nav navbar-nav navbar-nav_my" >
-              <li class="active_my"><a onclick="$.mobile.silentScroll(0);" class="btn btn-link">Home</a></li>
-              <li><a onclick="$.mobile.silentScroll($('#redes_sociales').offset().top - 70);" class="btn btn-link">Redes Sociales</a></li>
-              <li><a onclick="$.mobile.silentScroll($('#mensajeria').offset().top - 70);" class="btn btn-link">Mensajería</a></li>
+              <li class="active_my" id="list_item_home"><a onclick="$.mobile.silentScroll(0);" class="btn btn-link">Home</a></li>
+              <li id="list_item_red_social"><a onclick="$.mobile.silentScroll($('#redes_sociales').offset().top - 70);" class="btn btn-link">Redes Sociales</a></li>
+              <li id="list_item_mensajeria"><a onclick="$.mobile.silentScroll($('#mensajeria').offset().top - 70);" class="btn btn-link">Mensajería</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
@@ -67,8 +67,8 @@
 
       <div data-role="header" class="visible-xs-block header-mobile" data-position="fixed"  style="padding-top: 10px; height: 56px;">
         <h1 id="titulo_mobile">Javier Caballero</h1>
-        <a href="#mobile_menu" style="margin-top: 5px;box-shadow: none; padding: 2px;top: 4px;margin-right: 5px;" class="ui-btn-right btn">
-          <img src="img/menu_mobile.png" width="32" height="32" alt="menu_mobile"/>
+        <a href="#mobile_menu" style="margin-top: 5px;box-shadow: none; padding: 2px;top: 7px;margin-right: 5px;border-radius: 0px; width: 32px; height: 32px; padding: 0; padding-left: 0px;padding-top: 8px; right: 15px; background: white;" class="ui-btn-right btn">
+          <img src="./css/images/icons-png/bars-black.png" alt="menu_mobile" style="opacity: 0.5"/>
         </a>
       </div>
 
