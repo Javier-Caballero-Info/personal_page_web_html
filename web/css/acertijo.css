@@ -1,3 +1,10 @@
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
+}
+
 .titulo_acertijo{
 
 }
@@ -60,4 +67,14 @@
 
 .my-table{
   background: white;
+}
+
+.title_link_mobile{
+  decoration:none !important;
+  color: black !important
+}
+.title_link_mobile:hover{
+  decoration:none !important;
+  color: black !important
+  cursor: pointer;
 }

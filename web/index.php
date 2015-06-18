@@ -46,6 +46,12 @@
           <li class="active_my_mobile"><a onclick="$.mobile.silentScroll(0);" class="btn btn-link ui-btn-icon-left">Home</a></li>
           <li><a onclick="$.mobile.silentScroll($('#redes_sociales').offset().top - 70);" class="btn btn-link ui-btn-icon-left">Redes Sociales</a></li>
           <li><a onclick="$.mobile.silentScroll($('#mensajeria').offset().top - 70);" class="btn btn-link ui-btn-icon-left">Mensajería</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle ui-btn-icon-left" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/ASF/desafio1.html" rel="external">Desafio Nº 1 ASF</a></li>
+            </ul>
+          </li>
         </ul>
       </div><!-- /panel -->
 
@@ -59,6 +65,12 @@
               <li class="active_my" id="list_item_home"><a onclick="$.mobile.silentScroll(0);" class="btn btn-link">Home</a></li>
               <li id="list_item_red_social"><a onclick="$.mobile.silentScroll($('#redes_sociales').offset().top - 70);" class="btn btn-link">Redes Sociales</a></li>
               <li id="list_item_mensajeria"><a onclick="$.mobile.silentScroll($('#mensajeria').offset().top - 70);" class="btn btn-link">Mensajería</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Extras <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="/ASF/desafio1.html" rel="external">Desafio Nº 1 ASF</a></li>
+                </ul>
+              </li>
             </ul>
           </div><!--/.nav-collapse -->
         </div><!--/.container-fluid -->
