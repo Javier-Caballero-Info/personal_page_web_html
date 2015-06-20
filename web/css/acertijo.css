@@ -43,6 +43,7 @@ a:hover{
 }
 .row{
   margin: 0 !important;
+  width: 100%;
 }
 .panel{
   background-color: rgba(117, 117, 117, 0.37);
@@ -55,6 +56,16 @@ a:hover{
 }
 .panel-title {
     font-size: 25px;
+    padding-left: 15px;
+
+    background: rgba(100, 100, 100, 0.32);
+    border-radius: 5px 5px 0 0;
+}
+
+.panel-title > h1{
+  margin: 0;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .panel-body>p{
@@ -65,7 +76,7 @@ a:hover{
   fieldset { display: table-cell; }
 }
 
-.my-table{
+.my-table td,th{
   background: white;
 }
 
@@ -77,4 +88,33 @@ a:hover{
   decoration:none !important;
   color: black !important
   cursor: pointer;
+}
+
+
+.form-group > .control-label{
+    top: 8px;
+    margin: 0px;
+    padding: 0;
+    padding-left: 15px;
+    height: 56.75px;
+    line-height: 56px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.form-group .btn{
+  font-size: 18px;
+  height: 56.75px;
+}
+
+
+@media (max-width: 480px){
+  #content {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+  }
+  .my-table{
+    font-size: 13px;
+  }
 }

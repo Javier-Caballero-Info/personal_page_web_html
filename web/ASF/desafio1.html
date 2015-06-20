@@ -68,8 +68,11 @@
           <h2>&laquo;Día del Ingeniero&raquo;</h2>
         </div>
         <div class="row">
-            <h1>Problema:</h1>
+
           <div class="panel panel-default">
+            <div class="panel-title">
+              <h1>Problema:</h1>
+            </div>
             <div class="panel-body">
               <p>
                 Juan y María deben adivinar el resultado de tirar una moneda. Son del mismo equipo y antes del lanzamiento pueden coordinar una estrategia.
@@ -78,7 +81,7 @@
                 Luego de ponerse de acuerdo, cada uno entra en habitaciones separadas y sin trampas de ningún tipo (e incomunicados totalmente) lanzan una moneda al aire obteniendo un resultado.
               </p>
               <p>
-                Juan y María ganan el juego siempre que su predicción anterior al lanzamiento sea correcta en ambos casos o solo acierte uno de ellos. Si los dos fallan pierden el juego.
+                Juan y María ganan el juego siempre que su predicción luego al lanzamiento sea correcta en ambos casos o solo acierte uno de ellos. Si los dos fallan pierden el juego.
               </p>
               <p>
                 ¿Es posible una estrategia en la que siempre ganen?
@@ -86,39 +89,61 @@
             </div>
           </div>
         </div>
+
         <div class="row">
-            <h1>Simulación:</h1>
+
           <div class="panel panel-default">
+            <div class="panel-title">
+              <h1>Solución:</h1>
+            </div>
+            <div class="panel-body">
+              <p>
+                La solución encontrada conciste en no preestablecer ningún resultado antes de entrar. Sino que en cambio conciste en
+                lanzar la moneda, y que uno de ellos prediga que su resultado es igual al obtenido, y el otro que es el opuesto.
+              </p>
+              <p>
+                Por ello propongo la siguiente solución:
+                <ul>
+                  <li>
+                    <strong>Juan:</strong>  Dice lo opuesto que le tocó a María.
+                  </li>
+                  <li>
+                    <strong>María:</strong>  Dice lo que le tocó a Juan.
+                  </li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="panel panel-default">
+            <div class="panel-title">
+              <h1>Simulación:</h1>
+            </div>
             <div class="panel-body">
 
               <form class="form-horizontal" action="#">
+
                 <div class="form-group">
-                  <label for="p_juan" class="col-sm-2 control-label">Predicción de Juan:</label>
-                  <div class="col-sm-10">
-                    <select class="form-control" id="p_juan">
-                      <option value="0">Cara</option>
-                      <option value="1">Cruz</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="p_maria" class="col-sm-2 control-label">Predicción de María:</label>
-                  <div class="col-sm-10">
-                    <select class="form-control" id="p_maria">
-                      <option value="0">Cara</option>
-                      <option value="1">Cruz</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-sm-offset-2 col-sm-10">
+                  <div class="col-sm-12">
                     <button type="bottom" class="btn btn-default" id="predecir">Simular Resultados</button>
                   </div>
                 </div>
-
+                <div class="form-group">
+                  <label for="speed" id="label_speed" class="col-sm-2 control-label">Velocidad de Simulación:</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" id="speed">
+                      <option value="100">Rápida</option>
+                      <option value="500">Normal</option>
+                      <option value="1000">Lenta</option>
+                    </select>
+                  </div>
+                </div>
               </form>
 
-              <div class="table-responsive">
+              <div class="table-responsisve">
                 <table class="table table-bordered my-table" id="t_resutado1">
 
                   <thead>
@@ -143,7 +168,7 @@
 
                 </table>
               </div>
-              <div class="table-responsive">
+              <div class="table-responsisve">
                 <table class="table table-bordered my-table" id="t_total1">
 
                   <thead>
@@ -172,30 +197,17 @@
           </div>
         </div>
         <div class="row">
-            <h1>Justificación:</h1>
+
           <div class="panel panel-default">
+            <div class="panel-title">
+              <h1>Justificación:</h1>
+            </div>
             <div class="panel-body">
-              <p>Como se puede visualizar en la simulación no es posible un acuerdo en el cual no se realize trampa y se asegure un resutado exitoso siempre.</p>
-              <p>La posibilidad de no acertarle es de 25%, y al ejecutar la simulación más de 1000 veces sin importar la combinatoria elegida. Las probabidades se centran este este valor teórico.
-                Todos los eventos son aleatorios con lo cual no es posible anular la posibilidad de fracaso.</p>
-
-              <p>Otra forma de demostrar que no es posible es pensar en la probabilidad de "Siempre Acertar" la cual deja de ser independiente para volverse dependiente de los anteriores resultados.
-                La cual consiste en  la probabilidad de que al menos un acierte siempre y cuando en la ocación anterior también se acertó.
-              </p>
-              <p>La probabilidad de que en 10 lanzamientos, por ejemplo, no se pierda es igual a:</p>
               <p>
-                <ul>
-                  <li style="margin-bottom: 10px">
-                    Acertar los dos: 0.25 ^ 10
-                  </li>
-
-                Sumado a:
-
-                  <li style="margin-top:10px;">
-                    Acertar al menos uno: 2 x (0.25 ^ 10)
-                  </li>
-                </ul>
-                La cual es igual a 0.0002861 % !!! En resumidas palabras, es casi imposible jugar este juego sin perder.
+                404 Justificación not found.
+              </p>
+              <p>
+                La solución la encontré implementando todas las posibles alternativas.
               </p>
             </div>
           </div>
