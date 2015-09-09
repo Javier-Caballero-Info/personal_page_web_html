@@ -17,8 +17,6 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"></meta>
     <link rel="stylesheet" type="text/css" href="./css/loading.css" />
-    <link rel="stylesheet" type="text/css" href="./css/loading_pace.css" />
-    <script type="text/javascript" src="js/pace.min.js" ></script>
     <link rel="stylesheet" type="text/css" href="./css/jquery.mobile-1.4.4.css" />
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="./css/my_theme.css" />
