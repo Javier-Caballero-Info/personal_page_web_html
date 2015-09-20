@@ -43,10 +43,13 @@ function binding(){
         $('#content').animate({scrollTop: 0}, 1000);
     });
     $("#list_item_red_social").on("click",function(){
-        $('#content').animate({scrollTop: ($('#redes_sociales').offset().top - 70)}, 1000);
+        $('#content').animate({scrollTop: ($('#content').scrollTop() + $('#redes_sociales').offset().top - 70)}, 1000);
     });
     $("#list_item_mensajeria").on("click",function(){
-        $('#content').animate({scrollTop: ($('#mensajeria').offset().top - 70)}, 1000);
+        $('#content').animate({scrollTop: ($('#content').scrollTop() + $('#mensajeria').offset().top - 70)}, 1000);
+    });
+    $("#content").swipeleft(function() {
+        $("#mobile_menu").panel("open");
     });
 }
 function clear_active_my(){
