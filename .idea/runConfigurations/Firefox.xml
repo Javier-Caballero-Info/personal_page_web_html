@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Firefox" type="FirefoxRemoteDebugType" factoryName="Firefox Remote" host="192.168.10.112">
+    <method>
+      <option name="FwBeforeLaunchTask" enabled="true" />
+    </method>
+  </configuration>
+</component>
