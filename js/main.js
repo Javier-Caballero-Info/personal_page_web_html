@@ -5,6 +5,7 @@ $(function(){
             $('#loader-wrapper').hide();
         }, 1000);
     });
+
     binding();
 
 });
