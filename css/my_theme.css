@@ -85,6 +85,9 @@
     overflow:hidden;
     box-shadow: 0 0 4px black;
     margin: 0px 0px 30px;
+    background-color: #19216E;
+    background-color: #2AA3DE;
+    background-color: #2F5AA0;
 
 }
 .jumbotron>h1{
@@ -103,6 +106,7 @@
     width: 100%;
     left: 0;
     z-index: 0;
+    height: 100%;
 }
 @media (min-width: 991px){
     .container{
@@ -130,77 +134,6 @@
         width: 124px;
     }
 }
-
-@-webkit-keyframes STAR-MOVE {
-    from {
-        background-position: 5% 5%
-    }
-    to {
-        background-position: 1300% 600%
-    }
-}
-@-moz-keyframes STAR-MOVE {
-    from {
-        background-position: 5% 5%
-    }
-    to {
-        background-position: 1300% 600%
-    }
-}
-
-
-#background {
-    background: black url(../img/background.png) repeat 5% 5%;
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 1;
-
-    -webkit-animation-name: STAR-MOVE;
-    -webkit-animation-duration: 200s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-
-    -moz-animation-name: STAR-MOVE;
-    -moz-animation-duration: 200s;
-    -moz-animation-timing-function: linear;
-    -moz-animation-iteration-count: infinite;
-}
-
-#midground {
-    background: url(../img/midground.png) repeat 20% 20%;
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 2;
-
-    -webkit-animation-name: STAR-MOVE;
-    -webkit-animation-duration: 150s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-
-    -moz-animation-name: STAR-MOVE;
-    -moz-animation-duration: 150s;
-    -moz-animation-timing-function: linear;
-    -moz-animation-iteration-count: infinite;
-}
-
-#foreground {
-    background: url(../img/foreground.png) repeat 35% 35%;
-    position: absolute;
-    background-color: rgb(47,90,160) !important;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 3;
-
-    -webkit-animation-name: STAR-MOVE;
-    -webkit-animation-duration: 100s;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: infinite;
-
-    -moz-animation-name: STAR-MOVE;
-    -moz-animation-duration: 100s;
-    -moz-animation-timing-function: linear;
-    -moz-animation-iteration-count: infinite;
-}
-
 
 .thumbnail{
     box-shadow: 0 0 4px rgba(50,50,50,1);
