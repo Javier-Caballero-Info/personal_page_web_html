@@ -97,7 +97,6 @@
     function resize() {
         width = window.innerWidth;
         height = window.innerHeight;
-        alert(height);
         canvas.width = width;
         canvas.height = height;
     }
