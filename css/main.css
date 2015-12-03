@@ -222,13 +222,13 @@
 
 @media (min-width: 991px) {
   .container {
-    background: url(../img/grey_2X.png) fixed;
+    background: url(../img/grey_2X.png);
   }
 }
 
 @media (max-width: 991px) {
   .container {
-    background: url(../img/grey.png) fixed;
+    background: url(../img/grey.png);
   }
 }
 
