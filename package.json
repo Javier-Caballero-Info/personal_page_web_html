@@ -22,9 +22,11 @@
     "gulp-concat": "^2.6.1",
     "gulp-jshint": "^2.0.3",
     "gulp-clean-css": "^3.0.4",
-    "gulp-minify-html": "^1.0.6",
+    "gulp-htmlmin": "^3.0.0",
     "gulp-rm": "^1.0.2",
     "gulp-strip-debug": "^1.1.0",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "gulp-asset-hash": "^1.0.1",
+    "gulp-batch-replace": "^0.0.0"
   }
 }
