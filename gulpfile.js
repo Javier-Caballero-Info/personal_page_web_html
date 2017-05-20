@@ -35,6 +35,7 @@ var scripts = [
     "./src/js/min/paper-full.min.js",
     "./src/js/min/typeitout.min.js",
     "./src/js/min/imagesloaded.pkgd.min.js",
+    "./src/js/unmin/twitter.js",
     "./src/js/unmin/script.js"
 ];
 

@@ -13,32 +13,36 @@ $(window).load(function(){
 
     cargarImagenes();
 
-    $.ajax(
-        {
-            url:'https://syndication.twitter.com/widgets/timelines/726498356046995457',
-            type: "GET",
-            dataType: 'jsonp',
-            crossDomain : true,
-            xhrFields: {
-                withCredentials: true
-            }
-        })
-        .done(function( data ) {
+    var configProfileTwitter = {
+        "profile": {"screenName": 'J_H_Caballero_G'},
+        "maxTweets": 1,
+        "enableLinks": true,
+        "showUser": false,
+        "showTime": false,
+        "showImages": false,
+        "dateFunction": '',
+        "showRetweet": false,
+        "customCallback": handleTweets,
+        "showInteraction": false
+    };
+    twitterFetcher.fetch(configProfileTwitter);
+
+    function handleTweets(tweets) {
+
+        $.each(tweets, function (index, item) {
 
             $('#twitter').find('.loading').hide();
             $('#twitter').find('.twitter-bird-animation').hide();
 
-            var last_twit = $($(data.body).find('.timeline-TweetList-tweet').find('.timeline-Tweet-text')[0]).text();
+            var last_twit = $(item).html();
 
             $('#twitter').find('.twit').html(last_twit);
             $('#twitter').find('.twit').find('p').prepend('"');
             $('#twitter').find('.twit').find('p').append('"');
 
-        })
-        .fail( function(xhr, textStatus, errorThrown) {
-            console.error(xhr.responseText);
-            console.error(textStatus);
-    });
+        });
+    }
+
 });
 
 function cargarImagenes(){
