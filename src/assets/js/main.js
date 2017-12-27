@@ -1,9 +1,3 @@
-/*
- Dimension by HTML5 UP
- html5up.net | @ajlkn
- Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
- */
-
 (function($) {
 
     skel.breakpoints({
@@ -412,6 +406,7 @@
 })(jQuery);
 
 $(function () {
+
     $('#social-network').on('show', function() {
         $.getJSON('/json/social-network.json', function (data) {
             $.each(data, function (index, item) {
@@ -425,4 +420,90 @@ $(function () {
             })
         })
     });
+
+    $('#biography').on('show', function() {
+
+        $.getJSON('/json/biography.json', function (data) {
+
+            $.each(data.work, function (index, item) {
+                $('#biography').find('.work-timeline').find('ul').append('\
+                    <li class="timeline-event"> \
+                        <label class="timeline-event-icon"></label> \
+                        <div class="timeline-event-copy"> \
+                            <p class="timeline-event-thumbnail">' + item.time + '</p> \
+                            <h3>' + item.company + '</h3> \
+                            <h4>' + item.position + '</h4> \
+                            <p>' + item.description + '</p> \
+                        </div> \
+                    </li> \
+                ');
+            });
+
+            $.each(data.education, function (index, item) {
+
+                var institute = item.institute.replace("-", "<br/>");
+
+                $('#biography').find('.education-timeline').find('ul').append('\
+                    <li class="timeline-event"> \
+                        <label class="timeline-event-icon"></label> \
+                        <div class="timeline-event-copy"> \
+                            <p class="timeline-event-thumbnail">' + item.time + '</p> \
+                            <h3>' + institute + '</h3> \
+                            <h4>' + item.career + '</h4> \
+                            <p><strong>' + item.detail + '</strong><br> \
+                        </div> \
+                    </li> \
+                ');
+
+            });
+
+            $.each(data.research, function (index, item) {
+                $('#biography').find('.research-timeline').find('ul').append('\
+                    <li class="timeline-event"> \
+                        <label class="timeline-event-icon"></label> \
+                        <div class="timeline-event-copy"> \
+                            <p class="timeline-event-thumbnail">' + item.time + '</p> \
+                            <h3>' + item.group + '</h3> \
+                            <h4>' + item.project + '</h4> \
+                            <p>' + item.description + '</p> \
+                        </div> \
+                    </li> \
+                ');
+            });
+
+            $.each(data.teacher, function (index, item) {
+
+                var institute = item.institute.replace("-", "<br/>");
+
+                var subject = item.subject.replace("-", "<br/>");
+
+                $('#biography').find('.teacher-timeline').find('ul').append('\
+                    <li class="timeline-event"> \
+                        <label class="timeline-event-icon"></label> \
+                        <div class="timeline-event-copy"> \
+                            <p class="timeline-event-thumbnail">' + item.time + '</p> \
+                             <h3>' + institute + '</h3> \
+                            <h4>' + subject + '</h4> \
+                            <p>' + item.annotation + '</p> \
+                        </div> \
+                    </li> \
+                ');
+
+            });
+
+            /*
+             $.each(data., function (index, item) {
+             $('#social-network').find('ul').append('\
+             <li> \
+             <a href="' + item.link + '"  data-ripple-color="#89669b"  target="_blank" class="social-links ripple" role="button"> \
+             <img alt="' + item.name + '" src="' + item.img + '"> \
+             </a> \
+             </li> \
+             ');
+             })
+             */
+        });
+
+    });
+
 });

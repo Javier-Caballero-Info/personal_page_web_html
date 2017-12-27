@@ -1,0 +1,82 @@
+{
+  "work": [
+    {
+      "time": "Agosto 2017 - Actualidad",
+      "company": "Globant",
+      "position": "Tester Automation Engineer",
+      "description": "Ingeniero en calidad de juegoes (GQE game quality engineer), para Disney en proyectos de video juegos para iOS y Android. Encargado de automatización de pruebas."
+    },
+    {
+      "time": "Octubre 2015 - Agosto 2017",
+      "company": "Aconcagua Software Factor",
+      "position": "Quality Assurance - Business Assurance",
+      "description": "Gestión de calidad para proyectos de Mercadopago. Métricas con Google Analytics, Hotjar, New Relic, DataDog, Rollbar. Análisis de la calidad del código. Configuración de alarmas de detección de fraude, fallas, defectos, inconsistencia de datos, etc."
+    },
+    {
+      "time": "Octubre 2015 - Junio 2016",
+      "company": "Aconcagua Software Factor",
+      "position": "Project Manager Officer - QA Analist (CMMI)",
+      "description": "Reporte de estado de proyectos, análisis de asignación de personal, análisis de productividad, definición de procesos, control de procesos, seguimiento y auditoría CMMI."
+    },
+    {
+      "time": "Febrero 2014 - Febrero 2016",
+      "company": "Aconcagua Software Factor",
+      "position": "QC Tester",
+      "description": "Análisis de requerimientos, diseño de casos de prueba, ejecución de casos de pruebas, seguimiento de defectos. Automatización de pruebas."
+    }
+  ],
+  "education": [
+    {
+      "time": "2010 - Actualidad",
+      "institute": "Universidad Tecnológica Nacional-Facultad Regional Mendoza",
+      "career": "Ingeniería en Sistemas de Información",
+      "detail": "Promedio 7.34"
+    },
+    {
+      "time": "2005 - 2009",
+      "institute": "Instituto San Vicente de Paul",
+      "career": "Humanidades y Ciencias Sociales con Orientación en Arte",
+      "detail": "Segundo Escolta Nacional"
+    },
+    {
+      "time": "1997 - 2004",
+      "institute": "Escuela Dr. Segundo Llaver",
+      "career": "",
+      "detail": "Abanderado Nacional - Alumno Destacado"
+    }
+  ],
+  "research": [
+    {
+      "time": "Enero 2016 - Actualidad",
+      "group": "Laboratorio de Auditoría y Seguridad en TIC",
+      "project": "Metamodelado de Auditoría y Reingeniería para Sistemas de Trazabilidad de Vinos",
+      "description": "Desarrollo del marco teórico, representación en congresos, e implementación del sistema."
+    },
+    {
+      "time": "Marzo 2014 - Diciembre 2015",
+      "group": "Laboratorio de Auditoría y Seguridad en TIC",
+      "project": "Calidad de Software",
+      "description": "Definición de algoritmos para la implementación de técnicas de testing formal."
+    },
+    {
+      "time": "Marzo 2012 - Diciembre 2013",
+      "group": "Computo de Alto Rendimiento",
+      "project": "Multiplicación Matricial de Matrices Ralas",
+      "description": "Definición de algoritmos en lenguaje de programación funcional (Haskell) de matrices ralas de orden mayor a 100mil por 100mil."
+    }
+  ],
+  "teacher": [
+    {
+      "time": "Marzo 2014 - Actualidad",
+      "institute": "Universidad Tecnológica Nacional-Facultad Regional Mendoza",
+      "subject": "Ingeniería en Sistemas de Información-Sistemas de Representación",
+      "annotation": "Ayudante de Cátedra de 2da Ad-Honorem"
+    },
+    {
+      "time": "Julio 2012 - Julio 2013",
+      "institute": "Universidad Tecnológica Nacional-Facultad Regional Mendoza",
+      "subject": "Ingeniería en Sistemas de Información-Paradigmas de Programación",
+      "annotation": "Ayudante de Cátedra de 2da Ad-Honorem"
+    }
+  ]
+}

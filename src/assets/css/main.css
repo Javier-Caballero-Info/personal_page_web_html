@@ -58,10 +58,6 @@ body {
 
 /* Basic */
 
-@-ms-viewport {
-    width: device-width;
-}
-
 @media screen and (max-width: 480px) {
 
     html, body {
@@ -83,10 +79,10 @@ body.is-loading *, body.is-loading *:before, body.is-loading *:after, body.is-sw
     -webkit-transition: none !important;
     -ms-transition: none !important;
     transition: none !important;
-    -moz-transition-delay: none !important;
-    -webkit-transition-delay: none !important;
-    -ms-transition-delay: none !important;
-    transition-delay: none !important;
+    -moz-transition-delay: 0s !important;
+    -webkit-transition-delay: 0s !important;
+    -ms-transition-delay: 0s !important;
+    transition-delay: 0s !important;
 }
 
 /* Type */
@@ -166,9 +162,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
     border-bottom: solid 1px #ffffff;
-    width: -moz-max-content;
-    width: -webkit-max-content;
-    width: -ms-max-content;
     width: 100%;
     padding-bottom: 0.5rem;
     margin: 0 0 2rem 0;
@@ -1401,10 +1394,13 @@ body.is-loading #header .content .inner {
 
     #header {
         padding: 1.5rem 0;
+        margin-top: 0.5rem;
+        width: 98%;
+        margin-bottom: -1.5rem;
     }
 
     #header .content .inner {
-        padding: 2.5rem 0;
+        padding: 0 0 2.5rem;
     }
 
     #header nav ul {
@@ -1602,7 +1598,7 @@ body.is-loading #footer {
 }
 
 #biography ul li{
-    background: #373d43;
+    background: #535d68;
     border-radius: 5px;
     padding: 5px 20px;
     margin: 10px;
@@ -1650,7 +1646,7 @@ body.is-loading #footer {
 }
 
 #contact .net-links>img, #messenger .net-links>img:hover {
-    transition: linear .2s all;
+    transition: linear  all 0.2s 0s;
 }
 #contact .grid figure {
     position: relative;
@@ -1761,12 +1757,35 @@ body.is-loading #footer {
 }
 
 @media (max-width: 700px){
+
+    #main {
+        margin-top: -0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
     #social-network ul li {
         width: 100px;
     }
+
     #social-network ul li a img{
         width: 100px;
         height: 100px;
+    }
+
+    #main article {
+        margin: 1rem 0 0 0 !important;
+    }
+
+    #biography > div > .col{
+        padding: 0;
+    }
+
+    #biography ul{
+        padding: 0;
+    }
+
+    #biography ul li{
+        margin: 10px 0;
     }
 }
 
