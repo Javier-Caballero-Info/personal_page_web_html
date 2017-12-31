@@ -405,10 +405,18 @@
 
 })(jQuery);
 
+function getInformation(resource, callback){
+    var url = 'https://personal-web-65c7c.firebaseio.com/' + resource + '.json';
+    $.getJSON(url, function (data) {
+        callback(data);
+    });
+}
+
 $(function () {
 
     $('#social-network').on('show', function() {
-        $.getJSON('/json/social-network.json', function (data) {
+        getInformation('social-network', function (data) {
+            $('#social-network').find('ul').empty();
             $.each(data, function (index, item) {
                 $('#social-network').find('ul').append('\
                     <li> \
@@ -421,10 +429,31 @@ $(function () {
         })
     });
 
+    $('#contact').on('show', function() {
+        getInformation('contact', function (data) {
+            $('#contact').find('ul').empty();
+            $.each(data, function (index, item) {
+                $('#contact').find('ul').append('\
+                    <li> \
+                        <div class="social-links ripple"> \
+                            <img alt="' + item.name + '" src="' + item.img + '" class=""\
+                             data-name="' + item.name + '" data-value="' + item.info + '"> \
+                        </div> \
+                    </li> \
+                    ');
+            });
+            $('#contact').find('ul').find('li').on('click', function() {
+                //console.log($(this).find('img').attr("src"));
+
+            });
+        });
+    });
+
     $('#biography').on('show', function() {
 
-        $.getJSON('/json/biography.json', function (data) {
+        getInformation('biography', function (data) {
 
+            $('#biography').find('.work-timeline').find('ul').empty();
             $.each(data.work, function (index, item) {
                 $('#biography').find('.work-timeline').find('ul').append('\
                     <li class="timeline-event"> \
@@ -438,6 +467,8 @@ $(function () {
                     </li> \
                 ');
             });
+
+            $('#biography').find('.education-timeline').find('ul').empty();
 
             $.each(data.education, function (index, item) {
 
@@ -457,6 +488,8 @@ $(function () {
 
             });
 
+            $('#biography').find('.research-timeline').find('ul').empty();
+
             $.each(data.research, function (index, item) {
                 $('#biography').find('.research-timeline').find('ul').append('\
                     <li class="timeline-event"> \
@@ -470,6 +503,8 @@ $(function () {
                     </li> \
                 ');
             });
+
+            $('#biography').find('.teacher-timeline').find('ul').empty();
 
             $.each(data.teacher, function (index, item) {
 
@@ -490,18 +525,6 @@ $(function () {
                 ');
 
             });
-
-            /*
-             $.each(data., function (index, item) {
-             $('#social-network').find('ul').append('\
-             <li> \
-             <a href="' + item.link + '"  data-ripple-color="#89669b"  target="_blank" class="social-links ripple" role="button"> \
-             <img alt="' + item.name + '" src="' + item.img + '"> \
-             </a> \
-             </li> \
-             ');
-             })
-             */
         });
 
     });

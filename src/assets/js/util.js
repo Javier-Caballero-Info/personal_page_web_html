@@ -1,3 +1,4 @@
+window.jQuery = window.$;
 (function($) {
 
 	/**

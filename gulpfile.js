@@ -29,16 +29,24 @@ var htmls = [
 ];
 
 var scripts = [
-    './src/assets/js/jquery.min.js',
-    './src/assets/js/tooltipster.main.min.js',
-    './src/assets/js/skel.min.js',
+    './node_modules/jquery/dist/jquery.min.js',
+    './node_modules/featherlight/release/featherlight.min.js',
+    './src/assets/js/lib/tooltipster.main.min.js',
+    './src/assets/js/lib/skel.min.js',
     './src/assets/js/util.js',
     './src/assets/js/main.js'
 ];
 
 var styles = [
-    "./bower_components/bootstrap/dist/css/bootstrap.min.css",
-    './src/assets/css/*.css'
+    './bower_components/bootstrap/dist/css/bootstrap.min.css',
+    './node_modules/featherlight/release/featherlight.min.css',
+    './src/assets/css/animate.css',
+    './src/assets/css/default.css',
+    './src/assets/css/font-awesome.min.css',
+    './src/assets/css/ie9.css',
+    './src/assets/css/loading.css',
+    './src/assets/css/main.css',
+    './src/assets/css/noscript.css'
 ];
 
 var fonts = [

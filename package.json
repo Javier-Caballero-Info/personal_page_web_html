@@ -15,13 +15,15 @@
   "license": "MIT",
   "homepage": "https://bitbucket.org/javier_caballero/personal_page#readme",
   "dependencies": {
-    "easy-livereload": "latest",
-    "express": "latest",
-    "serve-static": "latest",
+    "bootstrap": "^4.0.0-beta.3",
+    "featherlight": "^1.7.12",
+    "jquery": "^3.2.1",
     "wolfy87-eventemitter": "^5.1.0"
   },
   "devDependencies": {
-    "bower": "^1.8.0",
+    "easy-livereload": "latest",
+    "express": "latest",
+    "serve-static": "latest",
     "concurrently": "^2.0.0",
     "gulp": "^3.9.1",
     "gulp-asset-hash": "^1.0.1",
