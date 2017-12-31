@@ -1246,7 +1246,7 @@ body.is-loading #bg:before {
     -webkit-transition-delay: 0.25s;
     -ms-transition-delay: 0.25s;
     transition-delay: 0.25s;
-    padding: 3rem 2rem;
+    padding: 0 2rem 2rem;
     max-height: 40rem;
     overflow: hidden;
 }
@@ -1664,10 +1664,8 @@ body.is-loading #footer {
 }
 
 #contact ul li a{
-
     position: relative;
     display: inline-block;
-
 }
 
 #contact ul li .social-links{
@@ -1697,6 +1695,59 @@ body.is-loading #footer {
     cursor: pointer;
 }
 
+.iziModal{
+    background: #50585e;
+}
+
+.iziModal .iziModal-header{
+    box-shadow: none;
+    margin: 0 20px !important;
+    border-bottom: solid 2px #d6d8d9;
+    padding: 20px 0 !important;
+}
+
+.iziModal .iziModal-header-title{
+    color: #d6d8d9 !important;
+}
+
+.iziModal-content *{
+    color: #d6d8d9;
+}
+
+.iziModal-content h1{
+    font-size: 13rem;
+    margin: 20px 0 -30px;
+}
+
+.iziModal-content h2{
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    text-transform: none;
+}
+
+.iziModal-content .alert{
+    font-size: 1.5rem;
+    border-radius: 0;
+}
+
+.iziModal .iziModal-button{
+    opacity: 0.6;
+    background-size: 100%!important;
+}
+
+.alert-dark {
+    color: #1b1e21;
+    background-color: #d6d8d9;
+    border-color: #c6c8ca;
+}
+
+.alert {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
 
 @media (min-width: 1101px){
     #social-network ul li, #contact ul li{
@@ -1779,4 +1830,8 @@ body.is-loading #footer {
         width: 70px;
         height: 70px;
     }
+    .iziModal{
+        border-radius: 0 !important;
+    }
 }
+

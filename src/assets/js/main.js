@@ -28,9 +28,6 @@
             }, 100);
         });
 
-        // Fix: Placeholder polyfill.
-        $('form').placeholder();
-
         // Fix: Flexbox min-height bug on IE.
         if (skel.vars.IEVersion < 12) {
 
@@ -64,8 +61,6 @@
             $nav_li.eq( ($nav_li.length / 2) ).addClass('is-middle');
 
         }
-
-        $('.tooltip').tooltipster();
 
         // Main.
         var	delay = 325,
@@ -425,28 +420,58 @@ $(function () {
                     </a> \
                     </li> \
                     ');
-            })
-        })
+            });
+            hideArticleLoading('#social-network');
+        });
     });
 
     $('#contact').on('show', function() {
+
         getInformation('contact', function (data) {
+
             $('#contact').find('ul').empty();
+
             $.each(data, function (index, item) {
                 $('#contact').find('ul').append('\
                     <li> \
                         <div class="social-links ripple"> \
                             <img alt="' + item.name + '" src="' + item.img + '" class=""\
-                             data-name="' + item.name + '" data-value="' + item.info + '"> \
+                             data-name="' + item.name + '" data-value="' + item.info + '" data-icon="' + item.icon + '"> \
                         </div> \
                     </li> \
                     ');
             });
+
             $('#contact').find('ul').find('li').on('click', function() {
-                //console.log($(this).find('img').attr("src"));
+
+                var title = $(this).find('img').attr('data-name');
+
+                var value = $(this).find('img').attr('data-value');
+
+                var icon = $(this).find('img').attr('data-icon');
+
+                var dataContact = ' \
+                    <div> \
+                        <h1><span class="' + icon + '"></span></h1> \
+                        <h2>' + title + '</h2> \
+                        <div class="alert alert-dark" role="alert"> \
+                            ' + value + ' \
+                        </div> \
+                    </div> \
+                    ';
+
+                var contactModal =$('#contact-modal');
+                contactModal.find('.iziModal-content').html(dataContact);
+                contactModal.iziModal('setHeader', true);
+                contactModal.iziModal('setTitle', title);
+                contactModal.iziModal('open');
 
             });
+
+            hideArticleLoading('#contact');
+
         });
+
     });
 
     $('#biography').on('show', function() {
@@ -525,6 +550,9 @@ $(function () {
                 ');
 
             });
+
+            hideArticleLoading('#biography');
+
         });
 
     });

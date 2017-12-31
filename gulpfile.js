@@ -18,11 +18,11 @@ gulp.task('clean', ['clean:fonts','clean:css','clean:js','clean:img', 'clean:jso
 
 gulp.task('default', ['fonts', 'img', 'styles', 'scripts', 'json', 'html'], function() {});
 
-assetsHash.set({
+var hashConfig = {
     manifest: './manifest-assets-hash.json',
     length: 13,
     hasher: 'md5'
-});
+};
 
 var htmls = [
 'src/index.html'
@@ -31,8 +31,8 @@ var htmls = [
 var scripts = [
     './node_modules/jquery/dist/jquery.min.js',
     './node_modules/featherlight/release/featherlight.min.js',
-    './src/assets/js/lib/tooltipster.main.min.js',
     './src/assets/js/lib/skel.min.js',
+    './node_modules/izimodal/js/iziModal.min.js',
     './src/assets/js/util.js',
     './src/assets/js/main.js'
 ];
@@ -40,9 +40,9 @@ var scripts = [
 var styles = [
     './bower_components/bootstrap/dist/css/bootstrap.min.css',
     './node_modules/featherlight/release/featherlight.min.css',
-    './src/assets/css/animate.css',
+    './node_modules/izimodal/css/iziModal.min.css',
+    './src/assets/css/icomoon.css',
     './src/assets/css/default.css',
-    './src/assets/css/font-awesome.min.css',
     './src/assets/css/ie9.css',
     './src/assets/css/loading.css',
     './src/assets/css/main.css',
@@ -93,20 +93,20 @@ gulp.task('fonts', function() {
 
 gulp.task('img', function() {
     gulp.src(imgs)
-        //.pipe(assetsHash.hash())
+        .pipe(assetsHash.hash(hashConfig))
         .pipe(gulp.dest('./dist/assets/img/'));
 });
 
 gulp.task('json', function() {
     gulp.src(jsons)
-        //.pipe(assetsHash.hash())
+        //.pipe(assetsHash.hash(hashConfig))
         .pipe(gulp.dest('./dist/json/'));
 });
 
 gulp.task('scripts', function() {
 	gulp.src(scripts)
         .pipe(concat('script.js'))
-       // .pipe(assetsHash.hash())
+        //.pipe(assetsHash.hash(hashConfig))
         .pipe(gulp.dest('./dist/assets/js'));
 });
 
@@ -137,7 +137,8 @@ gulp.task('styles', function() {
         }))
         */
       //  .pipe(batchReplace(replaceAssets))
-      //  .pipe(assetsHash.hash())
+        .pipe(gulp.dest('./dist/assets/css'))
+        .pipe(assetsHash.hash(hashConfig))
         .pipe(gulp.dest('./dist/assets/css'));
 });
 
@@ -147,6 +148,7 @@ gulp.task('html', function() {
     var replaceAssets = [];
 
     gulp.src(htmls)
+        /*
         .pipe(through.obj(function (chunk, enc, cb) {
 
             var json_assets = JSON.parse(fs.readFileSync('./manifest-assets-hash.json'));
@@ -164,27 +166,8 @@ gulp.task('html', function() {
 
             cb(null, chunk)
         }))
+        */
       //  .pipe(batchReplace(replaceAssets))
-       // .pipe(htmlmin({collapseWhitespace: true}))
+        .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('./dist'));
-});
-
-// Watch for file updates
-gulp.task('watch', function () {
-
-    gulp.watch('src/*.html').on('change', function(file) {
-        gulp.run('html');
-        log('yellow', 'JS changed' + ' (' + file.path + ')');
-    });
-
-    gulp.watch('src/assets/js/*.js').on('change', function(file) {
-        gulp.run('scripts');
-        log('yellow', 'JS changed' + ' (' + file.path + ')');
-    });
-
-    gulp.watch('src/assets/css/*.css').on('change', function(file) {
-        gulp.run('styles');
-        log('yellow', 'CSS changed' + ' (' + file.path + ')');
-    });
-
 });
