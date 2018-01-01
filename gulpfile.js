@@ -1,28 +1,27 @@
 var gulp = require('gulp');
-var through = require('through2')
+var path = require('path');
+var through = require('through2');
 var concat = require('gulp-concat');
-var stripDebug = require('gulp-strip-debug');
 var uglify = require('gulp-uglify');
 var clean = require('gulp-clean');
-var concat = require('gulp-concat');
-var cleanCSS = require('gulp-clean-css');
 var htmlmin = require('gulp-htmlmin');
-var assetsHash = require('gulp-asset-hash');
 var batchReplace = require('gulp-batch-replace');
 var rm = require( 'gulp-rm' );
 var fs = require('fs');
-var livereload = require('gulp-livereload');
 var log = require('gutil-color-log');
 
-gulp.task('clean', ['clean:fonts','clean:css','clean:js','clean:img', 'clean:json'], function() {});
+var minifyCss = require('gulp-minify-css');
+var rename = require('gulp-rename');
 
-gulp.task('default', ['fonts', 'img', 'styles', 'scripts', 'json', 'html'], function() {});
+const rev = require('gulp-rev');
+var revdel = require('gulp-rev-delete-original');
 
-var hashConfig = {
-    manifest: './manifest-assets-hash.json',
-    length: 13,
-    hasher: 'md5'
-};
+
+gulp.task('clean', ['clean:fonts','clean:css','clean:js','clean:img', 'clean:html'], function() {});
+
+gulp.task('default', ['fonts', 'img', 'styles', 'scripts', 'html'], function() {});
+
+gulp.task('build', ['default', 'build:css'], function() {});
 
 var htmls = [
 'src/index.html'
@@ -30,7 +29,6 @@ var htmls = [
 
 var scripts = [
     './node_modules/jquery/dist/jquery.min.js',
-    './node_modules/featherlight/release/featherlight.min.js',
     './src/assets/js/lib/skel.min.js',
     './node_modules/izimodal/js/iziModal.min.js',
     './src/assets/js/util.js',
@@ -38,8 +36,7 @@ var scripts = [
 ];
 
 var styles = [
-    './bower_components/bootstrap/dist/css/bootstrap.min.css',
-    './node_modules/featherlight/release/featherlight.min.css',
+    //'./node_modules/bootstrap/dist/css/bootstrap.min.css',
     './node_modules/izimodal/css/iziModal.min.css',
     './src/assets/css/icomoon.css',
     './src/assets/css/default.css',
@@ -57,117 +54,143 @@ var imgs = [
     'src/assets/img/**/*'
 ];
 
-var jsons = [
-    'src/json/**/*.json'
-];
-
 gulp.task('clean:fonts', function () {
-	return gulp.src('./dist/assets/fonts/**/*')
+	return gulp.src('./target/dist/assets/fonts/**/*')
 	.pipe( rm(''));
 });
 
 gulp.task('clean:img', function () {
-    return gulp.src('./dist/assets/img/**/*')
+    return gulp.src('./target/dist/assets/img/**/*')
         .pipe( rm(''));
 });
 
 gulp.task('clean:css', function () {
-	return gulp.src('./dist/assets/css/**/*')
+	return gulp.src('./target/dist/assets/css/**/*')
+	    .pipe( rm(''));
+});
+
+gulp.task('clean:html', function () {
+	return gulp.src('./target/dist/index.html')
 	    .pipe( rm(''));
 });
 
 gulp.task('clean:js', function () {
-	return gulp.src('./dist/assets/js/**/*')
-	    .pipe( rm(''));
-});
-
-gulp.task('clean:json', function () {
-	return gulp.src('./dist/json/**/*')
+	return gulp.src('./target/dist/assets/js/**/*')
 	    .pipe( rm(''));
 });
 
 gulp.task('fonts', function() {
 	gulp.src(fonts)
-	    .pipe(gulp.dest('./dist/assets/fonts/'));
+	    .pipe(gulp.dest('./target/dist/assets/fonts/'));
 });
 
 gulp.task('img', function() {
     gulp.src(imgs)
-        .pipe(assetsHash.hash(hashConfig))
-        .pipe(gulp.dest('./dist/assets/img/'));
-});
-
-gulp.task('json', function() {
-    gulp.src(jsons)
-        //.pipe(assetsHash.hash(hashConfig))
-        .pipe(gulp.dest('./dist/json/'));
+        .pipe(gulp.dest('./target/dist/assets/img/'));
 });
 
 gulp.task('scripts', function() {
 	gulp.src(scripts)
         .pipe(concat('script.js'))
-        //.pipe(assetsHash.hash(hashConfig))
-        .pipe(gulp.dest('./dist/assets/js'));
+        .pipe(gulp.dest('./target/dist/assets/js'));
 });
 
-
 gulp.task('styles', function() {
-
-    var replaceAssets = [];
-
 	gulp.src(styles)
         .pipe(concat('style.css'))
-        /*
-        .pipe(through.obj(function (chunk, enc, cb) {
-
-            var json_assets = JSON.parse(fs.readFileSync('./manifest-assets-hash.json'));
-
-            for(i in json_assets) {
-
-                var item = json_assets[i];
-
-                var original = item.original.split('/')[item.original.split('/').length -1];
-
-                var path = item.path.split('/')[item.path.split('/').length - 1];
-
-                replaceAssets.push([original, path]);
-            }
-
-            cb(null, chunk)
-        }))
-        */
-      //  .pipe(batchReplace(replaceAssets))
-        .pipe(gulp.dest('./dist/assets/css'))
-        .pipe(assetsHash.hash(hashConfig))
-        .pipe(gulp.dest('./dist/assets/css'));
+        .pipe(minifyCss())
+        .pipe(gulp.dest('./target/dist/assets/css'))
 });
 
 
 gulp.task('html', function() {
+    gulp.src(htmls)
+        .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+        .pipe(gulp.dest('./target/dist'));
+});
+
+
+gulp.task('build:fonts', function () {
+    return gulp.src('./target/dist/assets/fonts/**/*')
+        .pipe(rev())
+        .pipe(revdel())
+        .pipe(gulp.dest('./target/dist/assets/fonts'))
+        .pipe(rev.manifest({
+            base: './target/manifest',
+            merge: true // merge with the existing manifest if one exists
+        }))
+        .pipe(gulp.dest('./target/manifest'))
+});
+
+gulp.task('build:img', function () {
+    return gulp.src('./target/dist/assets/img/**/*')
+        .pipe(rev())
+        .pipe(revdel())
+        .pipe(gulp.dest('./target/dist/assets/img'))
+        .pipe(rev.manifest({
+            base: './target/manifest',
+            merge: true // merge with the existing manifest if one exists
+        }))
+        .pipe(gulp.dest('./target/manifest'))
+});
+
+gulp.task('build:css', function () {
 
     var replaceAssets = [];
 
-    gulp.src(htmls)
-        /*
+    return gulp.src('./target/dist/assets/css/style.css')
+        .pipe(rev())
+        .pipe(revdel())
         .pipe(through.obj(function (chunk, enc, cb) {
 
-            var json_assets = JSON.parse(fs.readFileSync('./manifest-assets-hash.json'));
+            var json_assets = JSON.parse(fs.readFileSync('./rev-manifest.json'));
 
-            for(i in json_assets) {
-
-                var item = json_assets[i];
-
-                var original = item.original.split('/')[item.original.split('/').length -1];
-
-                var path = item.path.split('/')[item.path.split('/').length - 1];
-
-                replaceAssets.push([original, path]);
+            for(var original in json_assets) {
+                var item = json_assets[original];
+                replaceAssets.push([original, item]);
             }
 
             cb(null, chunk)
         }))
-        */
-      //  .pipe(batchReplace(replaceAssets))
-        .pipe(htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('./dist'));
+        .pipe(batchReplace(replaceAssets))
+        .pipe(gulp.dest('./target/dist/assets/css'))
+        .pipe(rev.manifest({
+            base: './target/manifest',
+            merge: true // merge with the existing manifest if one exists
+        }))
+        .pipe(gulp.dest('./target/manifest'));
+
+});
+
+gulp.task('build:js', function () {
+    return gulp.src('./target/dist/assets/js/script.js')
+        .pipe(uglify())
+        .pipe(rev())
+        .pipe(revdel())
+        .pipe(gulp.dest('./target/dist/assets/js'))
+        .pipe(rev.manifest({
+            base: './target/manifest',
+            merge: true // merge with the existing manifest if one exists
+        }))
+        .pipe(gulp.dest('./target/manifest'))
+});
+
+gulp.task('build:html', function () {
+
+    var replaceAssets = [];
+
+    return gulp.src('./target/dist/index.html')
+        .pipe(through.obj(function (chunk, enc, cb) {
+
+            var json_assets = JSON.parse(fs.readFileSync('./rev-manifest.json'));
+
+            for(var original in json_assets) {
+                var item = json_assets[original];
+                replaceAssets.push([original, item]);
+            }
+
+            cb(null, chunk)
+        }))
+        .pipe(batchReplace(replaceAssets))
+        .pipe(gulp.dest('./target/dist/'), {overwrite: true});
 });

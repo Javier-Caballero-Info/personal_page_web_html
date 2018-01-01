@@ -4,42 +4,45 @@
   "description": "Página web personal",
   "main": "index.js",
   "scripts": {
-    "gulp": "gulp",
+    "gulp": "gulp clean && gulp default",
+    "build": "gulp clean && gulp default && gulp build:fonts && gulp build:img && gulp build:css && gulp build:js && gulp build:html",
     "watch": "node scripts/server_development.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://javier_caballero@bitbucket.org/javier_caballero/personal_page.git"
+    "url": "https://github.com/caballerojavier13/personal_page.git"
   },
   "author": "Javier Hernán Caballero García",
   "license": "MIT",
-  "homepage": "https://bitbucket.org/javier_caballero/personal_page#readme",
+  "homepage": "https://github.com/caballerojavier13/personal_page",
   "dependencies": {
     "bootstrap": "^4.0.0-beta.3",
     "featherlight": "^1.7.12",
     "izimodal": "^1.5.1",
     "jquery": "^3.2.1",
+    "save-dev": "^2.0.0",
     "wolfy87-eventemitter": "^5.1.0"
   },
   "devDependencies": {
+    "concurrently": "^2.0.0",
     "easy-livereload": "latest",
     "express": "latest",
-    "serve-static": "latest",
-    "concurrently": "^2.0.0",
     "gulp": "^3.9.1",
-    "gulp-asset-hash": "^1.0.1",
-    "gulp-autoprefixer": "^3.1.1",
     "gulp-batch-replace": "^0.0.0",
+    "gulp-cache-buster": "^0.2.1",
     "gulp-clean": "^0.3.2",
-    "gulp-clean-css": "^3.0.4",
     "gulp-concat": "^2.6.1",
+    "gulp-hash-filename": "^1.2.0",
     "gulp-htmlmin": "^3.0.0",
     "gulp-jshint": "^2.0.3",
-    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-rev": "^8.1.1",
+    "gulp-rev-delete-original": "^0.2.3",
     "gulp-rm": "^1.0.2",
-    "gulp-strip-debug": "^1.1.0",
     "gulp-uglify": "^2.0.0",
     "gutil-color-log": "^1.0.2",
-    "live-server": "^1.2.0"
+    "live-server": "^1.2.0",
+    "serve-static": "latest"
   }
 }

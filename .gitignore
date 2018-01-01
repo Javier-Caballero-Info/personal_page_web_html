@@ -61,3 +61,5 @@ typings/
 
 .idea
 dist
+/target/
+rev-manifest.json
