@@ -1191,7 +1191,7 @@ body.is-loading #bg:before {
     -webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
     -ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
     transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out, opacity 0.325s ease-in-out;
-    max-width: 100%;
+    max-width: 800px;
     text-align: center;
     padding: 40px;
     background: rgba(0, 0, 0, 0.67);
@@ -1251,11 +1251,13 @@ body.is-loading #bg:before {
     margin-bottom: 0;
 }
 
+#header h1{
+    font-size: 2rem;
+    text-transform: none !important;
+}
+
 #header .content p {
-    text-transform: uppercase;
-    letter-spacing: 0.2rem;
-    font-size: 0.8rem;
-    line-height: 2;
+    font-size: 1rem;
 }
 
 #header nav ul {
