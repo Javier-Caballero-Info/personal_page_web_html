@@ -31,6 +31,7 @@ var scripts = [
     './node_modules/jquery/dist/jquery.min.js',
     './src/assets/js/lib/skel.min.js',
     './node_modules/izimodal/js/iziModal.min.js',
+    './src/assets/js/lib/particles.min.js',
     './src/assets/js/util.js',
     './src/assets/js/main.js'
 ];
@@ -55,66 +56,66 @@ var imgs = [
 ];
 
 gulp.task('clean:fonts', function () {
-	return gulp.src('./target/dist/assets/fonts/**/*')
+	return gulp.src('./dist/assets/fonts/**/*')
 	.pipe( rm(''));
 });
 
 gulp.task('clean:img', function () {
-    return gulp.src('./target/dist/assets/img/**/*')
+    return gulp.src('./dist/assets/img/**/*')
         .pipe( rm(''));
 });
 
 gulp.task('clean:css', function () {
-	return gulp.src('./target/dist/assets/css/**/*')
+	return gulp.src('./dist/assets/css/**/*')
 	    .pipe( rm(''));
 });
 
 gulp.task('clean:html', function () {
-	return gulp.src('./target/dist/index.html')
+	return gulp.src('./dist/index.html')
 	    .pipe( rm(''));
 });
 
 gulp.task('clean:js', function () {
-	return gulp.src('./target/dist/assets/js/**/*')
+	return gulp.src('./dist/assets/js/**/*')
 	    .pipe( rm(''));
 });
 
 gulp.task('fonts', function() {
 	gulp.src(fonts)
-	    .pipe(gulp.dest('./target/dist/assets/fonts/'));
+	    .pipe(gulp.dest('./dist/assets/fonts/'));
 });
 
 gulp.task('img', function() {
     gulp.src(imgs)
-        .pipe(gulp.dest('./target/dist/assets/img/'));
+        .pipe(gulp.dest('./dist/assets/img/'));
 });
 
 gulp.task('scripts', function() {
 	gulp.src(scripts)
         .pipe(concat('script.js'))
-        .pipe(gulp.dest('./target/dist/assets/js'));
+        .pipe(gulp.dest('./dist/assets/js'));
 });
 
 gulp.task('styles', function() {
 	gulp.src(styles)
         .pipe(concat('style.css'))
         .pipe(minifyCss())
-        .pipe(gulp.dest('./target/dist/assets/css'))
+        .pipe(gulp.dest('./dist/assets/css'))
 });
 
 
 gulp.task('html', function() {
     gulp.src(htmls)
         .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
-        .pipe(gulp.dest('./target/dist'));
+        .pipe(gulp.dest('./dist'));
 });
 
 
 gulp.task('build:fonts', function () {
-    return gulp.src('./target/dist/assets/fonts/**/*')
+    return gulp.src('./dist/assets/fonts/**/*')
         .pipe(rev())
         .pipe(revdel())
-        .pipe(gulp.dest('./target/dist/assets/fonts'))
+        .pipe(gulp.dest('./dist/assets/fonts'))
         .pipe(rev.manifest({
             base: './target/manifest',
             merge: true // merge with the existing manifest if one exists
@@ -123,10 +124,10 @@ gulp.task('build:fonts', function () {
 });
 
 gulp.task('build:img', function () {
-    return gulp.src('./target/dist/assets/img/**/*')
+    return gulp.src('./dist/assets/img/**/*')
         .pipe(rev())
         .pipe(revdel())
-        .pipe(gulp.dest('./target/dist/assets/img'))
+        .pipe(gulp.dest('./dist/assets/img'))
         .pipe(rev.manifest({
             base: './target/manifest',
             merge: true // merge with the existing manifest if one exists
@@ -138,7 +139,7 @@ gulp.task('build:css', function () {
 
     var replaceAssets = [];
 
-    return gulp.src('./target/dist/assets/css/style.css')
+    return gulp.src('./dist/assets/css/style.css')
         .pipe(rev())
         .pipe(revdel())
         .pipe(through.obj(function (chunk, enc, cb) {
@@ -153,7 +154,7 @@ gulp.task('build:css', function () {
             cb(null, chunk)
         }))
         .pipe(batchReplace(replaceAssets))
-        .pipe(gulp.dest('./target/dist/assets/css'))
+        .pipe(gulp.dest('./dist/assets/css'))
         .pipe(rev.manifest({
             base: './target/manifest',
             merge: true // merge with the existing manifest if one exists
@@ -163,11 +164,11 @@ gulp.task('build:css', function () {
 });
 
 gulp.task('build:js', function () {
-    return gulp.src('./target/dist/assets/js/script.js')
+    return gulp.src('./dist/assets/js/script.js')
         .pipe(uglify())
         .pipe(rev())
         .pipe(revdel())
-        .pipe(gulp.dest('./target/dist/assets/js'))
+        .pipe(gulp.dest('./dist/assets/js'))
         .pipe(rev.manifest({
             base: './target/manifest',
             merge: true // merge with the existing manifest if one exists
@@ -179,7 +180,7 @@ gulp.task('build:html', function () {
 
     var replaceAssets = [];
 
-    return gulp.src('./target/dist/index.html')
+    return gulp.src('./dist/index.html')
         .pipe(through.obj(function (chunk, enc, cb) {
 
             var json_assets = JSON.parse(fs.readFileSync('./rev-manifest.json'));
@@ -192,5 +193,5 @@ gulp.task('build:html', function () {
             cb(null, chunk)
         }))
         .pipe(batchReplace(replaceAssets))
-        .pipe(gulp.dest('./target/dist/'), {overwrite: true});
+        .pipe(gulp.dest('./dist/'), {overwrite: true});
 });

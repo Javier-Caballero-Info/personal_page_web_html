@@ -632,7 +632,7 @@ window.jQuery = window.$;
 
 function showArticleLoading(article){
 	$(article).find('.loader').show();
-    $(article).find('.content').hide();
+  $(article).find('.content').hide();
 }
 
 function hideArticleLoading(article){

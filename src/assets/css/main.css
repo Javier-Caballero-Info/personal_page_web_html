@@ -1079,6 +1079,7 @@ button {
 }
 
 #bg:before {
+    display: none;
     -moz-transition: background-color 2.5s ease-in-out;
     -webkit-transition: background-color 2.5s ease-in-out;
     -ms-transition: background-color 2.5s ease-in-out;
@@ -1088,29 +1089,24 @@ button {
     -ms-transition-delay: 0.75s;
     transition-delay: 0.75s;
     background-size: auto, 256px 256px;
-    background: linear-gradient(to top, rgba(138, 150, 171, 0.5), rgba(175, 193, 228, 0.5)), no-repeat, repeat center, center;
     z-index: 2;
 }
 
 #bg:after {
-    -moz-transform: scale(.5);
-    -webkit-transform: scale(.5);
-    -ms-transform: scale(.5);
-    transform: scale(.5);
     -moz-transition: -moz-transform 0.325s ease-in-out, -moz-filter 0.325s ease-in-out;
     -webkit-transition: -webkit-transform 0.325s ease-in-out, -webkit-filter 0.325s ease-in-out;
     -ms-transition: -ms-transform 0.325s ease-in-out, -ms-filter 0.325s ease-in-out;
     transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
     background-size: contain;
-    background: #DDDCDC url("../../assets/img/background.svg") no-repeat center;
+    background: #DDDCDC url("../../assets/img/background.jpg") no-repeat center;
     z-index: 1;
 }
 
 body.is-article-visible #bg:after {
-    -moz-transform: scale(.825);
-    -webkit-transform: scale(.825);
-    -ms-transform: scale(.825);
-    transform: scale(.825);
+    -moz-transform: scale(1.225);
+    -webkit-transform: scale(1.225);
+    -ms-transform: scale(1.225);
+    transform: scale(1.225);
     -moz-filter: blur(0.2rem);
     -webkit-filter: blur(0.2rem);
     -ms-filter: blur(0.2rem);
@@ -1263,22 +1259,16 @@ body.is-loading #bg:before {
 }
 
 #header nav ul {
-    display: -moz-flex;
-    display: -webkit-flex;
-    display: -ms-flex;
-    display: flex;
-    margin-bottom: 0;
-    list-style: none;
-    padding-left: 0;
-    border: solid 1px #ffffff;
-    border-radius: 4px;
     margin-bottom: 40px;
+    width: 100%;
 }
 
 #header nav ul li {
     padding-left: 0;
-    border-left: solid 1px #ffffff;
-    width: 100%;
+    width: 46%;
+    margin: 2%;
+    border: solid 1px #ffffff !important;
+    display: inline-block;
 }
 
 #header nav ul li:first-child {
@@ -1411,15 +1401,6 @@ body.is-loading #header .content .inner {
         max-width: 100%;
     }
 
-    #header nav ul li {
-        border-left: 0;
-        border-top: solid 1px #ffffff;
-    }
-
-    #header nav ul li:first-child {
-        border-top: 0;
-    }
-
     #header nav ul li a {
         height: 3rem;
         line-height: 3rem;
@@ -1478,7 +1459,7 @@ body.is-loading #header .content .inner {
     padding: 4.5rem 2.5rem 1.5rem 2.5rem ;
     position: relative;
     max-width: 100%;
-    background-color: rgba(27, 31, 34, 0.85);
+    background-color: rgba(27, 31, 34, 0.48);
     border-radius: 4px;
     opacity: 0;
 }
@@ -1597,7 +1578,7 @@ body.is-loading #footer {
 }
 
 #biography ul li{
-    background: #535d68;
+    background: rgba(0,0,0,.67);
     border-radius: 5px;
     padding: 5px 20px;
     margin: 10px;
@@ -1696,7 +1677,9 @@ body.is-loading #footer {
 }
 
 .iziModal{
-    background: #50585e;
+    background: rgba(25, 25, 25, 0.85);
+    border: none !important;
+    border-radius: 8px;
 }
 
 .iziModal .iziModal-header{
@@ -1704,6 +1687,7 @@ body.is-loading #footer {
     margin: 0 20px !important;
     border-bottom: solid 2px #d6d8d9;
     padding: 20px 0 !important;
+    background: transparent !important;
 }
 
 .iziModal .iziModal-header-title{
@@ -1711,7 +1695,7 @@ body.is-loading #footer {
 }
 
 .iziModal-content *{
-    color: #d6d8d9;
+    color: #ffffff;
 }
 
 .iziModal-content h1{
@@ -1737,8 +1721,8 @@ body.is-loading #footer {
 
 .alert-dark {
     color: #1b1e21;
-    background-color: #d6d8d9;
-    border-color: #c6c8ca;
+    background-color: #ffffff;
+    border: none;
 }
 
 .alert {
@@ -1751,11 +1735,11 @@ body.is-loading #footer {
 
 @media (min-width: 1101px){
     #social-network ul li, #contact ul li{
-        width: 300px;
+        width: 200px;
 }
     #social-network ul li a img, #contact ul li .social-links{
-        width: 300px;
-        height: 300px
+        width: 200px;
+        height: 200px
     }
 }
 
@@ -1834,4 +1818,11 @@ body.is-loading #footer {
         border-radius: 0 !important;
     }
 }
-
+#particles-js{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
