@@ -1311,6 +1311,12 @@ body.is-loading #bg:before {
     border-left: 0;
 }
 
+@media all and (max-width: 600px){
+    #header nav ul li {
+        width: 100%
+    }
+}
+
 body.is-article-visible #header {
     -moz-transform: scale(0.95);
     -webkit-transform: scale(0.95);
@@ -1579,23 +1585,92 @@ body.is-loading #footer {
     list-style: none;
 }
 
+#biography ul:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    width: calc(50% + 3px);
+    height: 80%;
+    border-right: solid 6px white;
+}
+
+#biography .content > div{
+    position: relative;
+    display: inline-block;
+}
+
 #biography ul li{
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    margin: -15% 10px 10px;
+    padding: 5%;
+}
+
+#biography ul li>div:after{
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    top: calc(50% - 5px);
+    border: none;
+    display: block;
+    background: white;
+    box-shadow: 0 0 10px 10px white;
+    border-radius: 50%
+}
+
+
+#biography ul li > div{
     background: rgba(0,0,0,.67);
-    border-radius: 5px;
     padding: 5px 20px;
-    margin: 10px;
+    width: 100%;
+}
+
+#biography ul li:nth-child(odd){
+    float: left;
+}
+#biography ul li:nth-child(even){
+    float: right;
+}
+
+#biography ul li:nth-child(odd) > div:after {
+    right: 5px;
+}
+
+#biography ul li:nth-child(even) > div:after {
+    left: 5px;
+}
+
+#biography ul li:nth-child(1){
+    margin-top: 0;
+}
+
+@media all and (max-width: 700px){
+    #biography ul:after, #biography ul li>div:after{
+        display: none;
+    }
+    #biography ul li{
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        margin: 0;
+        padding: 5%;
+    }
 }
 
 #biography h2{
     border-bottom: solid 2px white;
 }
 
-#social-network .container{
-    text-align: center;
+#biography ul li .description{
+    font-style: oblique;
 }
 
-#social-network h1 {
-
+#social-network .container{
+    text-align: center;
 }
 
 #social-network ul {
@@ -1738,7 +1813,7 @@ body.is-loading #footer {
 @media (min-width: 1101px){
     #social-network ul li, #contact ul li{
         width: 200px;
-}
+    }
     #social-network ul li a img, #contact ul li .social-links{
         width: 200px;
         height: 200px

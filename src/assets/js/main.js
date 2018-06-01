@@ -549,13 +549,15 @@ $(function () {
         $.each(orderedData, function (index, item) {
           $('#biography').find('.work-timeline').find('ul').append('\
                     <li class="timeline-event"> \
-                        <label class="timeline-event-icon"></label> \
-                        <div class="timeline-event-copy"> \
-                            <p class="timeline-event-thumbnail">' + item.time + '</p> \
-                            <h3>' + item.company + '</h3> \
-                            <h4>' + item.position + '</h4> \
-                            <p>' + item.description + '</p> \
-                        </div> \
+                      <div>\
+                          <label class="timeline-event-icon"></label> \
+                          <div class="timeline-event-copy"> \
+                              <p class="timeline-event-thumbnail">' + item.time + '</p> \
+                              <h3>' + item.company + '</h3> \
+                              <h4>' + item.position + '</h4> \
+                              <p class="description">' + item.description + '</p> \
+                          </div> \
+                      </div> \
                     </li> \
                 ');
         });
@@ -578,13 +580,15 @@ $(function () {
 
           $('#biography').find('.education-timeline').find('ul').append('\
                     <li class="timeline-event"> \
+                      <div>\
                         <label class="timeline-event-icon"></label> \
                         <div class="timeline-event-copy"> \
                             <p class="timeline-event-thumbnail">' + item.time + '</p> \
                             <h3>' + institute + '</h3> \
                             <h4>' + item.career + '</h4> \
-                            <p><strong>' + item.detail + '</strong><br> \
+                            <p>' + item.detail + '</p> \
                         </div> \
+                      </div> \
                     </li> \
                 ');
 
@@ -605,13 +609,15 @@ $(function () {
         $.each(orderedData, function (index, item) {
           $('#biography').find('.research-timeline').find('ul').append('\
                     <li class="timeline-event"> \
+                      <div>\
                         <label class="timeline-event-icon"></label> \
                         <div class="timeline-event-copy"> \
                             <p class="timeline-event-thumbnail">' + item.time + '</p> \
                             <h3>' + item.group + '</h3> \
                             <h4>' + item.project + '</h4> \
-                            <p>' + item.description + '</p> \
+                            <p class="description">' + item.description + '</p> \
                         </div> \
+                      </div> \
                     </li> \
                 ');
         });
@@ -636,13 +642,15 @@ $(function () {
 
           $('#biography').find('.teacher-timeline').find('ul').append('\
                     <li class="timeline-event"> \
+                      <div>\
                         <label class="timeline-event-icon"></label> \
                         <div class="timeline-event-copy"> \
                             <p class="timeline-event-thumbnail">' + item.time + '</p> \
                              <h3>' + institute + '</h3> \
                             <h4>' + subject + '</h4> \
-                            <p>' + item.description + '</p> \
+                            <p class="description">' + item.description + '</p> \
                         </div> \
+                      </div> \
                     </li> \
                 ');
 
