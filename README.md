@@ -26,6 +26,8 @@
 Simple HTML and JQuery application that get resources stored in Firebase database as JSONs files.
 The idea is store all the assets in a cloud storage such as Amazon S3 o Firebase Storage.
 
+The compilation and optimization of the static files is made with [Gulp](https://gulpjs.com/)
+
 ## Clone
 
 ```bash
@@ -107,8 +109,17 @@ This will install all dependencies from package.json
 
 The command includes live reload on every change.
 
+1. Compile all the assets for development proposes: 
+
+
+```Batch
+npm run gulp 
 ```
-npm start
+
+2. Run the static NodeJs serve:
+
+```Batch
+npm run watch 
 ```
 
 ## Test
