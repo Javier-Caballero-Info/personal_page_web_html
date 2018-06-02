@@ -1583,6 +1583,7 @@ body.is-loading #footer {
 
 #biography ul{
     list-style: none;
+    opacity: 0;
 }
 
 #biography ul:after {
@@ -1599,6 +1600,7 @@ body.is-loading #footer {
 #biography .content > div{
     position: relative;
     display: inline-block;
+    min-width: 50%;
 }
 
 #biography ul li{
@@ -1618,7 +1620,7 @@ body.is-loading #footer {
     border: none;
     display: block;
     background: white;
-    box-shadow: 0 0 10px 10px white;
+    box-shadow: 0 0 30px 4px #fff;
     border-radius: 50%
 }
 

@@ -637,4 +637,6 @@ function showArticleLoading(article){
 
 function hideArticleLoading(article){
   $(article).find('.loader').hide();
+  $(article).find('ul').css('opacity', '1');
+  $(article).find('ul').css('opacity', '1');
 }
