@@ -1099,6 +1099,7 @@ button {
     transition: transform 0.325s ease-in-out, filter 0.325s ease-in-out;
     background-size: contain;
     background: #DDDCDC url("../../assets/img/background.jpg") no-repeat center;
+    background-size: cover;
     z-index: 1;
 }
 
@@ -1579,6 +1580,19 @@ body.is-article-visible #footer {
 
 body.is-loading #footer {
     opacity: 0;
+}
+
+#work{
+    width: 100%
+}
+#education{
+    width: 100%
+}
+#research{
+    width: 100%
+}
+#teacher{
+    width: 100%
 }
 
 #biography ul{
