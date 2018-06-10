@@ -685,7 +685,7 @@ $(function () {
           var portfolioItemHTML = '\
                     <li class="timeline-event"> \
                       <h2>' + item.name + '</h2> \
-                      <p class="text-justify m-0">' + item.description + '</p>';
+                      <p class="text-justify m-0"><strong>Descripción: </strong> <br/>' + item.description + '</p>';
 
           portfolioItemHTML += '<ul>';
 

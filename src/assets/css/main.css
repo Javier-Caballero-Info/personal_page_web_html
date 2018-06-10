@@ -1662,7 +1662,7 @@ body.is-loading #footer {
 }
 
 #biography ul li:nth-child(even) > div:after {
-    left: 4px;
+    left: 5px;
 }
 
 #biography ul li:nth-child(1){
@@ -1874,7 +1874,7 @@ body.is-loading #footer {
 #portfolio ul li li.resource ul.technology-list li{
     display: inline-block;
     border: solid 1px rgb(82, 82, 82);
-    margin: 0 10px;
+    margin: 0 10px 10px;
     padding: 0 10px;
 }
 
