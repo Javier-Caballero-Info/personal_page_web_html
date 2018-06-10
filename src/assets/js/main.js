@@ -419,7 +419,9 @@ function getAllInformation(callback) {
   var url = 'https://javier-caballero-info.firebaseio.com/' + lang + '.json';
   $.getJSON(url, function (data) {
     information = data;
-    callback();
+    if(callback) {
+      callback();
+    }
   });
 }
 
@@ -460,6 +462,8 @@ function orderInformation(data, order, callback){
 }
 
 $(function () {
+
+  getAllInformation();
 
   $('#social-network').on('show', function() {
 
@@ -657,6 +661,90 @@ $(function () {
         });
 
         hideArticleLoading('#teacher');
+
+      });
+
+    });
+
+  });
+
+  $('#portfolio').on('show', function() {
+
+    console.log("portfolio");
+
+    getInformation('portfolio', function (data) {
+
+      orderInformation(data, true, function (orderedData) {
+
+        var portfolioItem = $('#portfolio').find('ul.portfolio-list');
+
+        portfolioItem.empty();
+
+        $.each(orderedData, function (index, item) {
+
+          var portfolioItemHTML = '\
+                    <li class="timeline-event"> \
+                      <h2>' + item.name + '</h2> \
+                      <p class="text-justify m-0">' + item.description + '</p>';
+
+          portfolioItemHTML += '<ul>';
+
+          $.each(item.resources, function (index, item) {
+            portfolioItemHTML += '<li class="resource mt-4">';
+
+            portfolioItemHTML += '<h2>' + item.name + '</h2>';
+            portfolioItemHTML += '<p class="text-justify m-0">' + item.description + '</p>';
+
+            portfolioItemHTML += '<hr class="mb-3 mt-3"/>';
+
+
+            portfolioItemHTML += '<h4>Links:</h4>';
+
+            var linksHTML = '<ul class="link-list">';
+
+            $.each(item.links, function (index, item) {
+
+              linksHTML += '<li>' +
+                  '<a href="' + item.link + '" target="_blank">' +
+                    '<i class="fa fa-' + item.icon.split(' ')[1] +' mr-2"></i>' +
+                    item.name +
+                  '</a>' +
+                '</li>';
+            });
+
+            linksHTML += '</ul>';
+
+            portfolioItemHTML += linksHTML;
+
+
+            portfolioItemHTML += '<hr class="mb-3 mt-3"/>';
+
+            var technologiesHTML = '<ul class="technology-list">';
+
+            $.each(item.technologies, function (index, item) {
+
+              technologiesHTML += '<li>' + item + '</li>'
+
+            });
+
+            technologiesHTML += '</ul>';
+
+            portfolioItemHTML += technologiesHTML;
+
+            portfolioItemHTML += '</li>';
+
+          });
+
+          portfolioItemHTML += '</ul>';
+
+          portfolioItemHTML +=  '</li>';
+
+          portfolioItem.append(portfolioItemHTML);
+
+          console.log(item);
+
+        });
+        hideArticleLoading('#portfolio');
 
       });
 

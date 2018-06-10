@@ -131,6 +131,7 @@ a {
 
 a:hover {
     border-bottom-color: transparent;
+    text-decoration: none !important;
 }
 
 strong, b {
@@ -1291,10 +1292,14 @@ body.is-loading #bg:before {
 
 #header nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.075);
+    color: white !important;
+    text-decoration: none !important;
 }
 
 #header nav ul li a:active {
     background-color: rgba(255, 255, 255, 0.175);
+    color: white !important;
+    text-decoration: none !important;
 }
 
 #header nav.use-middle:after {
@@ -1657,7 +1662,7 @@ body.is-loading #footer {
 }
 
 #biography ul li:nth-child(even) > div:after {
-    left: 5px;
+    left: 4px;
 }
 
 #biography ul li:nth-child(1){
@@ -1767,6 +1772,8 @@ body.is-loading #footer {
 }
 #contact img {
     cursor: pointer;
+    width: auto;
+    height: 100%;
 }
 
 .iziModal{
@@ -1824,6 +1831,51 @@ body.is-loading #footer {
     margin-bottom: 1rem;
     border: 1px solid transparent;
     border-radius: .25rem;
+}
+
+#portfolio ul{
+    list-style: none;
+}
+
+#portfolio ul.portfolio-list > li{
+    background: rgba(0,0,0,.67);
+    border-radius: 2px;
+    padding: 20px;
+}
+
+#portfolio ul.portfolio-list > li > h2{
+    border-bottom: solid 1px rgba(255, 255, 255, 0.59);
+}
+#portfolio ul.portfolio-list > li > p{
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 20px;
+}
+
+#portfolio ul.portfolio-list > li ul{
+    margin: 0;
+}
+#portfolio ul li li.resource{
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 0.25rem;
+    padding: 20px;
+}
+#portfolio ul li li.resource h2{
+    text-transform: none;
+}
+
+#portfolio ul li li.resource hr{
+    border-color: rgba(255, 255, 255, 0.16);
+}
+
+#portfolio ul li li.resource ul.link-list{
+    margin-left: 1rem;
+}
+
+#portfolio ul li li.resource ul.technology-list li{
+    display: inline-block;
+    border: solid 1px rgb(82, 82, 82);
+    margin: 0 10px;
+    padding: 0 10px;
 }
 
 @media (min-width: 1101px){

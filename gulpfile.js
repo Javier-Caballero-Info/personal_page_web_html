@@ -13,7 +13,7 @@ var log = require('gutil-color-log');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 
-const rev = require('gulp-rev');
+var rev = require('gulp-rev');
 var revdel = require('gulp-rev-delete-original');
 
 
@@ -37,7 +37,8 @@ var scripts = [
 ];
 
 var styles = [
-    //'./node_modules/bootstrap/dist/css/bootstrap.min.css',
+    './node_modules/bootstrap/dist/css/bootstrap.min.css',
+    './node_modules/font-awesome/css/font-awesome.css',
     './node_modules/izimodal/css/iziModal.min.css',
     './src/assets/css/icomoon.css',
     './src/assets/css/default.css',
@@ -48,6 +49,7 @@ var styles = [
 ];
 
 var fonts = [
+    './node_modules/font-awesome/fonts/**/*',
     'src/assets/fonts/**/*'
 ];
 
