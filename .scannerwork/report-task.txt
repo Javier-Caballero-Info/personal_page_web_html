@@ -1,0 +1,6 @@
+projectKey=personal_page_web_html
+serverUrl=http://localhost:9100
+serverVersion=7.1.0.11001
+dashboardUrl=http://localhost:9100/dashboard/index/personal_page_web_html
+ceTaskId=AWQuTOMNVrcDupeyzmFm
+ceTaskUrl=http://localhost:9100/api/ce/task?id=AWQuTOMNVrcDupeyzmFm

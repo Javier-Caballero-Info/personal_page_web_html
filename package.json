@@ -6,7 +6,9 @@
   "scripts": {
     "gulp": "gulp clean && gulp default",
     "build": "gulp clean && gulp default && gulp build:fonts && gulp build:img && gulp build:css && gulp build:js && gulp build:html",
-    "watch": "node scripts/server_development.js"
+    "watch": "node scripts/server_development.js",
+    "uni-test": "mocha ./test --recursive --reporter=spec  --timeout=10000",
+    "test": "cross-env NODE_ENV=test node_modules/.bin/nyc --reporter=lcov mocha ./test/ --recursive --reporter=spec  --timeout=10000 --exit"
   },
   "repository": {
     "type": "git",
@@ -21,12 +23,13 @@
     "font-awesome": "^4.7.0",
     "izimodal": "^1.5.1",
     "jquery": "^3.2.1",
-    "save-dev": "^2.0.0",
     "through2": "^2.0.3",
     "wolfy87-eventemitter": "^5.1.0"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
     "concurrently": "^2.0.0",
+    "cross-env": "^5.2.0",
     "easy-livereload": "latest",
     "express": "latest",
     "gulp": "^3.9.1",
@@ -44,7 +47,11 @@
     "gulp-rm": "^1.0.2",
     "gulp-uglify": "^2.0.0",
     "gutil-color-log": "^1.0.2",
+    "jsdom": "^11.11.0",
     "live-server": "^1.2.0",
+    "mocha": "^5.2.0",
+    "mocha-jsdom": "^2.0.0",
+    "nyc": "^12.0.2",
     "serve-static": "latest"
   }
 }

@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var path = require('path');
 var through = require('through2');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
@@ -8,10 +7,8 @@ var htmlmin = require('gulp-htmlmin');
 var batchReplace = require('gulp-batch-replace');
 var rm = require( 'gulp-rm' );
 var fs = require('fs');
-var log = require('gutil-color-log');
 
 var minifyCss = require('gulp-minify-css');
-var rename = require('gulp-rename');
 
 var rev = require('gulp-rev');
 var revdel = require('gulp-rev-delete-original');
@@ -33,6 +30,7 @@ var scripts = [
     './node_modules/izimodal/js/iziModal.min.js',
     './src/assets/js/lib/particles.min.js',
     './src/assets/js/util.js',
+    './src/assets/js/setup.js',
     './src/assets/js/main.js'
 ];
 
