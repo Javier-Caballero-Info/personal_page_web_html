@@ -18,11 +18,12 @@
   "license": "MIT",
   "homepage": "https://github.com/caballerojavier13/personal_page",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.0",
     "bootstrap": "^4.1.1",
     "featherlight": "^1.7.12",
-    "font-awesome": "^4.7.0",
     "izimodal": "^1.5.1",
     "jquery": "^3.2.1",
+    "particlesjs": "^2.2.2",
     "through2": "^2.0.3",
     "wolfy87-eventemitter": "^5.1.0"
   },

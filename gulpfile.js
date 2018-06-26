@@ -1,62 +1,65 @@
-var gulp = require('gulp');
-var through = require('through2');
-var concat = require('gulp-concat');
-var uglify = require('gulp-uglify');
-var clean = require('gulp-clean');
-var htmlmin = require('gulp-htmlmin');
-var batchReplace = require('gulp-batch-replace');
-var rm = require( 'gulp-rm' );
-var fs = require('fs');
+let gulp = require('gulp');
+let through = require('through2');
+let concat = require('gulp-concat');
+let uglify = require('gulp-uglify');
+let clean = require('gulp-clean');
+let htmlmin = require('gulp-htmlmin');
+let batchReplace = require('gulp-batch-replace');
+let rm = require( 'gulp-rm' );
+let fs = require('fs');
 
-var minifyCss = require('gulp-minify-css');
+let minifyCss = require('gulp-minify-css');
 
-var rev = require('gulp-rev');
-var revdel = require('gulp-rev-delete-original');
+let rev = require('gulp-rev');
+let revdel = require('gulp-rev-delete-original');
 
 
-gulp.task('clean', ['clean:fonts','clean:css','clean:js','clean:img', 'clean:html'], function() {});
+gulp.task('clean', ['clean:fonts','clean:webfonts','clean:css','clean:js','clean:img', 'clean:html'], function() {});
 
-gulp.task('default', ['fonts', 'img', 'styles', 'scripts', 'html'], function() {});
+gulp.task('default', ['fonts', 'webfonts', 'img', 'styles', 'scripts', 'html'], function() {});
 
 gulp.task('build', ['default', 'build:css'], function() {});
 
-var htmls = [
-'src/index.html'
+let htmls = [
+  'src/index.html'
 ];
 
-var scripts = [
+let scripts = [
     './node_modules/jquery/dist/jquery.min.js',
-    './src/assets/js/lib/skel.min.js',
     './node_modules/izimodal/js/iziModal.min.js',
-    './src/assets/js/lib/particles.min.js',
+    './node_modules/particlesjs/dist/particles.min.js',
     './src/assets/js/util.js',
     './src/assets/js/setup.js',
     './src/assets/js/main.js'
 ];
 
-var styles = [
+let styles = [
     './node_modules/bootstrap/dist/css/bootstrap.min.css',
-    './node_modules/font-awesome/css/font-awesome.css',
+    './node_modules/@fortawesome/fontawesome-free/css/all.css',
     './node_modules/izimodal/css/iziModal.min.css',
-    './src/assets/css/icomoon.css',
-    './src/assets/css/default.css',
-    './src/assets/css/ie9.css',
-    './src/assets/css/loading.css',
     './src/assets/css/main.css',
-    './src/assets/css/noscript.css'
+    './src/assets/css/custom.css'
 ];
 
-var fonts = [
-    './node_modules/font-awesome/fonts/**/*',
+let fonts = [
     'src/assets/fonts/**/*'
 ];
 
-var imgs = [
+let webfonts = [
+    './node_modules/@fortawesome/fontawesome-free/webfonts/**/*'
+];
+
+let imgs = [
     'src/assets/img/**/*'
 ];
 
 gulp.task('clean:fonts', function () {
 	return gulp.src('./dist/assets/fonts/**/*')
+	.pipe( rm(''));
+});
+
+gulp.task('clean:webfonts', function () {
+	return gulp.src('./dist/assets/webfonts/**/*')
 	.pipe( rm(''));
 });
 
@@ -83,6 +86,11 @@ gulp.task('clean:js', function () {
 gulp.task('fonts', function() {
 	gulp.src(fonts)
 	    .pipe(gulp.dest('./dist/assets/fonts/'));
+});
+
+gulp.task('webfonts', function() {
+	gulp.src(webfonts)
+	    .pipe(gulp.dest('./dist/assets/webfonts/'));
 });
 
 gulp.task('img', function() {
@@ -137,17 +145,17 @@ gulp.task('build:img', function () {
 
 gulp.task('build:css', function () {
 
-    var replaceAssets = [];
+    let replaceAssets = [];
 
     return gulp.src('./dist/assets/css/style.css')
         .pipe(rev())
         .pipe(revdel())
         .pipe(through.obj(function (chunk, enc, cb) {
 
-            var json_assets = JSON.parse(fs.readFileSync('./rev-manifest.json'));
+            let json_assets = JSON.parse(fs.readFileSync('./rev-manifest.json'));
 
-            for(var original in json_assets) {
-                var item = json_assets[original];
+            for(let original in json_assets) {
+                let item = json_assets[original];
                 replaceAssets.push([original, item]);
             }
 
@@ -178,15 +186,15 @@ gulp.task('build:js', function () {
 
 gulp.task('build:html', function () {
 
-    var replaceAssets = [];
+    let replaceAssets = [];
 
     return gulp.src('./dist/index.html')
         .pipe(through.obj(function (chunk, enc, cb) {
 
-            var json_assets = JSON.parse(fs.readFileSync('./rev-manifest.json'));
+            let json_assets = JSON.parse(fs.readFileSync('./rev-manifest.json'));
 
-            for(var original in json_assets) {
-                var item = json_assets[original];
+            for(let original in json_assets) {
+                let item = json_assets[original];
                 replaceAssets.push([original, item]);
             }
 

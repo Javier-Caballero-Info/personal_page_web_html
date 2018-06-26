@@ -1,22 +1,11 @@
 
-skel.breakpoints({
-  xlarge:		'(max-width: 1680px)',
-  large:		'(max-width: 1280px)',
-  medium:		'(max-width: 980px)',
-  small:		'(max-width: 736px)',
-  xsmall:		'(max-width: 480px)',
-  xxsmall:	'(max-width: 360px)'
-});
-
-
 $(function() {
 
   var	$window = $(window),
     $body = $('body'),
-    $wrapper = $('#wrapper'),
-    $header = $('#header'),
+    $header = $('header'),
     $footer = $('#footer'),
-    $main = $('#main'),
+    $main = $('main'),
     $main_articles = $main.children('article');
 
   // Disable animations/transitions until the page has loaded.
@@ -27,28 +16,6 @@ $(function() {
       $body.removeClass('is-loading');
     }, 100);
   });
-
-  // Fix: Flexbox min-height bug on IE.
-  if (skel.vars.IEVersion < 12) {
-
-    var flexboxFixTimeoutId;
-
-    $window.on('resize.flexbox-fix', function() {
-
-      clearTimeout(flexboxFixTimeoutId);
-
-      flexboxFixTimeoutId = setTimeout(function() {
-
-        if ($wrapper.prop('scrollHeight') > $window.height())
-          $wrapper.css('height', 'auto');
-        else
-          $wrapper.css('height', '100vh');
-
-      }, 250);
-
-    }).triggerHandler('resize.flexbox-fix');
-
-  }
 
   // Nav.
   var $nav = $header.children('nav'),
@@ -308,25 +275,6 @@ $(function() {
     // Article visible? Hide.
     if ($body.hasClass('is-article-visible'))
       $main._hide(true);
-
-  });
-
-  $window.on('keyup', function(event) {
-
-    switch (event.keyCode) {
-
-      case 27:
-
-        // Article visible? Hide.
-        if ($body.hasClass('is-article-visible'))
-          $main._hide(true);
-
-        break;
-
-      default:
-        break;
-
-    }
 
   });
 

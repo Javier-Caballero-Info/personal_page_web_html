@@ -65,3 +65,4 @@ typings/
 dist
 /target/
 rev-manifest.json
+.scannerwork
