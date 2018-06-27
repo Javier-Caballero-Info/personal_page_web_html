@@ -212,7 +212,7 @@ header nav.use-middle li.is-middle {
 
 @media all and (max-width:600px) {
     header .item {
-        width: 100%
+        width: 100%;
     }
 
 }
@@ -424,19 +424,19 @@ body.is-loading footer {
 }
 
 .work {
-    width: 100%
+    width: 100%;
 }
 
 .education {
-    width: 100%
+    width: 100%;
 }
 
 .research {
-    width: 100%
+    width: 100%;
 }
 
 .teacher {
-    width: 100%
+    width: 100%;
 }
 
 .biography ul {
@@ -479,7 +479,7 @@ body.is-loading footer {
     display: block;
     background: white;
     box-shadow: 0 0 30px 4px #fff;
-    border-radius: 50%
+    border-radius: 50%;
 }
 
 .biography ul li > div {
@@ -746,7 +746,7 @@ ul.technology-list li {
     .social-links img,
     .social-links {
         width: 200px;
-        height: 200px
+        height: 200px;
     }
 
 }
@@ -760,7 +760,7 @@ ul.technology-list li {
     .social-network ul li a img,
     .contact ul li .social-links {
         width: 150px;
-        height: 150px
+        height: 150px;
     }
 
 }
