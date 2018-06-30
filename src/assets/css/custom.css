@@ -34,7 +34,6 @@ html, body{
 
 .bg:after {
     transition: transform .325s ease-in-out, filter .325s ease-in-out;
-    background-size: contain;
     background: #dddcdc url('../../assets/img/background.jpg') no-repeat center;
     background-size: cover;
     z-index: 1;
@@ -51,6 +50,7 @@ body.is-loading .bg:before {
 
 /* Wrapper */
 .wrapper {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -140,7 +140,7 @@ header .content .inner {
     overflow: hidden;
 }
 
-header .content .inner >:last-child {
+header .inner >:last-child {
     margin-bottom: 0;
 }
 
@@ -160,6 +160,7 @@ header nav ul {
 }
 
 header .item {
+    box-sizing: border-box;
     padding-left: 0;
     width: 46%;
     margin: 2%;
@@ -167,11 +168,12 @@ header .item {
     display: inline-block;
 }
 
-header .item:first-child {
+header .item a:first-child {
     border-left: 0;
 }
 
 header .item a {
+    box-sizing: border-box;
     display: block;
     height: 2.75rem;
     line-height: 2.75rem;
@@ -206,7 +208,7 @@ header nav.use-middle:after {
     background: #ffffff;
 }
 
-header nav.use-middle li.is-middle {
+header nav.use-middle .is-middle {
     border-left: 0;
 }
 
@@ -227,11 +229,11 @@ body.is-loading header {
     filter: blur(.125rem);
 }
 
-body.is-loading header > * {
+body.is-loading header .content, body.is-loading header .logo{
     opacity: 0;
 }
 
-body.is-loading header .content .inner {
+body.is-loading .inner {
     max-height: 0;
     padding-top: 0;
     padding-bottom: 0;
@@ -239,7 +241,7 @@ body.is-loading header .content .inner {
 }
 
 @media screen and (max-width:980px) {
-    header .content p br {
+    header p br {
         display: none;
     }
 
@@ -278,6 +280,7 @@ body.is-loading header .content .inner {
 
 @media screen and (max-width:480px) {
     header {
+        box-sizing: border-box;
         padding: 1.5rem 0;
         margin-top: .5rem;
         width: 98%;
@@ -294,7 +297,7 @@ body.is-loading header .content .inner {
         max-width: 100%;
     }
 
-    header nav ul li a {
+    header nav a {
         height: 3rem;
         line-height: 3rem;
         min-width: 0;
@@ -448,6 +451,7 @@ body.is-loading footer {
     content: '';
     display: block;
     position: absolute;
+    box-sizing: border-box;
     top: 10%;
     left: 0;
     width: calc(50% + 3px);
@@ -463,13 +467,14 @@ body.is-loading footer {
 
 .biography ul li {
     display: inline-block;
+    box-sizing: border-box;
     position: relative;
     width: 50%;
     margin: -15% 10px 10px;
     padding: 5%;
 }
 
-.biography ul li>div:after {
+.biography li>div:after {
     content: '';
     position: absolute;
     height: 10px;
@@ -482,7 +487,8 @@ body.is-loading footer {
     border-radius: 50%;
 }
 
-.biography ul li > div {
+.biography li > div {
+    box-sizing: border-box;
     background: rgba(0, 0, 0, .67);
     padding: 5px 20px;
     width: 100%;
@@ -496,11 +502,11 @@ body.is-loading footer {
     float: right;
 }
 
-.biography ul li:nth-child(odd) > div:after {
+.biography li:nth-child(odd) > div:after {
     right: 5px;
 }
 
-.biography ul li:nth-child(even) > div:after {
+.biography li:nth-child(even) > div:after {
     left: 5px;
 }
 
@@ -510,11 +516,12 @@ body.is-loading footer {
 
 @media all and (max-width:700px) {
     .biography ul:after,
-    .biography ul li>div:after {
+    .biography li>div:after {
         display: none;
     }
 
     .biography ul li {
+        box-sizing: border-box;
         display: inline-block;
         position: relative;
         width: 100%;
@@ -528,7 +535,7 @@ body.is-loading footer {
     border-bottom: solid 2px white;
 }
 
-.biography ul li .description {
+.biography .description {
     font-style: oblique;
 }
 
@@ -551,12 +558,12 @@ body.is-loading footer {
     display: inline-block;
 }
 
-.social-network ul li a {
+.social-network li a {
     position: relative;
     display: inline-block;
 }
 
-.social-network ul li a img {
+.social-network li img {
     position: relative;
     display: block;
     width: 200px;
@@ -583,28 +590,25 @@ body.is-loading footer {
     display: inline-block;
 }
 
-.contact ul li a {
+.contact li a {
     position: relative;
     display: inline-block;
 }
 
-.contact ul li .social-links {
+.contact li .social-links {
     position: relative;
     display: block;
-    width: 200px;
-    height: 200px;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, .5);
 }
 
-.contact ul li .social-links > div {
+.contact .social-links > div {
     position: absolute;
     display: none;
     height: 100%;
     width: 100%;
 }
 
-.contact .net-links>img,
-#messenger .net-links>img:hover {
+.contact .net-links>img{
     transition: linear  all .2s 0s;
 }
 
@@ -620,9 +624,8 @@ body.is-loading footer {
     height: 100%;
 }
 
-.contact ul li .img,
+.contact li .img,
 .social-links {
-    background-size: 30% auto;
     color: transparent;
     background: #9c9c9c url('/assets/img/spinner.gif') no-repeat center;
     background-size: 40%;
@@ -726,11 +729,11 @@ body.is-loading footer {
     border-color: rgba(255, 255, 255, .16);
 }
 
-.portfolio .resource ul.link-list {
+.portfolio .link-list {
     margin-left: 1rem;
 }
 
-ul.technology-list li {
+.technology-list li {
     display: inline-block;
     border: solid 1px rgb(82, 82, 82);
     margin: 0 10px 10px;
@@ -757,8 +760,8 @@ ul.technology-list li {
         width: 150px;
     }
 
-    .social-network ul li a img,
-    .contact ul li .social-links {
+    .social-network li img,
+    .contact .social-links {
         width: 150px;
         height: 150px;
     }
@@ -771,8 +774,8 @@ ul.technology-list li {
         width: 100px;
     }
 
-    .social-network ul li a img,
-    .contact ul li .social-links {
+    .social-network li img,
+    .contact .social-links {
         width: 100px;
         height: 100px;
     }
@@ -790,8 +793,8 @@ ul.technology-list li {
         width: 100px;
     }
 
-    .social-network ul li a img,
-    .contact ul li .social-links {
+    .social-network li img,
+    .contact .social-links {
         width: 100px;
         height: 100px;
     }
@@ -828,13 +831,9 @@ ul.technology-list li {
         width: 100%;
     }
 
-    .social-network ul li,
-    .contact ul li {
-        width: 70px;
-    }
-
-    .social-network ul li a img,
-    .contact ul li .social-links {
+    .social-network li img,
+    .contact li .social-links,
+    .contact .social-links img {
         width: 70px;
         height: 70px;
     }
@@ -845,7 +844,7 @@ ul.technology-list li {
 
 }
 
-#particles-js {
+.particles-js {
     position: absolute;
     top: 0;
     height: 100%;

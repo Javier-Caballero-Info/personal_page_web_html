@@ -23,12 +23,13 @@
     "featherlight": "^1.7.12",
     "izimodal": "^1.5.1",
     "jquery": "^3.2.1",
-    "particlesjs": "^2.2.2",
+    "particles.js": "^2.0.0",
     "through2": "^2.0.3",
     "wolfy87-eventemitter": "^5.1.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
+    "chai-files": "^1.4.0",
     "concurrently": "^2.0.0",
     "cross-env": "^5.2.0",
     "easy-livereload": "latest",
