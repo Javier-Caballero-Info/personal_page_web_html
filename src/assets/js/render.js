@@ -6,13 +6,18 @@ const render = {
 
   removeAllItems: function(selectorHtml){
 
-    $(selectorHtml).find('ul').empty();
+    $(selectorHtml).empty();
 
   },
 
   genericRenderData: function(
     {
-      data_key, selector_html, template_function, loading_container, item_render_before_action, render_after_action
+      data_key,
+      selector_html,
+      template_function,
+      loading_container,
+      item_render_before_action,
+      render_after_action
     }
   ){
 
@@ -99,7 +104,7 @@ const render = {
 
     const data = {
       data_key: 'work',
-      selector_html: '.work-timeline .timeline',
+      selector_html: '.work-timeline > .timeline',
       template_function: template.getWorkTemplate,
       loading_container: '#work'
     };

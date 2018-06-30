@@ -6,7 +6,7 @@
   "scripts": {
     "gulp": "gulp clean && gulp default",
     "build": "gulp clean && gulp default && gulp build:fonts && gulp build:img && gulp build:css && gulp build:js && gulp build:html",
-    "watch": "node scripts/server_development.js",
+    "server": "node scripts/server_development.js",
     "uni-test": "mocha ./test --recursive --reporter=spec  --timeout=10000",
     "test": "cross-env NODE_ENV=test node_modules/.bin/nyc --reporter=lcov mocha ./test/ --recursive --reporter=spec  --timeout=10000 --exit"
   },
@@ -21,6 +21,7 @@
     "@fortawesome/fontawesome-free": "^5.1.0",
     "bootstrap": "^4.1.1",
     "featherlight": "^1.7.12",
+    "gulp-uglify-es": "^1.0.4",
     "gulp-uglifyes": "^0.1.3",
     "izimodal": "^1.5.1",
     "jquery": "^3.2.1",

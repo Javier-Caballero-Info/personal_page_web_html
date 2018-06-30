@@ -82,14 +82,14 @@ const navigation = function() {
 
   $main._hide = function(addState) {
 
-    var $article = $main_articles.filter('.active');
+    let $article = $main_articles.filter('.active');
 
     // Article not visible? Bail.
     if (!$body.hasClass('is-article-visible'))
       return;
 
     // Add state?
-    if (typeof addState != 'undefined'
+    if (typeof addState !== 'undefined'
       &&	addState === true)
       history.pushState(null, null, '#');
 
@@ -167,7 +167,7 @@ const navigation = function() {
   // Articles.
   $main_articles.each(function() {
 
-    var $this = $(this);
+    const $this = $(this);
 
     // Close.
     $('<div class="close">Close</div>')
@@ -221,8 +221,6 @@ const navigation = function() {
 
   });
 
-  // Initialize.
-
   // Hide main, articles.
   $main.hide();
   $main_articles.hide();
@@ -233,7 +231,6 @@ const navigation = function() {
     $window.on('load', function() {
       $main._show(location.hash.substr(1), true);
     });
-
 
 };
 

@@ -1,10 +1,11 @@
 let gulp = require('gulp');
 let through = require('through2');
 let concat = require('gulp-concat');
-var uglify = require('gulp-uglifyes');
+//var uglify = require('gulp-uglifyes');
 let clean = require('gulp-clean');
 let htmlmin = require('gulp-htmlmin');
 let batchReplace = require('gulp-batch-replace');
+let uglify = require('gulp-uglify-es').default;
 let rm = require( 'gulp-rm' );
 let fs = require('fs');
 
@@ -127,6 +128,7 @@ gulp.task('scripts', function() {
   gulp.src(scripts)
   .pipe(concat('script.js'))
   .pipe(batchReplace(remplaceRequires))
+  .pipe(uglify(/* options */))
   .pipe(gulp.dest('./dist/assets/js'));
 });
 
@@ -199,10 +201,6 @@ gulp.task('build:css', function () {
 
 gulp.task('build:js', function () {
   return gulp.src('./dist/assets/js/script.js')
-  .pipe(uglify({
-    mangle: false,
-    ecma: 6
-  }))
   .pipe(rev())
   .pipe(revdel())
   .pipe(gulp.dest('./dist/assets/js'))
@@ -231,4 +229,14 @@ gulp.task('build:html', function () {
   }))
   .pipe(batchReplace(replaceAssets))
   .pipe(gulp.dest('./dist/'), {overwrite: true});
+});
+
+/* Watch scss, js and html files, doing different things with each. */
+gulp.task('watch', function () {
+  /* Watch scss, run the sass task on change. */
+  gulp.watch(['src/assets/css/**/*'], ['clean', 'default']);
+  /* Watch app.js file, run the scripts task on change. */
+  gulp.watch(['src/assets/js/**/*'], ['clean:js', 'scripts']);
+  /* Watch .html files, run the bs-reload task on change. */
+  gulp.watch(['src/index.html'], ['clean', 'default']);
 });
