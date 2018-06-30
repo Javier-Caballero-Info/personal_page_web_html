@@ -13,6 +13,7 @@ const render = {
   genericRenderData: function(
     {
       data_key,
+      order_info,
       selector_html,
       template_function,
       loading_container,
@@ -25,7 +26,7 @@ const render = {
 
     main.getInformation(data_key, function (data) {
 
-      main.orderInformation(data, true, function (orderedData) {
+      main.orderInformation(data, order_info > 0, function (orderedData) {
 
         self.removeAllItems(selector_html);
 
@@ -54,6 +55,7 @@ const render = {
 
     const data = {
       data_key: 'social-network',
+      order_info: 1,
       selector_html: '#social-network .content ul',
       template_function: template.getSocialNetworkTemplate,
       loading_container: '#social-network'
@@ -67,6 +69,7 @@ const render = {
 
     const data = {
       data_key: 'contact',
+      order_info: 1,
       selector_html: '#contact .content ul',
       template_function: template.getContactTemplate,
       loading_container: '#contact',
@@ -104,6 +107,7 @@ const render = {
 
     const data = {
       data_key: 'work',
+      order_info: -1,
       selector_html: '.work-timeline > .timeline',
       template_function: template.getWorkTemplate,
       loading_container: '#work'
@@ -117,6 +121,7 @@ const render = {
 
     const data = {
       data_key: 'education',
+      order_info: -1,
       selector_html: '.education-timeline .timeline',
       template_function: template.getEducationTemplate,
       loading_container: '#education',
@@ -134,6 +139,7 @@ const render = {
 
     const data = {
       data_key: 'research',
+      order_info: -1,
       selector_html: '.research-timeline .timeline',
       template_function: template.getResearchTemplate,
       loading_container: '#research'
@@ -147,6 +153,7 @@ const render = {
 
     const data = {
       data_key: 'scholastic',
+      order_info: -1,
       selector_html: '.teacher-timeline .timeline',
       template_function: template.getScholasticTemplate,
       loading_container: '#teacher',
@@ -165,6 +172,7 @@ const render = {
 
     const data = {
       data_key: 'portfolio',
+      order_info: 1,
       selector_html: '.portfolio-list',
       template_function: template.getPortfolioTemplate,
       loading_container: '#portfolio'
