@@ -1,7 +1,7 @@
 let gulp = require('gulp');
 let through = require('through2');
 let concat = require('gulp-concat');
-let uglify = require('gulp-uglify');
+var uglify = require('gulp-uglifyes');
 let clean = require('gulp-clean');
 let htmlmin = require('gulp-htmlmin');
 let batchReplace = require('gulp-batch-replace');
@@ -119,9 +119,9 @@ gulp.task('jsons', function() {
 gulp.task('scripts', function() {
 
   const remplaceRequires = [
-     [ 'const {template} = require(\'./template\');', '' ],
-     [ 'const {main} = require(\'./main\');', '' ],
-     [ 'const {util} = require(\'./util\');', '' ]
+    [ 'const {template} = require(\'./template\');', '' ],
+    [ 'const {main} = require(\'./main\');', '' ],
+    [ 'const {util} = require(\'./util\');', '' ]
   ];
 
   gulp.src(scripts)
@@ -199,7 +199,10 @@ gulp.task('build:css', function () {
 
 gulp.task('build:js', function () {
   return gulp.src('./dist/assets/js/script.js')
-  .pipe(uglify())
+  .pipe(uglify({
+    mangle: false,
+    ecma: 6
+  }))
   .pipe(rev())
   .pipe(revdel())
   .pipe(gulp.dest('./dist/assets/js'))
