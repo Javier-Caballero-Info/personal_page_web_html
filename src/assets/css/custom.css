@@ -642,11 +642,11 @@ body.is-loading footer {
     margin: 0 20px;
     border-bottom: solid 2px #d6d8d9;
     padding: 20px 0;
-    background: transparent;
+    background: transparent !important;
 }
 
 .iziModal .iziModal-header-title {
-    color: #d6d8d9;
+    color: #d6d8d9 !important;
 }
 
 .iziModal-content * {
