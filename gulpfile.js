@@ -234,7 +234,7 @@ gulp.task('build:html', function () {
 /* Watch scss, js and html files, doing different things with each. */
 gulp.task('watch', function () {
   /* Watch scss, run the sass task on change. */
-  gulp.watch(['src/assets/css/**/*'], ['clean', 'default']);
+  gulp.watch(['src/assets/css/**/*'], ['clean', 'styles']);
   /* Watch app.js file, run the scripts task on change. */
   gulp.watch(['src/assets/js/**/*'], ['clean:js', 'scripts']);
   /* Watch .html files, run the bs-reload task on change. */

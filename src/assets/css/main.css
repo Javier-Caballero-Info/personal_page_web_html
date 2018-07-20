@@ -109,7 +109,6 @@ a:hover {
 }
 
 strong, b {
-    color: #ffffff;
     font-weight: 600;
 }
 
@@ -122,11 +121,10 @@ p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
+    color: black;
     font-weight: 600;
     line-height: 1.5;
     margin: 0 0 1rem 0;
-    text-transform: uppercase;
     letter-spacing: .2rem;
 }
 
@@ -138,12 +136,16 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 h1.major, h2.major, h3.major, h4.major, h5.major, h6.major {
     border-bottom: solid 1px #ffffff;
     width: 100%;
+    color: white;
+    text-shadow: 0 0 4px rgba(76,76,76,.37);
     padding-bottom: .5rem;
     margin: 0 0 2rem 0;
 }
 
 h1.major {
-    border-bottom: solid 3px #ffffff;
+    font-size: 60px;
+    border: none;
+    text-align: center;
 }
 
 h1 {
