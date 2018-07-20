@@ -2,41 +2,15 @@ html, body{
     height: 100%;
 }
 
-/* BG */
-.bg {
-    transform: scale(1);
+body::before{
+    content: '';
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 1;
-}
-
-.bg:before,
-.bg:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
     height: 100%;
-}
-
-.bg:before {
-    display: none;
-    transition: background-color 2.5s ease-in-out;
-    transition-delay: .75s;
-    background-size: auto, 256px 256px;
-    z-index: 2;
-}
-
-.bg:after {
-    transition: transform .325s ease-in-out, filter .325s ease-in-out;
-    background: #dddcdc url('../../assets/img/background.jpg') no-repeat center;
-    background-size: cover;
-    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    z-index: 3;
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 }
 
 body.is-article-visible .bg:after {
@@ -97,9 +71,14 @@ header {
     max-width: 800px;
     text-align: center;
     padding: 40px;
-    background: rgba(0, 0, 0, .67);
-    border-radius: 5px;
-    position: absolute;
+    z-index: 5;
+    background: rgba(255, 255, 255, 0.71);
+    border-radius: 20px;
+    width: 100%;
+    color: black;
+    box-shadow: 0 0 10px #bdbcbc;
+    margin: 0;
+
 }
 
 header >:first-child {
@@ -120,6 +99,7 @@ header .logo img {
     position: relative;
     width: 100%;
     border-radius: 50%;
+    box-shadow: 0 0 10px black;
 }
 
 header .logo .icon:before {
@@ -164,8 +144,9 @@ header .item {
     padding-left: 0;
     width: 46%;
     margin: 2%;
-    border: solid 1px #ffffff;
+    background: white;
     display: inline-block;
+    border-radius: 20px;
 }
 
 header .item a:first-child {
@@ -185,15 +166,12 @@ header .item a {
     font-weight: 600;
 }
 
-header .item a:hover {
-    background-color: rgba(255, 255, 255, .075);
-    color: white;
-    text-decoration: none;
+header .item:hover {
+    box-shadow: 0 0 10px #41b5e8;
 }
 
-header .item a:active {
-    background-color: rgba(255, 255, 255, .175);
-    color: white;
+header .item a:hover, header .item a:active {
+    color: black;
     text-decoration: none;
 }
 
@@ -331,14 +309,17 @@ main article {
     padding: 4.5rem 2.5rem 1.5rem 2.5rem;
     position: relative;
     max-width: 100%;
-    background-color: rgba(27, 31, 34, .48);
-    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.62);
+    border-radius: 20px;
     opacity: 0;
 }
 
 main article.active {
     transform: translateY(0);
     opacity: 1;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 0 10px #696969;
 }
 
 main article .close {
@@ -352,6 +333,15 @@ main article .close {
     text-indent: 4rem;
     overflow: hidden;
     white-space: nowrap;
+    transition-duration: 0.8s;
+    transition-property: all;
+}
+
+.close:focus, .close:hover{
+    color: #000;
+    text-decoration: none;
+    opacity: .75;
+    transform: rotate(360deg);
 }
 
 main article .close:before {
@@ -365,16 +355,16 @@ main article .close:before {
     height: 2.5rem;
     border-radius: 100%;
     background-size: 20px 20px;
-    background: url(
+    background: rgba(97, 97, 97, 0.58) url(
     '/assets/img/close-btn.svg') no-repeat center;
 }
 
 main article .close:hover:before {
-    background-color: rgba(255, 255, 255, .075);
+    background-color: #060606;
 }
 
 main article .close:active:before {
-    background-color: rgba(255, 255, 255, .175);
+    background-color: #060606;
 }
 
 @media screen and (max-width:736px) {
@@ -492,6 +482,10 @@ body.is-loading footer {
     background: rgba(0, 0, 0, .67);
     padding: 5px 20px;
     width: 100%;
+    box-shadow: 0 0 10px #a2a2a2;
+    border-radius: 20px;
+    background: white;
+    color: black;
 }
 
 .biography ul li:nth-child(odd) {
@@ -533,6 +527,9 @@ body.is-loading footer {
 
 .biography h2 {
     border-bottom: solid 2px white;
+    color: white;
+    text-shadow: 0 0 4px rgba(76,76,76,.37);
+    font-size: 40px;
 }
 
 .biography .description {
@@ -554,6 +551,8 @@ body.is-loading footer {
     margin: 10px;
     height: 100%;
     width: 300px;
+    border-radius: 22px;
+    background: transparent;
     position: relative;
     display: inline-block;
 }
@@ -561,6 +560,7 @@ body.is-loading footer {
 .social-network li a {
     position: relative;
     display: inline-block;
+    background: none;
 }
 
 .social-network li img {
@@ -568,6 +568,7 @@ body.is-loading footer {
     display: block;
     width: 200px;
     height: 200px;
+    border-radius: 20px;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, .5);
 }
 
@@ -598,6 +599,7 @@ body.is-loading footer {
 .contact li .social-links {
     position: relative;
     display: block;
+    border-radius: 22px;
     box-shadow: 1px 3px 8px rgba(0, 0, 0, .5);
 }
 
@@ -609,6 +611,7 @@ body.is-loading footer {
 }
 
 .contact .net-links>img{
+    border-radius: 20px;
     transition: linear  all .2s 0s;
 }
 
@@ -621,20 +624,21 @@ body.is-loading footer {
 .contact img {
     cursor: pointer;
     width: auto;
+    border-radius: 20px;
     height: 100%;
 }
 
 .contact li .img,
 .social-links {
     color: transparent;
-    background: #9c9c9c url('/assets/img/spinner.gif') no-repeat center;
+    background: white url('/assets/img/spinner.gif') no-repeat center;
     background-size: 40%;
 }
 
 .iziModal {
-    background: rgba(25, 25, 25, .85);
-    border: none;
-    border-radius: 8px;
+    background-color: white;
+    border-radius: 20px !important;
+    border: none !important;
 }
 
 .iziModal .iziModal-header {
@@ -651,6 +655,7 @@ body.is-loading footer {
 
 .iziModal-content * {
     color: #ffffff;
+    text-shadow: 0 0 16px #585858;
 }
 
 .iziModal-content h1 {
@@ -667,6 +672,7 @@ body.is-loading footer {
 .iziModal-content .alert {
     font-size: 1.5rem;
     border-radius: 0;
+    text-shadow: none !important;
 }
 
 .iziModal .iziModal-button {
@@ -697,9 +703,11 @@ body.is-loading footer {
 }
 
 .portfolio-list > li {
-    background: rgba(0, 0, 0, .67);
-    border-radius: 2px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 0 10px #a2a2a2;
     padding: 20px;
+    color: black;
+    border-radius: 20px;
 }
 
 .portfolio-list > li > h2 {
@@ -707,8 +715,8 @@ body.is-loading footer {
 }
 
 .portfolio-list > li > p {
-    border: 1px solid rgba(255, 255, 255, .16);
     padding: 20px;
+    border-radius: 15px;
 }
 
 .portfolio-list > li ul {
@@ -717,7 +725,7 @@ body.is-loading footer {
 
 .portfolio .resource {
     border: 1px solid rgba(255, 255, 255, .16);
-    border-radius: .25rem;
+    border-radius: 15px;
     padding: 20px;
 }
 
@@ -738,6 +746,7 @@ body.is-loading footer {
     border: solid 1px rgb(82, 82, 82);
     margin: 0 10px 10px;
     padding: 0 10px;
+    border-radius: 5px;
 }
 
 @media (min-width:1101px) {
