@@ -33,7 +33,7 @@ body.is-loading .bg:before {
     min-height: 100vh;
     width: 100%;
     padding: 4rem 2rem;
-    z-index: 3;
+    z-index: 4;
 }
 
 .wrapper:before {
@@ -640,7 +640,7 @@ body.is-loading footer {
 }
 
 .contact li .img,
-.social-links {
+.social-network li img{
     color: transparent;
     background: white url('/assets/img/spinner.gif') no-repeat center;
     background-size: 40%;
@@ -870,5 +870,5 @@ body.is-loading footer {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    z-index: 1;
+    z-index: 3;
 }
