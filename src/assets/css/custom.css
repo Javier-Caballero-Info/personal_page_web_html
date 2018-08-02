@@ -228,6 +228,11 @@ body.is-loading .inner {
 }
 
 @media screen and (max-width:736px) {
+
+    header {
+        margin-top: 5px;
+    }
+
     header > * {
         margin-top: 2rem;
     }
@@ -266,7 +271,7 @@ body.is-loading .inner {
     header {
         box-sizing: border-box;
         padding: 1.5rem 0;
-        margin-top: .5rem;
+        margin-top: 9rem;
         width: 98%;
         margin-bottom: -1.5rem;
     }
