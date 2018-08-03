@@ -1,7 +1,8 @@
 $(function () {
 
   if ( typeof particlesJS !== "undefined") {
-    particlesJS.load('particles-js', './assets/jsons/particles.json');
+
+      particlesJS.load('particles-js', "https://s3.amazonaws.com/caballerojavier13-pages-files/personal_page/General/particles.json");
 
   }
 

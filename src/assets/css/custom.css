@@ -367,7 +367,7 @@ main article .close:before {
     border-radius: 100%;
     background-size: 20px 20px;
     background: rgb(255, 255, 255) url(
-    '/assets/img/close-btn.svg') no-repeat center;
+    '/img/close-btn.svg') no-repeat center;
 }
 
 main article .close:hover:before {
@@ -647,7 +647,7 @@ body.is-loading footer {
 .contact li .img,
 .social-network li img{
     color: transparent;
-    background: white url('/assets/img/spinner.gif') no-repeat center;
+    background: white url('/img/spinner.gif') no-repeat center;
     background-size: 40%;
 }
 

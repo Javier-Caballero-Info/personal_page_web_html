@@ -9,6 +9,8 @@ let uglify = require('gulp-uglify-es').default;
 let rm = require( 'gulp-rm' );
 let fs = require('fs');
 
+let gzip = require('gulp-gzip');
+
 let jsonminify = require('gulp-jsonminify');
 let minifyCss = require('gulp-minify-css');
 
@@ -64,27 +66,27 @@ let jsons = [
 ];
 
 gulp.task('clean:fonts', function () {
-  return gulp.src('./dist/assets/fonts/**/*')
+  return gulp.src('./dist/fonts/**/*')
   .pipe( rm(''));
 });
 
 gulp.task('clean:webfonts', function () {
-  return gulp.src('./dist/assets/webfonts/**/*')
+  return gulp.src('./dist/webfonts/**/*')
   .pipe( rm(''));
 });
 
 gulp.task('clean:img', function () {
-  return gulp.src('./dist/assets/img/**/*')
+  return gulp.src('./dist/img/**/*')
   .pipe( rm(''));
 });
 
 gulp.task('clean:jsons', function () {
-  return gulp.src('./dist/assets/jsons/**/*')
+  return gulp.src('./dist/jsons/**/*')
   .pipe( rm(''));
 });
 
 gulp.task('clean:css', function () {
-  return gulp.src('./dist/assets/css/**/*')
+  return gulp.src('./dist/css/**/*')
   .pipe( rm(''));
 });
 
@@ -94,29 +96,30 @@ gulp.task('clean:html', function () {
 });
 
 gulp.task('clean:js', function () {
-  return gulp.src('./dist/assets/js/**/*')
+  return gulp.src('./dist/js/**/*')
   .pipe( rm(''));
 });
 
 gulp.task('fonts', function() {
   gulp.src(fonts)
-  .pipe(gulp.dest('./dist/assets/fonts/'));
+  .pipe(gulp.dest('./dist/fonts/'));
 });
 
 gulp.task('webfonts', function() {
   gulp.src(webfonts)
-  .pipe(gulp.dest('./dist/assets/webfonts/'));
+  .pipe(gulp.dest('./dist/webfonts/'));
 });
 
 gulp.task('img', function() {
   gulp.src(imgs)
-  .pipe(gulp.dest('./dist/assets/img/'));
+  .pipe(gulp.dest('./dist/img/'));
 });
 
 gulp.task('jsons', function() {
   gulp.src(jsons)
   .pipe(jsonminify())
-  .pipe(gulp.dest('./dist/assets/jsons/'));
+  .pipe(gzip())
+  .pipe(gulp.dest('./dist/jsons/'));
 });
 
 gulp.task('scripts', function() {
@@ -131,14 +134,14 @@ gulp.task('scripts', function() {
   .pipe(concat('script.js'))
   .pipe(batchReplace(remplaceRequires))
   .pipe(uglify(/* options */))
-  .pipe(gulp.dest('./dist/assets/js'));
+  .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('styles', function() {
   gulp.src(styles)
   .pipe(concat('style.css'))
   .pipe(minifyCss())
-  .pipe(gulp.dest('./dist/assets/css'))
+  .pipe(gulp.dest('./dist/css'))
 });
 
 
@@ -150,10 +153,10 @@ gulp.task('html', function() {
 
 
 gulp.task('build:fonts', function () {
-  return gulp.src('./dist/assets/fonts/**/*')
+  return gulp.src('./dist/fonts/**/*')
   .pipe(rev())
   .pipe(revdel())
-  .pipe(gulp.dest('./dist/assets/fonts'))
+  .pipe(gulp.dest('./dist/fonts'))
   .pipe(rev.manifest({
     base: './target/manifest',
     merge: true // merge with the existing manifest if one exists
@@ -162,10 +165,10 @@ gulp.task('build:fonts', function () {
 });
 
 gulp.task('build:img', function () {
-  return gulp.src('./dist/assets/img/**/*')
+  return gulp.src('./dist/img/**/*')
   .pipe(rev())
   .pipe(revdel())
-  .pipe(gulp.dest('./dist/assets/img'))
+  .pipe(gulp.dest('./dist/img'))
   .pipe(rev.manifest({
     base: './target/manifest',
     merge: true // merge with the existing manifest if one exists
@@ -177,7 +180,7 @@ gulp.task('build:css', function () {
 
   let replaceAssets = [];
 
-  return gulp.src('./dist/assets/css/style.css')
+  return gulp.src('./dist/css/style.css')
   .pipe(rev())
   .pipe(revdel())
   .pipe(through.obj(function (chunk, enc, cb) {
@@ -192,7 +195,7 @@ gulp.task('build:css', function () {
     cb(null, chunk)
   }))
   .pipe(batchReplace(replaceAssets))
-  .pipe(gulp.dest('./dist/assets/css'))
+  .pipe(gulp.dest('./dist/css'))
   .pipe(rev.manifest({
     base: './target/manifest',
     merge: true // merge with the existing manifest if one exists
@@ -202,10 +205,10 @@ gulp.task('build:css', function () {
 });
 
 gulp.task('build:js', function () {
-  return gulp.src('./dist/assets/js/script.js')
+  return gulp.src('./dist/js/script.js')
   .pipe(rev())
   .pipe(revdel())
-  .pipe(gulp.dest('./dist/assets/js'))
+  .pipe(gulp.dest('./dist/js'))
   .pipe(rev.manifest({
     base: './target/manifest',
     merge: true // merge with the existing manifest if one exists
