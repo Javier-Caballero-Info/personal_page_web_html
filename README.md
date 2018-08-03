@@ -124,7 +124,9 @@ npm run watch
 
 ## Test
 
-There is no test for the site.
+```Batch
+npm test
+```
 
 ## Build
 
