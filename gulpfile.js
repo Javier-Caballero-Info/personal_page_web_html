@@ -177,16 +177,17 @@ gulp.task('build:fonts', function () {
 
 gulp.task('build:img', function () {
     fs.writeFileSync('./rev-manifest.json', '{}');
-    return gulp.src(imgs)
+    return gulp.src('./dist/img/**/*')
         .pipe(rev())
         .pipe(gulp.dest('./dist/img'))
+        .pipe(revdel())
         .pipe(rev.manifest({
             merge: true // merge with the existing manifest if one exists
         }))
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('build:css', ['build:img', 'styles'], function () {
+gulp.task('build:css', ['build:img'], function () {
 
     if(!fs.existsSync('./rev-manifest.json')) {
         fs.writeFileSync('./rev-manifest.json', '{}');
@@ -217,27 +218,13 @@ gulp.task('build:css', ['build:img', 'styles'], function () {
 
 });
 
-gulp.task('build:js', ['build:css', 'scripts'], function () {
+gulp.task('build:js', ['build:css'], function () {
 
     if(!fs.existsSync('./rev-manifest.json')) {
         fs.writeFileSync('./rev-manifest.json', '{}');
     }
 
-    let replaceAssets = [];
-
     return gulp.src('./dist/js/script.js')
-        .pipe(through.obj(function (chunk, enc, cb) {
-
-            let json_assets = JSON.parse(fs.readFileSync('./rev-manifest.json'));
-
-            for(let original in json_assets) {
-                let item = json_assets[original];
-                replaceAssets.push([original, item]);
-            }
-
-            cb(null, chunk)
-        }))
-        .pipe(batchReplace(replaceAssets))
         .pipe(rev())
         .pipe(gulp.dest('./dist/js'))
         .pipe(revdel())
