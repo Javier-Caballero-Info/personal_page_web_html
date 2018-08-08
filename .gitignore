@@ -65,4 +65,6 @@ typings/
 dist
 /target/
 rev-manifest.json
+your-cache-location
+.awspublish-caballerojavier13-pages-files
 .scannerwork

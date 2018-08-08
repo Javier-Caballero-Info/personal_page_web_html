@@ -1,25 +1,41 @@
-let gulp = require('gulp');
-let through = require('through2');
-let concat = require('gulp-concat');
-let htmlmin = require('gulp-htmlmin');
-let batchReplace = require('gulp-batch-replace');
-let uglify = require('gulp-uglify-es').default;
-let rm = require( 'gulp-rm' );
-let fs = require('fs');
-let runSeq = require('run-sequence');
+const gulp = require('gulp');
+const through = require('through2');
+const concat = require('gulp-concat');
+const htmlmin = require('gulp-htmlmin');
+const batchReplace = require('gulp-batch-replace');
+const uglify = require('gulp-uglify-es').default;
+const rm = require( 'gulp-rm' );
+const fs = require('fs');
+const s3 = require("gulp-awspublish");
+const rename = require('gulp-rename');
 
-runSeq.use(gulp);
+const gzip = require('gulp-gzip');
 
-runSeq.options.ignoreUndefinedTasks = true;
-runSeq.options.showErrorStackTrace = true;
+const jsonminify = require('gulp-jsonminify');
+const minifyCss = require('gulp-minify-css');
 
-let gzip = require('gulp-gzip');
+const rev = require('gulp-rev');
+const revdel = require('gulp-rev-delete-original');
 
-let jsonminify = require('gulp-jsonminify');
-let minifyCss = require('gulp-minify-css');
+const aws_headers = {
+    'Cache-Control': 'max-age=315360000, no-transform, public'
+};
 
-let rev = require('gulp-rev');
-let revdel = require('gulp-rev-delete-original');
+const aws_publisher = s3.create({
+    region: 'us-east-1',
+    params: {
+        Bucket: 'caballerojavier13-pages-files',
+    },
+    credentials: {
+        accessKeyId: process.env.AWS_KEY,
+        secretAccessKey: process.env.AWS_SECRET,
+        signatureVersion: "v3"
+    }
+});
+
+const tag_manager_body = '<!-- Google Tag Manager (noscript) --> <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NB37W9K" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript> <!-- End Google Tag Manager (noscript) -->';
+
+const tag_manager_header = '<!-- Google Tag Manager --> <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\': new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0], j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src= \'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f); })(window,document,\'script\',\'dataLayer\',\'GTM-NB37W9K\');</script> <!-- End Google Tag Manager -->';
 
 
 gulp.task('clean', function() {
@@ -32,7 +48,7 @@ gulp.task('clean', function() {
 
 gulp.task('default', ['fonts', 'webfonts', 'img', 'jsons', 'styles', 'scripts', 'html'], function() {});
 
-gulp.task('build', ['webfonts', 'fonts', 'jsons', 'build:html'], function() {});
+gulp.task('s3', ['s3:favicon', 's3:jsons'], function() {});
 
 let htmls = [
     'src/index.html'
@@ -128,7 +144,7 @@ gulp.task('img', function() {
 gulp.task('jsons', function() {
     gulp.src(jsons)
         .pipe(jsonminify())
-        .pipe(gzip())
+        // .pipe(gzip())
         .pipe(gulp.dest('./dist/jsons/'));
 });
 
@@ -157,7 +173,7 @@ gulp.task('styles', function() {
 
 gulp.task('html', function() {
     gulp.src(htmls)
-        //.pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+    //.pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulp.dest('./dist'));
 });
 
@@ -187,7 +203,7 @@ gulp.task('build:img', function () {
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('build:css', ['build:img'], function () {
+gulp.task('build:css', function () {
 
     if(!fs.existsSync('./rev-manifest.json')) {
         fs.writeFileSync('./rev-manifest.json', '{}');
@@ -218,7 +234,7 @@ gulp.task('build:css', ['build:img'], function () {
 
 });
 
-gulp.task('build:js', ['build:css'], function () {
+gulp.task('build:js', function () {
 
     if(!fs.existsSync('./rev-manifest.json')) {
         fs.writeFileSync('./rev-manifest.json', '{}');
@@ -234,9 +250,11 @@ gulp.task('build:js', ['build:css'], function () {
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('build:html', ['build:js'], function () {
+gulp.task('build:html', function () {
 
     let replaceAssets = [
+        ['<!--tag_manager_header-->', tag_manager_header],
+        ['<!--tag_manager_body-->', tag_manager_body],
         ["./css/style.css", "http://assets.javiercaballero.info/css/style.css"],
         ["./js/script.js", "http://assets.javiercaballero.info/js/script.js"]
     ];
@@ -258,6 +276,30 @@ gulp.task('build:html', ['build:js'], function () {
         .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulp.dest('./dist/'), {overwrite: true});
 });
+
+gulp.task('s3:jsons', function(){
+
+    gulp.src("./dist/jsons/**/*")
+        .pipe(rename(function (path) {
+            path.dirname += '/personal_page/General/';
+        }))
+        .pipe(aws_publisher.publish(aws_headers))
+        .pipe(s3.reporter());
+
+});
+
+gulp.task('s3:favicon', function(){
+
+    gulp.src("./src/favicon.png")
+        .pipe(rename(function (path) {
+            path.dirname += '/personal_page/General/';
+        }))
+        .pipe(aws_publisher.publish(aws_headers))
+        .pipe(aws_publisher.cache())
+        .pipe(s3.reporter());
+
+});
+
 
 /* Watch scss, js and html files, doing different things with each. */
 gulp.task('watch', function () {
