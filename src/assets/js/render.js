@@ -51,6 +51,12 @@ const render = {
     });
   },
 
+  renderHome: function () {
+    main.getInformation('home', function (data) {
+      $('header').append(template.getHomeTemplate(data));
+    });
+  },
+
   renderSocialNetwork: function () {
 
     const data = {

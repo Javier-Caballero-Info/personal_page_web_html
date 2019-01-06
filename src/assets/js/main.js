@@ -35,7 +35,8 @@ let main = {
   },
 
   getAllInformation: function(callback) {
-    const url = 'https://javier-caballero-info.firebaseio.com/' + this.lang + '.json';
+    // const url = 'https://javier-caballero-info.firebaseio.com/' + this.lang + '.json';
+    const url = 'http://localhost:4000/db';
     const self = this;
 
     $.getJSON(url, function (data) {

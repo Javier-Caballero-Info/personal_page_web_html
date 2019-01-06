@@ -1,5 +1,40 @@
 let template = {
 
+  getHomeTemplate: function (home) {
+
+    let menu_items = '';
+    const order_info = 1;
+
+    main.orderInformation(home.menu, order_info > 0, function (orderedData) {
+      $.each(orderedData, function (_, item) {
+        menu_items += `\
+        <li class="item">
+          <a class="smoothscroll" href="${item.target}" title="${item.text}">${item.text}</a>
+        </li>  
+`;
+      });
+    });
+
+
+    return `\
+  <div class="logo">
+    <img class="profile-pic wow zoomIn animated" src="${home.picture}" height="160px" width="160px" alt="Header" style="visibility: visible; animation-name: zoomIn;">
+  </div>
+  <div class="content">
+
+    <div class="inner">
+      <h1>${home.title}</h1>
+      <p>${home.subtitle}</p>
+    </div>
+    <nav>
+      <ul>
+        ${menu_items}
+      </ul>
+    </nav>
+  </div>
+    `;
+  },
+
   getSocialNetworkTemplate: function (socialNetwork) {
     return `\
 <li>

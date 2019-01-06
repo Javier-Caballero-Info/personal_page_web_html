@@ -3,6 +3,8 @@ const {main} = require('./main');
 $(function () {
 
   main.getAllInformation();
+  
+  render.renderHome();
 
   $('#social-network').on('show', function() {
 
