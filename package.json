@@ -4,7 +4,6 @@
   "description": "Página web personal",
   "main": "index.js",
   "scripts": {
-    "watch": "gulp watch",
     "gulp": "gulp clean && gulp default",
     "build": "gulp clean && gulp default && gulp s3 && gulp build:img && gulp build:css && gulp build:js && gulp build:html",
     "server": "node scripts/server_development.js",
