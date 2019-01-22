@@ -1,7 +1,7 @@
 let main = {
 
   information: null,
-  lang: 'es',
+  lang: 'en',
 
   getInformation: function(resource, callback){
 

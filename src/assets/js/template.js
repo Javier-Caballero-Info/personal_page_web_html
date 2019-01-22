@@ -7,11 +7,13 @@ let template = {
 
     main.orderInformation(home.menu, order_info > 0, function (orderedData) {
       $.each(orderedData, function (_, item) {
-        menu_items += `\
+        if (item.is_displayed) {
+          menu_items += `\
         <li class="item">
           <a class="smoothscroll" href="${item.target}" title="${item.text}">${item.text}</a>
         </li>  
 `;
+        }
       });
     });
 
@@ -73,7 +75,6 @@ let template = {
       <p class="timeline-event-thumbnail">${work.time}</p>
       <h3>${work.company}</h3>
       <h4>${work.position}</h4>
-      <p class="description">${work.description}</p>
     </div>
   </div>
 </li>`;
@@ -88,7 +89,6 @@ let template = {
       <p class="timeline-event-thumbnail">${education.time}</p>
       <h3>${education.institute}</h3>
       <h4>${education.career}</h4>
-      <p>${education.detail}</p>
     </div>
   </div>
 </li>`;
@@ -103,7 +103,6 @@ let template = {
       <p class="timeline-event-thumbnail">${research.time}</p>
       <h3>${research.group}</h3>
       <h4>${research.project}</h4>
-      <p class="description">${research.description}</p>
     </div>
   </div>
 </li>`;
@@ -118,7 +117,6 @@ let template = {
       <p class="timeline-event-thumbnail">${scholastic.time}</p>
       <h3>${scholastic.institute}</h3>
       <h4>${scholastic.subject}</h4>
-      <p class="description">${scholastic.description}</p>
     </div>
   </div>
 </li>`;
