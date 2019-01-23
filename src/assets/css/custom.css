@@ -319,17 +319,12 @@ main article {
     padding: 4.5rem 2.5rem 1.5rem 2.5rem;
     position: relative;
     max-width: 100%;
-    background-color: rgba(255, 255, 255, 0.62);
-    border-radius: 20px;
     opacity: 0;
 }
 
 main article.active {
     transform: translateY(0);
     opacity: 1;
-    margin-bottom: 20px;
-    width: 100%;
-    box-shadow: 0 0 10px #696969;
 }
 
 main article .close {
@@ -536,7 +531,6 @@ body.is-loading footer {
 }
 
 .biography h2 {
-    border-bottom: solid 2px white;
     color: white;
     text-shadow: 0 0 4px rgba(76,76,76,.37);
     font-size: 40px;
@@ -727,6 +721,8 @@ body.is-loading footer {
 
 .portfolio-list > li > h2 {
     border-bottom: solid 1px rgba(255, 255, 255, .59);
+    font-size: 2.5rem;
+    padding: 10px 0 0 20px;
 }
 
 .portfolio-list > li > p {
@@ -869,7 +865,7 @@ body.is-loading footer {
 }
 
 .particles-js {
-    position: absolute;
+    position: fixed;
     top: 0;
     height: 100%;
     width: 100%;
