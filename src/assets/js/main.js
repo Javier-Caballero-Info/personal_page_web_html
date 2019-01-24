@@ -8,7 +8,7 @@ let main = {
     const self = this;
 
     if (this.information === null){
-      this.getAllInformation(function () {
+      this.getAllInformation(this.lang, function () {
         callback(self.information[resource])
       });
     } else {
@@ -34,7 +34,8 @@ let main = {
 
   },
 
-  getAllInformation: function(callback) {
+  getAllInformation: function(custom_lang, callback) {
+    this.lang = custom_lang;
     const url = 'https://javier-caballero-info.firebaseio.com/' + this.lang + '.json';
     const self = this;
 

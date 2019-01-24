@@ -53,6 +53,7 @@ const render = {
 
   renderHome: function () {
     main.getInformation('home', function (data) {
+      $('header').empty();
       $('header').append(template.getHomeTemplate(data));
     });
   },

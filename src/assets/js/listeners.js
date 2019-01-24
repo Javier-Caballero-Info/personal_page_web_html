@@ -2,7 +2,7 @@ const {main} = require('./main');
 
 $(function () {
 
-  main.getAllInformation();
+  // main.getAllInformation('en');
   
   render.renderHome();
 
@@ -34,6 +34,12 @@ $(function () {
 
     render.renderPortfolio();
 
+  });
+
+  $('.custom-option').on("click", function(e) {
+    main.getAllInformation($('#language').val(), function () {
+      render.renderHome();
+    });
   });
 
 });
