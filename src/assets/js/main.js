@@ -39,9 +39,13 @@ let main = {
     const url = 'https://javier-caballero-info.firebaseio.com/' + this.lang + '.json';
     const self = this;
 
+    $('#loader-container').show();
+
     $.getJSON(url, function (data) {
 
       self.information = data;
+
+      $('#loader-container').hide();
 
       if(callback) {
         callback(data);
