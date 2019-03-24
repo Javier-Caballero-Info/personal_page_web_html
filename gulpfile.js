@@ -282,7 +282,16 @@ gulp.task('build:js', function () {
         fs.writeFileSync('./rev-manifest.json', '{}');
     }
 
-    return gulp.src('./dist/js/script.js')
+    gulp.src('./dist/js/script.js')
+        .pipe(rev())
+        .pipe(gulp.dest('./dist/js'))
+        .pipe(revdel())
+        .pipe(rev.manifest({
+            merge: true // merge with the existing manifest if one exists
+        }))
+        .pipe(gulp.dest('./'));
+
+    return gulp.src('./dist/js/script_gift.js')
         .pipe(rev())
         .pipe(gulp.dest('./dist/js'))
         .pipe(revdel())
@@ -301,7 +310,7 @@ gulp.task('build:html', function () {
         ["./js/script.js", "http://assets.javiercaballero.info/js/script.js"]
     ];
 
-    return gulp.src(htmls)
+    gulp.src('src/index.html')
 
         .pipe(through.obj(function (chunk, enc, cb) {
 
@@ -315,6 +324,10 @@ gulp.task('build:html', function () {
             cb(null, chunk)
         }))
         .pipe(batchReplace(replaceAssets))
+        .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+        .pipe(gulp.dest('./dist/'), {overwrite: true});
+
+    return gulp.src('src/gifts/index.html')
         .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
         .pipe(gulp.dest('./dist/'), {overwrite: true});
 });
