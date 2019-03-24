@@ -1,45 +1,43 @@
-const {main} = require('./main');
-const {render} = require('./render');
 
 $(function () {
 
   // main.getAllInformation('en');
   
-  render.renderHome();
+  render_html.renderHome();
 
   $('#social-network').on('show', function() {
 
-    render.renderSocialNetwork();
+    render_html.renderSocialNetwork();
 
   });
 
   $('#contact').on('show', function() {
 
-    render.renderContact();
+    render_html.renderContact();
 
   });
 
   $('#biography').on('show', function() {
 
-    render.renderWork();
+    render_html.renderWork();
 
-    render.renderEducation();
+    render_html.renderEducation();
 
-    render.renderResearch();
+    render_html.renderResearch();
 
-    render.renderScholastic();
+    render_html.renderScholastic();
 
   });
 
   $('#portfolio').on('show', function() {
 
-    render.renderPortfolio();
+    render_html.renderPortfolio();
 
   });
 
   $('.custom-option').on("click", function(e) {
     main.getAllInformation($('#language').val(), function () {
-      render.renderHome();
+      render_html.renderHome();
     });
   });
 

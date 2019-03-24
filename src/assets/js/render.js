@@ -1,7 +1,3 @@
-const {template} = require('./template');
-const {main} = require('./main');
-const {util} = require('./util');
-
 const render = {
 
   removeAllItems: function(selectorHtml){

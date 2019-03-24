@@ -1,4 +1,4 @@
-let main = {
+let main_gift = {
 
     information: null,
     lang: 'en',
@@ -31,16 +31,16 @@ let main = {
         $('#filter_tag').change(function () {
             const value = $(this).val();
             if (value === "") {
-                main.dynatable.queries.remove("tag");
+                main_gift.dynatable.queries.remove("tag");
             } else {
-                main.dynatable.queries.add("tag", value);
+                main_gift.dynatable.queries.add("tag", value);
             }
-            main.dynatable.process();
+            main_gift.dynatable.process();
         });
     },
 
     applyTableLookAndFeel: function () {
-        main.dynatable = $('#table-gifts')
+        main_gift.dynatable = $('#table-gifts')
             .bind('dynatable:init', function (e, dynatable) {
                 dynatable.queries.functions['max-price'] = function (record, queryValue) {
                     return parseFloat(record.price.replace('$ ', '')) <= parseFloat(queryValue);
@@ -66,19 +66,19 @@ let main = {
                 }
             }).data('dynatable');
 
-        main.dynatable.sorts.clear();
+        main_gift.dynatable.sorts.clear();
 
-        main.dynatable.sorts.add('priority', 1);
+        main_gift.dynatable.sorts.add('priority', 1);
 
-        main.dynatable.process();
+        main_gift.dynatable.process();
 
-        main.filters();
+        main_gift.filters();
 
     },
 
     addTagsToFilterTag: function (list) {
 
-        main.tags = util.uniqueArray(main.tags.concat(list));
+        main_gift.tags = util.uniqueArray(main_gift.tags.concat(list));
 
         const filter_tags = $('#filter_tag');
 
@@ -86,7 +86,7 @@ let main = {
 
         filter_tags.append(`<option value=""></option>`);
 
-        $.each(main.tags, function (_, t) {
+        $.each(main_gift.tags, function (_, t) {
             filter_tags.append(`<option value="${t}">${t}</option>`);
         });
 
@@ -99,7 +99,7 @@ let main = {
 
             if (item.hasOwnProperty('tags')) {
 
-                main.addTagsToFilterTag(item.tags);
+                main_gift.addTagsToFilterTag(item.tags);
 
                 tags = item.tags.join(', ');
             }
@@ -117,14 +117,14 @@ let main = {
 
         });
 
-        main.applyTableLookAndFeel();
+        main_gift.applyTableLookAndFeel();
 
     },
 
     start: function () {
 
         this.getAllInformation("es", function (data) {
-            main.renderInformation(data);
+            main_gift.renderInformation(data);
         });
 
     }
@@ -133,6 +133,6 @@ let main = {
 
 $(function () {
 
-    main.start();
+    main_gift.start();
 
 });

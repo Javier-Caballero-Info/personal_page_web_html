@@ -46,7 +46,7 @@ gulp.task('clean', function() {
         .pipe( rm({ async: false }));
 });
 
-gulp.task('default', ['fonts', 'webfonts', 'img', 'jsons', 'styles', 'scripts', 'html'], function() {});
+gulp.task('default', ['fonts', 'webfonts', 'img', 'jsons', 'styles', 'styles_gift', 'scripts', 'scripts_gift', 'html'], function() {});
 
 gulp.task('s3', ['s3:favicon', 's3:jsons'], function() {});
 
@@ -176,8 +176,19 @@ gulp.task('scripts', function() {
     gulp.src(scripts)
         .pipe(concat('script.js'))
         .pipe(batchReplace(remplaceRequires))
-        .pipe(uglify(/* options */))
+        .pipe(uglify().on('error', function(e){
+            console.log(e);
+        }))
         .pipe(gulp.dest('./dist/js'));
+});
+
+gulp.task('scripts_gift', function() {
+
+    const remplaceRequires = [
+        [ 'const {template} = require(\'./template\');', '' ],
+        [ 'const {main} = require(\'./main\');', '' ],
+        [ 'const {util} = require(\'./util\');', '' ]
+    ];
 
     gulp.src(scripts_gifts)
         .pipe(concat('script_gift.js'))
@@ -190,11 +201,14 @@ gulp.task('styles', function() {
     gulp.src(styles)
         .pipe(concat('style.css'))
         .pipe(minifyCss())
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./dist/css'));
+});
+
+gulp.task('styles_gift', function() {
     gulp.src(styles_gifts)
         .pipe(concat('style_gift.css'))
         .pipe(minifyCss())
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./dist/css'));
 });
 
 
