@@ -876,13 +876,23 @@ body.is-loading footer {
 }
 
 select.form-control{
-    height: 44px !important;
+    height: 2.75rem !important;
     background: transparent;
     border-color: white;
+    color: #fbfbfb;
+}
+
+input, input:focus{
+    color: #fbfbfb;
+    background: rgba(255,255,255,0.2);
 }
 
 .table th {
     border-top: none;
+}
+
+.table td {
+    color: white;
 }
 
 @media (min-width:1101px) {

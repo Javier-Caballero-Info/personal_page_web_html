@@ -84,7 +84,7 @@ let main_gift = {
 
         filter_tags.empty();
 
-        filter_tags.append(`<option value=""></option>`);
+        filter_tags.append(`<option value="">&laquo; Filtrar por etiqueta &raquo;</option>`);
 
         $.each(main_gift.tags, function (_, t) {
             filter_tags.append(`<option value="${t}">${t}</option>`);
