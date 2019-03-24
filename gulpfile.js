@@ -51,7 +51,8 @@ gulp.task('default', ['fonts', 'webfonts', 'img', 'jsons', 'styles', 'scripts', 
 gulp.task('s3', ['s3:favicon', 's3:jsons'], function() {});
 
 let htmls = [
-    'src/index.html'
+    'src/index.html',
+    'src/gifts/index.html'
 ];
 
 let scripts = [
@@ -67,12 +68,28 @@ let scripts = [
     './src/assets/js/listeners.js'
 ];
 
+let scripts_gifts = [
+    './node_modules/jquery/dist/jquery.min.js',
+    './src/assets/js/jquery.dynatable.js',
+    './src/assets/js/util.js',
+    './src/assets/js/setup_gift.js',
+    './src/assets/js/main_gift.js'
+];
+
 let styles = [
     './node_modules/bootstrap/dist/css/bootstrap.min.css',
     './node_modules/@fortawesome/fontawesome-free/css/all.css',
     './node_modules/izimodal/css/iziModal.min.css',
     './src/assets/css/main.css',
     './src/assets/css/custom.css'
+];
+
+let styles_gifts = [
+    './node_modules/bootstrap/dist/css/bootstrap.min.css',
+    './node_modules/@fortawesome/fontawesome-free/css/all.css',
+    './src/assets/css/jquery.dynatable.css',
+    './src/assets/css/main.css',
+    './src/assets/css/custom_gift.css'
 ];
 
 let fonts = [
@@ -144,7 +161,7 @@ gulp.task('img', function() {
 gulp.task('jsons', function() {
     gulp.src(jsons)
         .pipe(jsonminify())
-        // .pipe(gzip())
+        .pipe(gzip())
         .pipe(gulp.dest('./dist/jsons/'));
 });
 
@@ -161,6 +178,12 @@ gulp.task('scripts', function() {
         .pipe(batchReplace(remplaceRequires))
         .pipe(uglify(/* options */))
         .pipe(gulp.dest('./dist/js'));
+
+    gulp.src(scripts_gifts)
+        .pipe(concat('script_gift.js'))
+        .pipe(batchReplace(remplaceRequires))
+        .pipe(uglify(/* options */))
+        .pipe(gulp.dest('./dist/js'));
 });
 
 gulp.task('styles', function() {
@@ -168,13 +191,18 @@ gulp.task('styles', function() {
         .pipe(concat('style.css'))
         .pipe(minifyCss())
         .pipe(gulp.dest('./dist/css'))
+    gulp.src(styles_gifts)
+        .pipe(concat('style_gift.css'))
+        .pipe(minifyCss())
+        .pipe(gulp.dest('./dist/css'))
 });
 
 
 gulp.task('html', function() {
-    gulp.src(htmls)
-    //.pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
+    gulp.src('src/index.html')
         .pipe(gulp.dest('./dist'));
+    gulp.src('src/gifts/index.html')
+        .pipe(gulp.dest('./dist/gifts'));
 });
 
 

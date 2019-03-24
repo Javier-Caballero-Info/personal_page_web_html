@@ -1,4 +1,5 @@
 const {main} = require('./main');
+const {render} = require('./render');
 
 $(function () {
 
@@ -42,11 +43,9 @@ $(function () {
     });
   });
 
-});
-
-$(function () {
   $('#contact-modal').on('click', function (e) {
     e.preventDefault();
     return false;
   });
+
 });

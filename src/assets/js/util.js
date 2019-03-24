@@ -12,13 +12,19 @@ window.jQuery = window.$;
 
 const util = {
 
-    hideArticleLoading: function(article){
+    hideArticleLoading: function (article) {
         $(article).find('.loader').hide();
         $(article).find('ul').css('opacity', '1');
+    },
+
+    uniqueArray: function (a) {
+        return a.sort().filter(function (item, pos, ary) {
+            return !pos || item != ary[pos - 1];
+        })
     }
 
 };
 
 window.module = window.module || {};
 
-module.exports = { util };
+module.exports = {util};

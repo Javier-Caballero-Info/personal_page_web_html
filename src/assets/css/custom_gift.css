@@ -875,6 +875,16 @@ body.is-loading footer {
     background: #f9f9f9;
 }
 
+select.form-control{
+    height: 44px !important;
+    background: transparent;
+    border-color: white;
+}
+
+.table th {
+    border-top: none;
+}
+
 @media (min-width:1101px) {
     .social-network ul li,
     .contact ul li {

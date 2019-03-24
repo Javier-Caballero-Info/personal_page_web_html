@@ -1,3 +1,5 @@
+const {main} = require('./main');
+
 let template = {
 
   getHomeTemplate: function (home) {
