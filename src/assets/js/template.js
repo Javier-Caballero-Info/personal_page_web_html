@@ -25,11 +25,11 @@ let template = {
   <div class="content">
 
     <div class="inner">
-      <h1>${home.title}</h1>
-      <p>${home.subtitle}</p>
+      <h1 id="title">${home.title}</h1>
+      <p id="description">${home.subtitle}</p>
     </div>
     <nav>
-      <ul>
+      <ul id="menu">
         ${menu_items}
       </ul>
     </nav>

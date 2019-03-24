@@ -644,7 +644,7 @@ body.is-loading footer {
 }
 
 .iziModal {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.55);
     border-radius: 20px !important;
     border: none !important;
 }
@@ -652,13 +652,13 @@ body.is-loading footer {
 .iziModal .iziModal-header {
     box-shadow: none;
     margin: 0 20px;
-    border-bottom: solid 2px #d6d8d9;
+    border-bottom: solid 2px white;
     padding: 20px 0;
     background: transparent !important;
 }
 
 .iziModal .iziModal-header-title {
-    color: #d6d8d9 !important;
+    color: white !important;
 }
 
 .iziModal-content * {
@@ -702,7 +702,7 @@ body.is-loading footer {
     position: relative;
     padding: .75rem 1.25rem;
     margin-bottom: 1rem;
-    border: 1px solid transparent;
+    border: 1px solid white;
     border-radius: .25rem;
 }
 
