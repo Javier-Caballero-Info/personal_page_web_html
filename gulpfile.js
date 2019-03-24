@@ -320,7 +320,7 @@ gulp.task('build:html', function () {
 
     return gulp.src('src/gifts/index.html')
         .pipe(htmlmin({collapseWhitespace: true, removeComments: true}))
-        .pipe(gulp.dest('./dist/'), {overwrite: true});
+        .pipe(gulp.dest('./dist/gifts'), {overwrite: true});
 });
 
 gulp.task('s3:jsons', function(){
