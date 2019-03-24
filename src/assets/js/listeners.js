@@ -1,43 +1,41 @@
 
 $(function () {
-
-  // main.getAllInformation('en');
   
-  render_html.renderHome();
+  render.renderHome();
 
   $('#social-network').on('show', function() {
 
-    render_html.renderSocialNetwork();
+    render.renderSocialNetwork();
 
   });
 
   $('#contact').on('show', function() {
 
-    render_html.renderContact();
+    render.renderContact();
 
   });
 
   $('#biography').on('show', function() {
 
-    render_html.renderWork();
+    render.renderWork();
 
-    render_html.renderEducation();
+    render.renderEducation();
 
-    render_html.renderResearch();
+    render.renderResearch();
 
-    render_html.renderScholastic();
+    render.renderScholastic();
 
   });
 
   $('#portfolio').on('show', function() {
 
-    render_html.renderPortfolio();
+    render.renderPortfolio();
 
   });
 
   $('.custom-option').on("click", function(e) {
     main.getAllInformation($('#language').val(), function () {
-      render_html.renderHome();
+      render.renderHome();
     });
   });
 
