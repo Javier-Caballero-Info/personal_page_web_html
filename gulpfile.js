@@ -290,15 +290,6 @@ gulp.task('build:js', function () {
             merge: true // merge with the existing manifest if one exists
         }))
         .pipe(gulp.dest('./'));
-
-    return gulp.src('./dist/js/script_gift.js')
-        .pipe(rev())
-        .pipe(gulp.dest('./dist/js'))
-        .pipe(revdel())
-        .pipe(rev.manifest({
-            merge: true // merge with the existing manifest if one exists
-        }))
-        .pipe(gulp.dest('./'))
 });
 
 gulp.task('build:html', function () {
