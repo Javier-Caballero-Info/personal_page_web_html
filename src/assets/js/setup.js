@@ -7,10 +7,8 @@ $(function () {
   }
 
   $(".languages_picker").each(function() {
-    var classes = $(this).attr("class"),
-        id      = $(this).attr("id"),
-        name    = $(this).attr("name");
-    var template =  '<div class="' + classes + '">';
+    const classes = $(this).attr("class");
+    let template =  '<div class="' + classes + '">';
     template += '<span class="languages_picker-trigger">' + $(this).attr("placeholder") + '</span>';
     template += '<div class="custom-options">';
     $(this).find("option").each(function() {
@@ -27,7 +25,7 @@ $(function () {
   }, function() {
     $(this).parents(".custom-options").removeClass("option-hover");
   });
-  $(".languages_picker-trigger").on("click", function() {
+  $(".languages_picker-trigger").on("click", function(event) {
     $('html').one('click',function() {
       $(".languages_picker").removeClass("opened");
     });
