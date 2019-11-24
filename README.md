@@ -152,7 +152,7 @@ Contributions welcome! See the  [Contributing Guide](https://github.com/Javier-C
 
 ## Author
 
-Created and maintained by [Javier Hernán Caballero García](https://javiercaballero.info)).
+Created and maintained by [Javier Hernán Caballero García](https://javiercaballero.info).
 
 ## License
 
