@@ -296,7 +296,7 @@ gulp.task('build:html', function () {
 
     let replaceAssets = [
         ['<!--tag_manager_header-->', tag_manager_header],
-        ['<!--tag_manager_body-->', tag_manager_body],
+        ['<!--tag_manager_body-->', tag_manager_body]
         // ["./css/style.css", "https://assets.javiercaballero.info/css/style.css"],
         // ["./js/script.js", "https://assets.javiercaballero.info/js/script.js"]
     ];
