@@ -29,5 +29,8 @@ jobs:
         with:
           target_branch: gh-pages
           build_dir: dist
+          keep_history: true
+          allow_empty_commit: true
+          fqdn: javiercaballero.info
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
