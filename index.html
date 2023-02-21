@@ -1,35 +1,39 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Javier Caballero</title>
-    <link href="./img/favicon.png" rel="shortcut icon" type="image/png">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-
-
+    <link href="favicon.png" rel="shortcut icon" type="image/png">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
     <style>
-
-        a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+        a,abbr,acronym,address,applet,article,aside,audio,b,big,blockquote,body,canvas,caption,center,cite,code,dd,del,details,dfn,div,dl,dt,em,embed,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,output,p,pre,q,ruby,s,samp,section,small,span,strike,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,tt,u,ul,var,video {
             margin: 0;
             padding: 0;
             border: 0;
             vertical-align: baseline
         }
 
-        article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+        article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
             display: block
         }
 
         body {
-            line-height: 1
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            font-weight: 400;
+            font-family: "Segoe UI","Helvetica Neue",Arial,sans-serif;
+            color: #444;
+            line-height: 1.6;
+            font-size: 1.4rem
         }
 
-        ol, ul {
+        ol,ul {
             list-style: none
         }
 
-        blockquote, q {
+        blockquote,q {
             quotes: none
         }
 
@@ -38,11 +42,7 @@
             border-spacing: 0
         }
 
-        *, :after, :before {
-            box-sizing: border-box
-        }</style>
-    <style>
-        *, :after, :before {
+        *,:after,:before {
             box-sizing: border-box
         }
 
@@ -52,20 +52,7 @@
             -webkit-font-smoothing: antialiased;
             font-smooth: antialiased;
             -webkit-overflow-scrolling: touch;
-            scrollbar-width: none !important
-        }
-
-        body {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            font-weight: 400;
-            font-display: swap;
-            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            color: #444;
-            line-height: 1.6;
-            font-size: 1.4rem
+            scrollbar-width: none!important
         }
 
         button {
@@ -87,99 +74,66 @@
             font-weight: 700
         }
 
-        @media screen and (max-width: 640px) {
+        @media screen and (max-width:640px) {
             html {
                 font-size: 59%
             }
         }
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width:768px) {
             html {
                 font-size: 62.5%
             }
         }
 
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             html {
                 font-size: 62.5%
             }
-        }</style>
-    <style>
-
-        @font-face {
-            font-family: Inconsolata;
-            src: url(https://prod.flowcvassets.com/fonts/inconsolata/inconsolata-400-normal.woff2) format('woff2');
-            font-weight: 400;
-            font-style: normal;
-            font-stretch: normal;
-            font-display: swap
         }
 
         @font-face {
-            font-family: Inconsolata;
-            src: url(https://prod.flowcvassets.com/fonts/inconsolata/inconsolata-700-normal.woff2) format('woff2');
-            font-weight: 700;
-            font-style: normal;
-            font-stretch: normal;
-            font-display: swap
-        }</style>
-    <style data-styled="true" data-styled-version="5.3.3">
-        /*!sc*/
-        a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, main, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
-            margin: 0;
-            padding: 0;
-            border: 0;
-            vertical-align: baseline
+            font-family:Inconsolata;src:url(https://prod.flowcvassets.com/fonts/inconsolata/inconsolata-700-normal.woff2)format("woff2");font-weight:700;font-style:normal;font-stretch:normal;font-display:swap
         }
-
         /*!sc*/
-        article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section {
+        article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section {
             display: block
         }
-
         /*!sc*/
         [hidden] {
             display: none
         }
-
         /*!sc*/
         body {
             line-height: 1
         }
-
         /*!sc*/
-        menu, ol, ul {
+        menu,ol,ul {
             list-style: none
         }
-
         /*!sc*/
-        blockquote, q {
+        blockquote,q {
             quotes: none
         }
-
         /*!sc*/
         table {
             border-collapse: collapse;
             border-spacing: 0
         }
-
         /*!sc*/
         html {
-            scrollbar-width: none !important;
+            scrollbar-width: none!important;
             box-sizing: border-box;
             font-size: 59%
         }
-
         /*!sc*/
         html::-webkit-scrollbar {
             display: none
         }
-
         /*!sc*/
-        *, :after, :before {
+        *,:after,:before {
             box-sizing: border-box
         }
-
         /*!sc*/
         body {
             min-height: 100vh;
@@ -194,32 +148,27 @@
             font-synthesis: none;
             -moz-osx-font-smoothing: grayscale;
             -webkit-font-smoothing: antialiased;
-            font-weight: 400;
+            font-weight: 400
         }
-
         /*!sc*/
         button {
             cursor: pointer;
             padding: 0;
             background-color: inherit
         }
-
         /*!sc*/
         img {
             width: 100%;
             height: auto
         }
-
         /*!sc*/
         a {
             text-decoration: none
         }
-
         /*!sc*/
         strong {
             font-weight: 700
         }
-
         /*!sc*/
         .kZvHBQ {
             width: 100%;
@@ -235,9 +184,8 @@
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
-            margin: 1.3rem 0 2rem 0
+            margin: 1.3rem 0 2rem
         }
-
         /*!sc*/
         .bUrLqq {
             width: 2.6em;
@@ -245,7 +193,6 @@
             border-color: inherit;
             border-radius: 1px
         }
-
         /*!sc*/
         .fuscXN {
             width: 100%;
@@ -267,7 +214,6 @@
             align-self: flex-start;
             margin-left: -.627rem
         }
-
         /*!sc*/
         .gPIEPT {
             width: 4.369999999999999rem;
@@ -293,18 +239,15 @@
             color: inherit;
             transition: .3s
         }
-
         /*!sc*/
         .gPIEPT svg {
             height: 1.9rem;
             fill: #212121
         }
-
         /*!sc*/
         .gPIEPT:hover {
             opacity: .6
         }
-
         /*!sc*/
         .irKfVf {
             width: 100%;
@@ -322,16 +265,14 @@
             justify-content: flex-end;
             text-align: left
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .irKfVf {
                 -webkit-flex-direction: column;
                 -ms-flex-direction: column;
                 flex-direction: column
             }
         }
-
         /*!sc*/
         .irKfVf img {
             -webkit-transition: width .3s;
@@ -341,26 +282,22 @@
             -webkit-align-self: center;
             align-self: center
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .irKfVf img {
                 max-width: 14rem
             }
         }
-
         /*!sc*/
-        .irKfVf > :first-child {
-            margin-top: 0 !important;
-            margin-left: 0 !important
+        .irKfVf>:first-child {
+            margin-top: 0!important;
+            margin-left: 0!important
         }
-
         /*!sc*/
-        .irKfVf > :last-child {
-            margin-bottom: 0 !important;
-            margin-right: 0 !important
+        .irKfVf>:last-child {
+            margin-bottom: 0!important;
+            margin-right: 0!important
         }
-
         /*!sc*/
         .rirua {
             display: -webkit-box;
@@ -370,55 +307,46 @@
             flex-direction: column;
             align-items: flex-start
         }
-
-
         /*!sc*/
         .kMmoQC {
             -webkit-flex-direction: column;
             -ms-flex-direction: column;
             flex-direction: column
         }
-
         /*!sc*/
-        .kMmoQC > :first-child {
-            margin-top: 0 !important;
-            margin-left: 0 !important
+        .kMmoQC>:first-child {
+            margin-top: 0!important;
+            margin-left: 0!important
         }
-
         /*!sc*/
-        .kMmoQC > :last-child {
-            margin-bottom: 0 !important;
-            margin-right: 0 !important
+        .kMmoQC>:last-child {
+            margin-bottom: 0!important;
+            margin-right: 0!important
         }
         /*!sc*/
         .gOTQsn {
             width: 100%;
             overflow: hidden;
-            color: rgba(0, 0, 0, .75);
+            color: rgba(0,0,0,.75);
             white-space: pre-wrap;
             word-break: break-word
         }
-
         /*!sc*/
         .gOTQsn strong {
             font-weight: 700
         }
-
         /*!sc*/
         .gOTQsn em {
             font-style: italic
         }
-
         /*!sc*/
         .gOTQsn br {
             line-height: .6
         }
-
         /*!sc*/
         data-styled.g26[id=sc-hGPBjI] {
             content: "gOTQsn,"
         }
-
         /*!sc*/
         .fUeYsC {
             width: 100%;
@@ -428,35 +356,29 @@
             overflow-y: auto;
             overflow-x: hidden
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .fUeYsC {
                 max-width: 40vw
             }
         }
-
         /*!sc*/
         .fUeYsC strong {
             font-weight: 700
         }
-
         /*!sc*/
         .fUeYsC em {
             font-style: italic
         }
-
         /*!sc*/
         .fUeYsC br {
             line-height: .6
         }
-
         /*!sc*/
         .fUeYsC a {
             text-decoration: underline;
             color: inherit
         }
-
         /*!sc*/
         .SUTmE {
             display: -webkit-box;
@@ -469,16 +391,16 @@
             -webkit-flex-direction: column;
             -ms-flex-direction: column;
             flex-direction: column;
-            box-shadow: 0 10px 90px rgba(0, 0, 0, .25);
+            box-shadow: 0 10px 90px rgba(0,0,0,.25);
             border-radius: .8rem;
             -webkit-animation: fadeIn 2s ease;
             animation: fadeIn 2s ease;
             -webkit-transition: width .3s;
             transition: width .3s
         }
-
-        /*!sc*//*!sc*/
-        @media screen and (min-width: 1024px) {
+        /*!sc*/
+        /*!sc*/
+        @media screen and (min-width:1024px) {
             .SUTmE {
                 width: auto;
                 -webkit-flex-direction: column;
@@ -486,14 +408,12 @@
                 flex-direction: column
             }
         }
-
         /*!sc*/
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width:1280px) {
             .SUTmE {
                 max-width: 60vw
             }
         }
-
         /*!sc*/
         .icaqyE {
             display: -webkit-box;
@@ -509,71 +429,39 @@
             background-color: #fff;
             padding: 3.5999999999999996rem
         }
-
         /*!sc*/
         @-webkit-keyframes fadeIn {
             0% {
                 opacity: 0
             }
-            100% {
+
+            to {
                 opacity: 1
             }
         }
-
         /*!sc*/
         @keyframes fadeIn {
             0% {
                 opacity: 0
             }
-            100% {
+
+            to {
                 opacity: 1
             }
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .icaqyE {
                 width: 100%;
                 border-radius: 2rem
             }
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .icaqyE {
                 padding: 6rem
             }
         }
-
-        /*!sc*/
-        .icaqyE > :first-child {
-            margin-top: 0 !important;
-            margin-left: 0 !important
-        }
-
-        /*!sc*/
-        .icaqyE > :last-child {
-            margin-bottom: 0 !important;
-            margin-right: 0 !important
-        }
-
-        /*!sc*/
-        .iTTWTc > :first-child {
-            margin-top: 0 !important;
-            margin-left: 0 !important
-        }
-
-        /*!sc*/
-        .iTTWTc > :last-child {
-            margin-bottom: 0 !important;
-            margin-right: 0 !important
-        }
-
-        /*!sc*/
-        data-styled.g33[id=sc-llYSUQ] {
-            content: "iTTWTc,"
-        }
-
         /*!sc*/
         .gTXXel {
             padding: 5% 2.5%;
@@ -582,80 +470,68 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-image: linear-gradient(90deg, #2b4d82 0, #2890ac 100%);
+            background-image: linear-gradient(90deg,#2b4d82 0,#2890ac 100%);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
             overflow: auto;
-            color: rgba(0, 0, 0, .85);
-            font-family: Inconsolata, -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 400;
+            color: rgba(0,0,0,.85);
+            font-family: unset;
+            font-weight: 300;
             word-break: normal;
             word-wrap: normal;
-            hyphens: none;
-            font-kerning: normal;
-            font-feature-settings: 'kern', 'liga', 'clig', 'calt';
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .gTXXel {
                 padding: 2.5%
             }
         }
-
-        /*!sc*//*!sc*/
+        /*!sc*/
+        /*!sc*/
         .gTXXel * {
             line-height: 2.565rem
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .gTXXel * {
                 line-height: 2.8499999999999996rem
             }
         }
-
         /*!sc*/
         .gTXXel p {
             font-size: 1.71rem;
             line-height: 2.565rem
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .gTXXel p {
                 font-size: 1.9rem;
                 line-height: 2.8499999999999996rem
             }
         }
-
         /*!sc*/
         .gTXXel li {
             font-size: 1.71rem
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .gTXXel li {
                 font-size: 1.9rem;
                 max-width: 40vw
             }
         }
-
         /*!sc*/
-        .gTXXel h1, .gTXXel h2 {
+        .gTXXel h1,.gTXXel h2 {
             text-rendering: optimizeLegibility;
             font-family: inherit
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
-            .gTXXel h1, .gTXXel h2 {
+        @media screen and (min-width:1024px) {
+            .gTXXel h1,.gTXXel h2 {
                 max-width: 40vw
             }
         }
-
         /*!sc*/
         .gTXXel h1 {
             font-size: 3.8475rem;
@@ -664,52 +540,30 @@
             font-weight: 700;
             letter-spacing: -.04rem
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .gTXXel h1 {
                 font-size: 4.2749999999999995rem;
                 margin-bottom: 1.875rem;
                 line-height: 4.2749999999999995rem
             }
         }
-
         /*!sc*/
         .gTXXel h2 {
             font-size: 2.565rem;
             margin-bottom: 1.5rem;
             line-height: 2.94975rem
         }
-
         /*!sc*/
-        @media screen and (min-width: 1024px) {
+        @media screen and (min-width:1024px) {
             .gTXXel h2 {
                 font-size: 2.8499999999999996rem;
                 margin-bottom: 1.875rem;
                 line-height: 3.2774999999999994rem
             }
         }
-
-        /*!sc*/
     </style>
-
-    <script>"use strict";
-
-    function pr() {
-        let t, e, n, c, o, a, d, i, p, s, r, w = document.getElementById("ppc"), P = document.getElementById("pp");
-        function l(t, e, n, c) {
-            let o = t / 2;
-            return {wPct: e = 1 + ((e = 1 + (e - 1) * (1 - t)) - 1) * (1 - o), topPct: n -= o, leftPct: c *= 1 - (t + o)}
-        }
-        w && P && (t = (c = w.getBoundingClientRect()).width, e = c.height, p = (r = JSON.parse(w.dataset.dim)).a, d = r.b, n = r.c, s = r.d, i = p / (a = p * r.e), c = (o = p * s) / a, c = (o - ((w = t / e) - 1) * a / 2) / (s = a * w), o = o = d * n / (d * r.f), r = (a = t * (i = p / s)) / (n = p / d), s = e * Math.abs(o), p = t * c, i <= 1 && (d = 1 - i, o *= (i = 1) + d * w, c = 0), (p = a - p) < t && (i += (p = t - p) / a, c -= p / t / 2), s = (r = r - e - s) / e, w < 1 && 1 < n && 0 < r && (t * (r = l(s, i, o, c)).wPct / n - e * Math.abs(r.topPct) < e && !(e < t * (r = l(s / 4, i, o, c)).wPct / n - e * Math.abs(r.topPct)) || (i = r.wPct, o = r.topPct, c = r.leftPct)), P.style.width = "".concat(100 * i, "%"), P.style.left = "-".concat(100 * c, "%"), P.style.top = "-".concat(100 * o, "%"))
-    }
-
-    window.addEventListener("DOMContentLoaded", function () {pr()}), window.addEventListener("resize", function () { pr() });
-    </script>
 </head>
-
-</head>
-
 <body>
 <div class="sc-iJKOTD gTXXel">
     <div class="sc-iwjdpV SUTmE">
@@ -722,38 +576,33 @@
                             <div class="sc-jRQBWg bUrLqq"></div>
                         </div>
                     </div>
-                    <div class="sc-kDTinF fuscXN">
-                        <div class="sc-crHmcD jDvJAM">
-                            <a class="sc-egiyK gPIEPT" href="https://github.com/jayc13"  target="_blank">
-                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <title>GitHub</title>
-                                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="sc-crHmcD jDvJAM">
-                            <a class="sc-egiyK gPIEPT" href="https://medium.com/@caballerojavier" target="_blank">
-                                <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <title>Medium</title>
-                                    <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"></path>
-                                </svg>
-                            </a>
-                        </div>
-                        <div class="sc-crHmcD jDvJAM">
-                            <a class="sc-egiyK gPIEPT" href="https://www.linkedin.com/in/caballerojavier13/" target="_blank">
-                                <svg fill="none" viewBox="0 0 24 24">
-                                    <title>Linkedin icon</title>
-                                    <path d="M7.2 20.8h-4v-12h4v12zM5.202 7.2a2 2 0 11-.004-4 2 2 0 01.004 4zM21.6 20.8h-3.845v-5.84c0-1.393-.027-3.183-2-3.183-2.002 0-2.31 1.516-2.31 3.082V20.8H9.6V8.791h3.69v1.64h.054c.512-.944 1.768-1.939 3.64-1.939 3.896 0 4.616 2.488 4.616 5.722V20.8z"></path>
-                                </svg>
-                            </a>
-                        </div>
+                    <div class="fuscXN">
+                        <div class="jDvJAM"><a class="gPIEPT" href="https://github.com/jayc13" target="_blank">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title>
+                                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+                            </svg>
+                        </a></div>
+                        <div class="jDvJAM"><a class="gPIEPT" href="https://medium.com/@caballerojavier"
+                                               target="_blank">
+                            <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Medium</title>
+                                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"></path>
+                            </svg>
+                        </a></div>
+                        <div class="jDvJAM"><a class="gPIEPT" href="https://www.linkedin.com/in/caballerojavier13/"
+                                               target="_blank">
+                            <svg fill="none" viewBox="0 0 24 24"><title>Linkedin icon</title>
+                                <path d="M7.2 20.8h-4v-12h4v12zM5.202 7.2a2 2 0 11-.004-4 2 2 0 01.004 4zM21.6 20.8h-3.845v-5.84c0-1.393-.027-3.183-2-3.183-2.002 0-2.31 1.516-2.31 3.082V20.8H9.6V8.791h3.69v1.64h.054c.512-.944 1.768-1.939 3.64-1.939 3.896 0 4.616 2.488 4.616 5.722V20.8z"></path>
+                            </svg>
+                        </a></div>
                     </div>
                 </div>
             </div>
-            <div class="sc-llYSUQ iTTWTc" style="max-width: 40vw;">
-                <p class="sc-kfPuZi ihOOoE">
-                    Javier is a QA Automation Engineer who has been in the field for nine years. He enjoys solving difficult problems and helping his team to exceed customer expectations. He is an analytical thinker who enjoys finding solutions to complex problems. Javier has a deep understanding of how quality procedures and code traceability can improve the product. He is always looking for ways to improve.
-                </p>
+            <div class="iTTWTc" style="max-width:40vw">
+                <p class="ihOOoE">Javier is a QA Automation Engineer who has been
+                    in the field for nine years. He enjoys solving difficult problems and helping his team to exceed
+                    customer expectations. He is an analytical thinker who enjoys finding solutions to complex problems.
+                    Javier has a deep understanding of how quality procedures and code traceability can improve the product.
+                    He is always looking for ways to improve.</p>
             </div>
         </div>
     </div>
