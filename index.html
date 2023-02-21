@@ -32,7 +32,7 @@
 
         html {
             box-sizing:border-box;
-            font-size:59%;
+            font-size:80%;
             font-synthesis:none;
             scrollbar-width:none!important;
         }
@@ -112,7 +112,7 @@
             border-radius:.8rem;
             box-shadow:0 10px 90px rgba(0,0,0,.25);
             display:flex;
-            flex-direction:column;
+            flex-direction: row;
             margin-bottom:auto;
             margin-top:auto;
             transition:width .3s;
@@ -122,7 +122,7 @@
         .icaqyE {
             align-items:flex-start;
             background:#fff;
-            border-radius:.8rem;
+            border-radius: 0 .8rem .8rem 0;
             display:flex;
             flex-direction:column;
             padding:3.6rem;
@@ -131,7 +131,7 @@
 
         .gTXXel {
             align-items:center;
-            background-image: linear-gradient(90deg,#2b4d82 0,#2890ac 100%);
+            background-image:linear-gradient(to right, #085078 0%, #E8F1F2 100%);
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -182,6 +182,19 @@
             font-weight: 400;
         }
 
+        .background {
+            background-image:url("https://images.unsplash.com/photo-1676910226586-eb747ab85443?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxhbGx8OTN8fHx8fHwyfHwxNjc2OTk0MTMz&ixlib=rb-4.0.3&q=80&w=400");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center center;
+            width: 10vw;
+            content: "";
+            position: relative;
+            display: flex;
+            top: 0;
+            border-radius: 0.8rem 0 0 0.8rem;
+        }
+
         [hidden],html::-webkit-scrollbar {
             display:none;
         }
@@ -195,13 +208,21 @@
                 max-width: 60vw;
             }
         }
+        @media screen and (max-width: 1024px)  {
+            .icaqyE {
+                /*border-radius: 0.8rem;*/
+            }
+            .background {
+                background: #13293D;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="gTXXel">
     <div class="SUTmE">
+        <div class="background"></div>
         <div class="icaqyE">
-
             <div class="kMmoQC">
                 <div class="header">
                     <h1 class="title">Javier Caballero</h1>
