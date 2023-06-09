@@ -131,16 +131,24 @@
             margin-bottom:auto;
             margin-top:auto;
             width:95%;
+            max-width: 764px;
         }
 
         .icaqyE {
-            align-items:flex-start;
             background:#fff;
-            border-radius: 0 .8rem .8rem 0;
-            display:flex;
-            flex-direction:column;
+            border-radius: 0.8rem;
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            align-items: center;
             padding:3.6rem;
             width:100%;
+        }
+
+        .profile {
+            height: 200px;
+            width: auto;
+            margin: 24px;
         }
 
         .gTXXel {
@@ -176,7 +184,7 @@
             line-height: 4.23225rem;
             margin: 0 0 1.5rem;
             font-family:'Gloria Hallelujah', handwriting,sans-serif;
-            display: swap; 
+            display: swap;
         }
 
         .gTXXel h2 {
@@ -186,38 +194,15 @@
             color:#7f8c8d;
             font-family: 'KoHo', sans-serif;
             font-weight: 400;
-            display: swap; 
-        }
-
-        .background {
-            background-image:url("https://images.unsplash.com/photo-1676910226586-eb747ab85443?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNTc5fDB8MXxhbGx8OTN8fHx8fHwyfHwxNjc2OTk0MTMz&ixlib=rb-4.0.3&q=80&w=400");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center center;
-            width: 10vw;
-            content: "";
-            position: relative;
-            display: flex;
-            top: 0;
-            border-radius: 0.8rem 0 0 0.8rem;
+            display: swap;
         }
 
         [hidden],html::-webkit-scrollbar {
             display:none;
         }
-        @media screen and (min-width: 1280px) {
-            .SUTmE {
-                max-width: 40vw;
-            }
-        }
         @media screen and (min-width: 1024px) and (max-width: 1280px) {
-            .SUTmE {
-                max-width: 60vw;
-            }
-        }
-        @media screen and (max-width: 1024px)  {
-            .background {
-                background: #13293D;
+            .icaqyE {
+                flex-direction: column;
             }
         }
     </style>
@@ -225,8 +210,8 @@
 <body>
 <div class="gTXXel">
     <div class="SUTmE">
-        <div class="background"></div>
         <div class="icaqyE">
+            <img src="img/profile.png" class="profile" alt="profile picture">
             <div class="kMmoQC">
                 <div class="header">
                     <h1 class="title">Javier Caballero</h1>
