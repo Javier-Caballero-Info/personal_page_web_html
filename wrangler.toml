@@ -1,0 +1,2 @@
+name = "personal-page-web-html"
+pages_build_output_dir = "./public"

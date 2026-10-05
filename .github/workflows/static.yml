@@ -42,8 +42,9 @@ jobs:
       - name: Build site bundle
         run: |
           mkdir -p dist
-          cp -r img CNAME robots.txt dist/
-          html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o dist/index.html index.html
+          cp -r public/. dist/
+          cp CNAME dist/
+          html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true -o dist/index.html public/index.html
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
