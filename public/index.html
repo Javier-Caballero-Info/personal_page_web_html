@@ -53,13 +53,22 @@
 
         main {
             flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            align-content: center;
             width: 100%;
             max-width: 40rem;
             margin: 0 auto;
             padding: 4rem 1.5rem 2rem;
+        }
+
+        .profile,
+        .content {
+            display: contents;
+        }
+
+        .links {
+            order: 1;
         }
 
         .intro {
@@ -95,7 +104,7 @@
         }
 
         .lead {
-            max-width: 30rem;
+            max-width: 32rem;
             margin: 3rem 0 0;
             font-size: 1.5rem;
             font-weight: 500;
@@ -192,6 +201,75 @@
             font-size: 0.8125rem;
         }
 
+        @media (min-width: 60rem) {
+            main,
+            footer {
+                max-width: 66rem;
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+
+            main {
+                grid-template-columns: 17rem minmax(0, 1fr);
+                column-gap: clamp(4rem, 8vw, 7rem);
+                align-items: start;
+                padding-top: 6rem;
+                padding-bottom: 4rem;
+            }
+
+            .profile,
+            .content {
+                display: block;
+            }
+
+            .profile {
+                position: sticky;
+                top: 6rem;
+            }
+
+            .intro {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.75rem;
+            }
+
+            .avatar {
+                width: 152px;
+                height: 152px;
+                padding: 5px;
+            }
+
+            .links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+                margin-top: 2.25rem;
+            }
+
+            .links a {
+                padding: 0.3rem 0;
+                border: 0;
+                border-radius: 0;
+                color: var(--muted);
+            }
+
+            .links a:hover,
+            .links a:focus-visible {
+                color: var(--accent);
+            }
+
+            .lead {
+                margin-top: 0;
+                font-size: 2.125rem;
+                line-height: 1.25;
+                letter-spacing: -0.025em;
+            }
+
+            .approach {
+                margin-top: 4rem;
+            }
+        }
+
         @media (max-width: 36rem) {
             .principle {
                 grid-template-columns: 1fr;
@@ -228,12 +306,15 @@
         }
 
         @media (prefers-reduced-motion: no-preference) {
-            main > * {
+            .intro,
+            .links,
+            .lead,
+            .approach {
                 animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
             }
-            main > :nth-child(2) { animation-delay: 0.06s; }
-            main > :nth-child(3) { animation-delay: 0.12s; }
-            main > :nth-child(4) { animation-delay: 0.18s; }
+            .lead { animation-delay: 0.06s; }
+            .approach { animation-delay: 0.12s; }
+            .links { animation-delay: 0.18s; }
 
             @keyframes rise {
                 from {
@@ -246,39 +327,43 @@
 </head>
 <body>
 <main>
-    <header class="intro">
-        <img class="avatar" src="img/profile.png" alt="Portrait of Javier Caballero" width="104" height="104">
-        <div>
-            <h1>Javier Caballero</h1>
-            <p class="role">Software Developer in Test</p>
-        </div>
-    </header>
-    <p class="lead">
-        I help teams build quality into the way software gets made, from the
-        first idea to the release.
-    </p>
-    <section class="approach" aria-labelledby="approach-title">
-        <h2 id="approach-title">How I work</h2>
-        <dl>
-            <div class="principle">
-                <dt>Quality by design</dt>
-                <dd>Clear standards and fast feedback built into the workflow, not added at the end.</dd>
+    <div class="profile">
+        <header class="intro">
+            <img class="avatar" src="img/profile.png" alt="Portrait of Javier Caballero" width="104" height="104">
+            <div>
+                <h1>Javier Caballero</h1>
+                <p class="role">Software Developer in Test</p>
             </div>
-            <div class="principle">
-                <dt>Traceability</dt>
-                <dd>Every change can be followed from requirement to code to release.</dd>
-            </div>
-            <div class="principle">
-                <dt>Steady improvement</dt>
-                <dd>Small, regular refinements to how the team works, guided by what the product shows.</dd>
-            </div>
-        </dl>
-    </section>
-    <ul class="links">
-        <li><a href="https://github.com/jayc13" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/caballerojavier13/" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 20.8h-4v-12h4v12zM5.202 7.2a2 2 0 11-.004-4 2 2 0 01.004 4zM21.6 20.8h-3.845v-5.84c0-1.393-.027-3.183-2-3.183-2.002 0-2.31 1.516-2.31 3.082V20.8H9.6V8.791h3.69v1.64h.054c.512-.944 1.768-1.939 3.64-1.939 3.896 0 4.616 2.488 4.616 5.722V20.8z"/></svg>LinkedIn</a></li>
-        <li><a href="https://medium.com/@caballerojavier" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>Medium</a></li>
-    </ul>
+        </header>
+        <ul class="links">
+            <li><a href="https://github.com/jayc13" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/caballerojavier13/" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 20.8h-4v-12h4v12zM5.202 7.2a2 2 0 11-.004-4 2 2 0 01.004 4zM21.6 20.8h-3.845v-5.84c0-1.393-.027-3.183-2-3.183-2.002 0-2.31 1.516-2.31 3.082V20.8H9.6V8.791h3.69v1.64h.054c.512-.944 1.768-1.939 3.64-1.939 3.896 0 4.616 2.488 4.616 5.722V20.8z"/></svg>LinkedIn</a></li>
+            <li><a href="https://medium.com/@caballerojavier" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>Medium</a></li>
+        </ul>
+    </div>
+    <div class="content">
+        <p class="lead">
+            I help teams build quality into the way software gets made, from the
+            first idea to the release.
+        </p>
+        <section class="approach" aria-labelledby="approach-title">
+            <h2 id="approach-title">How I work</h2>
+            <dl>
+                <div class="principle">
+                    <dt>Quality by design</dt>
+                    <dd>Clear standards and fast feedback built into the workflow, not added at the end.</dd>
+                </div>
+                <div class="principle">
+                    <dt>Traceability</dt>
+                    <dd>Every change can be followed from requirement to code to release.</dd>
+                </div>
+                <div class="principle">
+                    <dt>Steady improvement</dt>
+                    <dd>Small, regular refinements to how the team works, guided by what the product shows.</dd>
+                </div>
+            </dl>
+        </section>
+    </div>
 </main>
 <footer>&copy; Javier Caballero</footer>
 </body>
