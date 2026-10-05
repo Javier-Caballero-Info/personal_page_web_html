@@ -1,0 +1,44 @@
+# Validates the static site on pull requests. Deployment is handled by
+# Cloudflare Pages, which publishes public/ (see wrangler.toml).
+name: PR Validation
+
+on:
+  pull_request:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-validation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate site
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Validate HTML
+        run: npx --yes html-validate@9 public
+
+      - name: Check local asset references
+        run: |
+          missing=0
+          for file in public/*.html; do
+            for ref in $(grep -oE '(src|href)="[^"#?]+"' "$file" | sed -E 's/^(src|href)="(.*)"$/\2/' | grep -vE '^([a-z]+:|//)'); do
+              if [ ! -e "public/${ref#/}" ]; then
+                echo "::error file=$file::Missing asset: $ref"
+                missing=1
+              fi
+            done
+          done
+          exit $missing

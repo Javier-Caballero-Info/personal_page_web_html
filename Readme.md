@@ -12,8 +12,7 @@ public/            Everything that gets published
   img/             Profile picture and favicon
   robots.txt
 wrangler.toml      Cloudflare Pages config (publishes only public/)
-CNAME              Custom domain for GitHub Pages
-.github/workflows/ GitHub Pages deployment
+.github/workflows/ Pull request validation
 ```
 
 Only the contents of `public/` are deployed. Keep repository files (license,
@@ -31,12 +30,20 @@ python3 -m http.server --directory public 8080
 
 ## Deployment
 
-- **Cloudflare Pages** (serves the live domain): builds every branch and
-  publishes `public/`, as set by `pages_build_output_dir` in `wrangler.toml`.
-  Pull requests get a preview URL.
-- **GitHub Pages**: on pushes to `master`, the workflow in
-  `.github/workflows/static.yml` minifies `index.html` and publishes `public/`
-  plus `CNAME`.
+**Cloudflare Pages** serves the live domain: it builds every branch and
+publishes `public/`, as set by `pages_build_output_dir` in `wrangler.toml`.
+Pull requests get a preview URL.
+
+## Pull request validation
+
+The `PR Validation` workflow (`.github/workflows/pr-validation.yml`) runs on
+pull requests to `master`. It validates the HTML in `public/` with
+[html-validate](https://html-validate.org/) and checks that every local asset
+referenced from the pages exists. Run the same HTML check locally with:
+
+```sh
+npx html-validate public
+```
 
 ## License
 
