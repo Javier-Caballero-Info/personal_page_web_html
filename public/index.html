@@ -1,245 +1,386 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Javier Caballero</title>
-    <link href="img/favicon.png" rel="shortcut icon" type="image/png">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <meta name="description" content="Javier is a QA Automation Engineer who has been
-                    in the field for nine years. He enjoys solving difficult problems and helping his team to exceed
-                    customer expectations. He is an analytical thinker who enjoys finding solutions to complex problems.
-                    Javier has a deep understanding of how quality procedures and code traceability can improve the product.
-                    He is always looking for ways to improve.">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Javier Caballero · Software Developer in Test</title>
+    <meta name="description" content="Javier Caballero is a Software Developer in Test who helps teams build quality into their process, from the first idea to the release.">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="img/favicon.png" type="image/png" sizes="64x64">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml" sizes="any">
     <style>
-        @font-face {
-          font-family: 'Gloria Hallelujah';
-          font-style: normal;
-          font-weight: 400;
-          font-display: swap;
-          src: url(https://fonts.gstatic.com/s/gloriahallelujah/v17/LYjYdHv3kUk9BMV96EIswT9DIbW-MIS11zOmvVCE.woff2) format('woff2');
-          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        :root {
+            --bg: #fafaf9;
+            --fg: #1c1c1a;
+            --muted: #6b6b66;
+            --line: #e4e4e0;
+            --accent: #2b5d8a;
         }
 
-        @font-face {
-          font-family: 'KoHo';
-          font-style: normal;
-          font-weight: 400;
-          font-display: swap;
-          src: url(https://fonts.gstatic.com/s/koho/v16/K2F-fZ5fmddNNi4UfbTRKoo.woff2) format('woff2');
-          unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #111110;
+                --fg: #ededea;
+                --muted: #9a9a94;
+                --line: #2a2a28;
+                --accent: #8fb8de;
+            }
         }
 
-        body {
-            border: 0;
-            color:#444;
-            display:flex;
-            flex-direction:column;
-            font-family: sans-serif;
-            font-size:1.4rem;
-            font-synthesis:none;
-            font-weight:400;
-            line-height:1;
-            min-height:100vh;
-            position:relative;
-            margin: 0;
-        }
-
-        *,:after,:before {
-            box-sizing:border-box;
+        *, *::before, *::after {
+            box-sizing: border-box;
         }
 
         html {
-            box-sizing:border-box;
-            font-size:80%;
-            font-synthesis:none;
-            scrollbar-width:none!important;
+            -webkit-text-size-adjust: 100%;
         }
 
-        a {
-            text-decoration:none;
+        body {
+            margin: 0;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            font-size: 17px;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .kZvHBQ {
-            align-items:center;
-            display:flex;
-            justify-content:flex-start;
-            margin:1.3rem 0 2rem;
-            width:100%;
+        main {
+            flex: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr);
+            align-content: center;
+            width: 100%;
+            max-width: 40rem;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 2rem;
         }
 
-        .bUrLqq {
-            border-bottom:2px solid;
-            border-color:inherit;
-            border-radius:1px;
-            width:2.6em;
+        .profile,
+        .content {
+            display: contents;
         }
 
         .links {
-            align-items:center;
-            align-self:flex-start;
-            display:flex;
-            flex-wrap:wrap;
-            justify-content:flex-start;
-            margin-left:-.627rem;
-            width:100%;
+            order: 1;
         }
 
-        .link {
-            align-items:center;
-            border:1px solid;
-            border-radius:50%;
-            color:inherit;
-            cursor:pointer;
-            display:flex;
-            height:4.37rem;
-            justify-content:center;
-            margin:.627rem;
-            text-decoration:none;
-            transition:.3s;
-            width:4.37rem;
-        }
-
-        .link svg {
-            fill:#212121;
-            height:1.9rem;
-        }
-
-        .link:hover {
-            opacity:.6;
-        }
-
-        .header {
-            align-items:flex-start;
-            display:flex;
-            flex-direction:column;
-        }
-
-        .kMmoQC {
-            flex-direction:column;
-        }
-
-        .fUeYsC a {
-            color:inherit;
-            text-decoration:underline;
-        }
-
-        .SUTmE {
-            border-radius:.8rem;
-            box-shadow:0 10px 90px rgba(0,0,0,.25);
-            display:flex;
-            flex-direction: row;
-            margin-bottom:auto;
-            margin-top:auto;
-            width:95%;
-            max-width: 764px;
-        }
-
-        .icaqyE {
-            background:#fff;
-            border-radius: 0.8rem;
+        .intro {
             display: flex;
-            flex-direction: row;
-            align-content: center;
             align-items: center;
-            padding:3.6rem;
-            width:100%;
+            gap: 1.5rem;
         }
 
-        .profile {
-            height: 200px;
-            width: 200px;
-            margin: 24px;
+        .avatar {
+            flex: none;
+            display: block;
+            width: 104px;
+            height: 104px;
+            border-radius: 50%;
+            padding: 4px;
+            border: 1px solid var(--line);
+            background: var(--bg);
         }
 
-        .gTXXel {
-            align-items:center;
-            background-image:linear-gradient(to right, #085078 0%, #E8F1F2 100%);
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            color:rgba(0,0,0,.85);
-            display:flex;
-            font-family:unset;
-            font-weight:300;
-            justify-content:center;
-            min-height:100vh;
-            overflow:auto;
-            padding:5% 2.5%;
-            width:100%;
-            word-break:normal;
-            word-wrap:normal;
+        h1 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
         }
 
-        .gTXXel * {
-            line-height:2.565rem;
-        }
-        .gTXXel h1,.gTXXel h2 {
-            text-rendering:optimizeLegibility;
-        }
-
-        .gTXXel h1 {
-            font-size: 3.8475rem;
-            font-weight: 400;
-            letter-spacing: -.04rem;
-            line-height: 4.23225rem;
-            margin: 0 0 1.5rem;
-            font-family:'Gloria Hallelujah', handwriting,sans-serif;
-            display: swap;
+        .role {
+            margin: 0.4rem 0 0;
+            color: var(--accent);
+            font-size: 0.9375rem;
+            font-weight: 500;
         }
 
-        .gTXXel h2 {
-            font-size:2.565rem;
-            line-height:2.94975rem;
-            margin: 0 0 1rem;
-            color:#7f8c8d;
-            font-family: 'KoHo', sans-serif;
-            font-weight: 400;
-            display: swap;
+        .lead {
+            max-width: 32rem;
+            margin: 3rem 0 0;
+            font-size: 1.625rem;
         }
 
-        [hidden],html::-webkit-scrollbar {
-            display:none;
+        .lead::before {
+            content: "\201C";
+            content: "\201C" / "";
+            display: block;
+            height: 0.55em;
+            color: var(--accent);
+            font-family: ui-serif, Georgia, "Times New Roman", serif;
+            font-size: 3em;
+            line-height: 1;
         }
-        @media screen and (max-width: 1280px) {
-            .icaqyE {
+
+        .lead p {
+            margin: 0;
+            font-family: ui-serif, Georgia, "Times New Roman", serif;
+            font-style: italic;
+            line-height: 1.35;
+            text-wrap: balance;
+        }
+
+        .approach {
+            margin: 3rem 0 0;
+        }
+
+        .approach h2 {
+            margin: 0 0 0.75rem;
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .approach dl {
+            margin: 0;
+        }
+
+        .principle {
+            display: grid;
+            grid-template-columns: 12rem 1fr;
+            gap: 0.25rem 1.5rem;
+            padding: 1.1rem 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .principle:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .principle dt {
+            font-weight: 600;
+        }
+
+        .principle dd {
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.625rem;
+            margin: 2.5rem 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--fg);
+            font-size: 0.9375rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+        }
+
+        .links a:hover,
+        .links a:focus-visible {
+            color: var(--accent);
+            border-color: currentColor;
+        }
+
+        .links a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .links svg {
+            flex: none;
+            width: 1.05em;
+            height: 1.05em;
+            fill: currentColor;
+        }
+
+        footer {
+            width: 100%;
+            max-width: 40rem;
+            margin: 0 auto;
+            padding: 1.5rem;
+            color: var(--muted);
+            font-size: 0.8125rem;
+        }
+
+        @media (min-width: 60rem) {
+            main,
+            footer {
+                max-width: 66rem;
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+
+            main {
+                grid-template-columns: 17rem minmax(0, 1fr);
+                column-gap: clamp(4rem, 8vw, 7rem);
+                align-items: start;
+                padding-top: 6rem;
+                padding-bottom: 4rem;
+            }
+
+            .profile,
+            .content {
+                display: block;
+            }
+
+            .profile {
+                position: sticky;
+                top: 6rem;
+            }
+
+            .intro {
                 flex-direction: column;
+                align-items: flex-start;
+                gap: 1.75rem;
+            }
+
+            .avatar {
+                width: 152px;
+                height: 152px;
+                padding: 5px;
+            }
+
+            .links {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+                margin-top: 2.25rem;
+            }
+
+            .links a {
+                padding: 0.3rem 0;
+                border: 0;
+                border-radius: 0;
+                color: var(--muted);
+            }
+
+            .links a:hover,
+            .links a:focus-visible {
+                color: var(--accent);
+            }
+
+            .lead {
+                margin-top: 0;
+                font-size: 2.125rem;
+            }
+
+            .lead p {
+                line-height: 1.3;
+            }
+
+            .approach {
+                margin-top: 4rem;
+            }
+        }
+
+        @media (max-width: 36rem) {
+            .principle {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 26rem) {
+            .intro {
+                gap: 1.25rem;
+            }
+
+            .avatar {
+                width: 84px;
+                height: 84px;
+                padding: 3px;
+            }
+
+            h1 {
+                font-size: 1.625rem;
+            }
+
+            .lead {
+                font-size: 1.4375rem;
+            }
+
+            .links {
+                gap: 0.5rem;
+            }
+
+            .links a {
+                padding: 0.45rem 0.8rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .intro,
+            .links,
+            .lead,
+            .approach {
+                animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+            }
+            .lead { animation-delay: 0.06s; }
+            .approach { animation-delay: 0.12s; }
+            .links { animation-delay: 0.18s; }
+
+            @keyframes rise {
+                from {
+                    opacity: 0;
+                    transform: translateY(6px);
+                }
             }
         }
     </style>
 </head>
 <body>
-<div class="gTXXel">
-    <div class="SUTmE">
-        <div class="icaqyE">
-            <img src="img/profile.png" class="profile" alt="profile picture" height="300" width="300">
-            <div class="kMmoQC">
-                <div class="header">
-                    <h1 class="title">Javier Caballero</h1>
-                    <h2 class="subtitle">System Information Engineer</h2>
-                    <div class="kZvHBQ">
-                        <div class="bUrLqq"></div>
-                    </div>
-                </div>
-                <div class="links">
-                    <a class="link" href="https://github.com/jayc13" alt="GitHub" name="GitHub" target="_blank" aria-label="GitHub">
-                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" alt="GitHub">
-                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
-                        </svg>
-                    </a>
-                    <a class="link" href="https://medium.com/@caballerojavier" alt="Medium" name="Medium" target="_blank" aria-label="Medium">
-                        <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" alt="Medium">
-                            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"></path>
-                        </svg>
-                    </a>
-                    <a class="link" href="https://www.linkedin.com/in/caballerojavier13/" alt="LinkedIn" name="LinkedIn" target="_blank" aria-label="LinkedIn">
-                        <svg fill="none" viewBox="0 0 24 24" alt="LinkedIn">
-                            <path d="M7.2 20.8h-4v-12h4v12zM5.202 7.2a2 2 0 11-.004-4 2 2 0 01.004 4zM21.6 20.8h-3.845v-5.84c0-1.393-.027-3.183-2-3.183-2.002 0-2.31 1.516-2.31 3.082V20.8H9.6V8.791h3.69v1.64h.054c.512-.944 1.768-1.939 3.64-1.939 3.896 0 4.616 2.488 4.616 5.722V20.8z"></path>
-                        </svg>
-                    </a>
-                </div>
+<main>
+    <div class="profile">
+        <header class="intro">
+            <img class="avatar" src="img/profile.png" alt="Portrait of Javier Caballero" width="104" height="104">
+            <div>
+                <h1>Javier Caballero</h1>
+                <p class="role">Software Developer in Test</p>
             </div>
-        </div>
+        </header>
+        <ul class="links">
+            <li><a href="https://github.com/jayc13" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/caballerojavier13/" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 20.8h-4v-12h4v12zM5.202 7.2a2 2 0 11-.004-4 2 2 0 01.004 4zM21.6 20.8h-3.845v-5.84c0-1.393-.027-3.183-2-3.183-2.002 0-2.31 1.516-2.31 3.082V20.8H9.6V8.791h3.69v1.64h.054c.512-.944 1.768-1.939 3.64-1.939 3.896 0 4.616 2.488 4.616 5.722V20.8z"/></svg>LinkedIn</a></li>
+            <li><a href="https://medium.com/@caballerojavier" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>Medium</a></li>
+        </ul>
     </div>
-</div>
+    <div class="content">
+        <blockquote class="lead">
+            <p>I help teams build quality into the way software gets made, from the first idea to the release.</p>
+        </blockquote>
+        <section class="approach" aria-labelledby="approach-title">
+            <h2 id="approach-title">How I work</h2>
+            <dl>
+                <div class="principle">
+                    <dt>Quality by design</dt>
+                    <dd>Clear standards and fast feedback built into the workflow, not added at the end.</dd>
+                </div>
+                <div class="principle">
+                    <dt>Traceability</dt>
+                    <dd>Every change can be followed from requirement to code to release.</dd>
+                </div>
+                <div class="principle">
+                    <dt>Steady improvement</dt>
+                    <dd>Small, regular refinements to how the team works, guided by what the product shows.</dd>
+                </div>
+            </dl>
+        </section>
+    </div>
+</main>
+<footer>&copy; Javier Caballero</footer>
 </body>
 </html>
