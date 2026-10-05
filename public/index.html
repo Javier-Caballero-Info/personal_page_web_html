@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>Javier Caballero · Software Developer in Test</title>
-    <meta name="description" content="Javier Caballero is a Software Developer in Test who builds test automation that helps teams ship with confidence.">
+    <meta name="description" content="Javier Caballero is a Software Developer in Test who helps teams build quality into their process, from the first idea to the release.">
     <meta name="color-scheme" content="light dark">
     <meta name="theme-color" content="#fafaf9" media="(prefers-color-scheme: light)">
     <meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
@@ -56,7 +56,7 @@
             flex-direction: column;
             justify-content: center;
             width: 100%;
-            max-width: 34rem;
+            max-width: 40rem;
             margin: 0 auto;
             padding: 4rem 1.5rem 2rem;
         }
@@ -80,70 +80,121 @@
 
         h1 {
             margin: 0;
-            font-size: 1.75rem;
+            font-size: 2rem;
             font-weight: 600;
-            letter-spacing: -0.02em;
-            line-height: 1.2;
+            letter-spacing: -0.025em;
+            line-height: 1.15;
         }
 
         .role {
-            margin: 0.25rem 0 0;
-            color: var(--muted);
+            margin: 0.4rem 0 0;
+            color: var(--accent);
+            font-size: 0.9375rem;
+            font-weight: 500;
         }
 
-        .bio {
-            margin: 2.5rem 0 0;
-            padding-top: 2.5rem;
+        .lead {
+            max-width: 30rem;
+            margin: 3rem 0 0;
+            font-size: 1.5rem;
+            font-weight: 500;
+            letter-spacing: -0.015em;
+            line-height: 1.35;
+            text-wrap: balance;
+        }
+
+        .approach {
+            margin: 3rem 0 0;
+        }
+
+        .approach h2 {
+            margin: 0 0 0.75rem;
+            color: var(--muted);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .approach dl {
+            margin: 0;
+        }
+
+        .principle {
+            display: grid;
+            grid-template-columns: 12rem 1fr;
+            gap: 0.25rem 1.5rem;
+            padding: 1.1rem 0;
             border-top: 1px solid var(--line);
+        }
+
+        .principle:last-child {
+            border-bottom: 1px solid var(--line);
+        }
+
+        .principle dt {
+            font-weight: 600;
+        }
+
+        .principle dd {
+            margin: 0;
+            color: var(--muted);
         }
 
         .links {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem 1.75rem;
-            margin: 2rem 0 0;
+            gap: 0.625rem;
+            margin: 2.5rem 0 0;
             padding: 0;
             list-style: none;
-        }
-
-        a {
-            color: var(--fg);
-            text-decoration: underline;
-            text-decoration-color: var(--line);
-            text-decoration-thickness: 1px;
-            text-underline-offset: 0.25em;
-            transition: color 0.15s, text-decoration-color 0.15s;
-        }
-
-        a:hover,
-        a:focus-visible {
-            color: var(--accent);
-            text-decoration-color: currentColor;
-        }
-
-        a:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 3px;
-            border-radius: 2px;
         }
 
         .links a {
             display: inline-flex;
             align-items: center;
-            gap: 0.5em;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--fg);
+            font-size: 0.9375rem;
+            line-height: 1.4;
+            text-decoration: none;
+            transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+        }
+
+        .links a:hover,
+        .links a:focus-visible {
+            color: var(--accent);
+            border-color: currentColor;
+        }
+
+        .links a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
         }
 
         .links svg {
             flex: none;
-            width: 1em;
-            height: 1em;
-            fill: var(--muted);
-            transition: fill 0.15s;
+            width: 1.05em;
+            height: 1.05em;
+            fill: currentColor;
         }
 
-        .links a:hover svg,
-        .links a:focus-visible svg {
-            fill: currentColor;
+        footer {
+            width: 100%;
+            max-width: 40rem;
+            margin: 0 auto;
+            padding: 1.5rem;
+            color: var(--muted);
+            font-size: 0.8125rem;
+        }
+
+        @media (max-width: 36rem) {
+            .principle {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 26rem) {
@@ -158,26 +209,30 @@
             }
 
             h1 {
-                font-size: 1.5rem;
+                font-size: 1.625rem;
             }
-        }
 
-        footer {
-            width: 100%;
-            max-width: 34rem;
-            margin: 0 auto;
-            padding: 1.5rem;
-            color: var(--muted);
-            font-size: 0.8125rem;
+            .lead {
+                font-size: 1.3125rem;
+            }
+
+            .links {
+                gap: 0.5rem;
+            }
+
+            .links a {
+                padding: 0.45rem 0.8rem;
+                font-size: 0.9rem;
+            }
         }
 
         @media (prefers-reduced-motion: no-preference) {
             main > * {
                 animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
             }
-            main > :nth-child(2) { animation-delay: 0.05s; }
-            main > :nth-child(3) { animation-delay: 0.1s; }
-
+            main > :nth-child(2) { animation-delay: 0.06s; }
+            main > :nth-child(3) { animation-delay: 0.12s; }
+            main > :nth-child(4) { animation-delay: 0.18s; }
 
             @keyframes rise {
                 from {
@@ -197,11 +252,27 @@
             <p class="role">Software Developer in Test</p>
         </div>
     </header>
-    <p class="bio">
-        I build test automation that helps teams ship with confidence. I enjoy
-        untangling hard problems, and I believe solid quality practices and
-        traceable code make better products. Always looking for a better way.
+    <p class="lead">
+        I help teams build quality into the way software gets made, from the
+        first idea to the release.
     </p>
+    <section class="approach" aria-labelledby="approach-title">
+        <h2 id="approach-title">How I work</h2>
+        <dl>
+            <div class="principle">
+                <dt>Quality by design</dt>
+                <dd>Clear standards and fast feedback built into the workflow, not added at the end.</dd>
+            </div>
+            <div class="principle">
+                <dt>Traceability</dt>
+                <dd>Every change can be followed from requirement to code to release.</dd>
+            </div>
+            <div class="principle">
+                <dt>Steady improvement</dt>
+                <dd>Small, regular refinements to how the team works, guided by what the product shows.</dd>
+            </div>
+        </dl>
+    </section>
     <ul class="links">
         <li><a href="https://github.com/jayc13" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/caballerojavier13/" rel="me noopener" target="_blank"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 20.8h-4v-12h4v12zM5.202 7.2a2 2 0 11-.004-4 2 2 0 01.004 4zM21.6 20.8h-3.845v-5.84c0-1.393-.027-3.183-2-3.183-2.002 0-2.31 1.516-2.31 3.082V20.8H9.6V8.791h3.69v1.64h.054c.512-.944 1.768-1.939 3.64-1.939 3.896 0 4.616 2.488 4.616 5.722V20.8z"/></svg>LinkedIn</a></li>
