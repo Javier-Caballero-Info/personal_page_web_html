@@ -106,9 +106,24 @@
         .lead {
             max-width: 32rem;
             margin: 3rem 0 0;
-            font-size: 1.5rem;
-            font-weight: 500;
-            letter-spacing: -0.015em;
+            font-size: 1.625rem;
+        }
+
+        .lead::before {
+            content: "\201C";
+            content: "\201C" / "";
+            display: block;
+            height: 0.55em;
+            color: var(--accent);
+            font-family: ui-serif, Georgia, "Times New Roman", serif;
+            font-size: 3em;
+            line-height: 1;
+        }
+
+        .lead p {
+            margin: 0;
+            font-family: ui-serif, Georgia, "Times New Roman", serif;
+            font-style: italic;
             line-height: 1.35;
             text-wrap: balance;
         }
@@ -261,8 +276,10 @@
             .lead {
                 margin-top: 0;
                 font-size: 2.125rem;
-                line-height: 1.25;
-                letter-spacing: -0.025em;
+            }
+
+            .lead p {
+                line-height: 1.3;
             }
 
             .approach {
@@ -292,7 +309,7 @@
             }
 
             .lead {
-                font-size: 1.3125rem;
+                font-size: 1.4375rem;
             }
 
             .links {
@@ -342,10 +359,9 @@
         </ul>
     </div>
     <div class="content">
-        <p class="lead">
-            I help teams build quality into the way software gets made, from the
-            first idea to the release.
-        </p>
+        <blockquote class="lead">
+            <p>I help teams build quality into the way software gets made, from the first idea to the release.</p>
+        </blockquote>
         <section class="approach" aria-labelledby="approach-title">
             <h2 id="approach-title">How I work</h2>
             <dl>
