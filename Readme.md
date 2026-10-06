@@ -11,6 +11,7 @@ public/            Everything that gets published
   index.html       The site
   img/             Profile picture and favicon
   robots.txt
+tests/             End-to-end tests (Playwright)
 wrangler.toml      Cloudflare Pages config (publishes only public/)
 .github/workflows/ Pull request validation
 ```
@@ -43,6 +44,20 @@ referenced from the pages exists. Run the same HTML check locally with:
 
 ```sh
 npx html-validate public
+```
+
+## Tests
+
+End-to-end tests in `tests/` use [Playwright](https://playwright.dev/) to load
+the page on desktop and mobile viewports. They check the content, social links,
+images, layout, that no requests fail, and run an
+[axe](https://github.com/dequelabs/axe-core) accessibility scan in light and
+dark mode. They also run in the `PR Validation` workflow.
+
+```sh
+npm install
+npx playwright install chromium
+npm test
 ```
 
 ## License
