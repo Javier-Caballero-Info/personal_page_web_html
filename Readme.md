@@ -50,10 +50,11 @@ The build command lives in the Cloudflare Pages project settings
 (**Settings → Build → Build command**), not in this repository: it must be
 `npm run build`.
 
-## Pull request validation
+## Validation
 
-The `PR Validation` workflow (`.github/workflows/pr-validation.yml`) runs on
-pull requests to `master` in two jobs:
+The `Validation` workflow (`.github/workflows/pr-validation.yml`) runs on
+pull requests to `master` and on every push to `master` (so merged pull
+requests are validated again) in two jobs:
 
 1. **Build site** validates the HTML in `public/` with
    [html-validate](https://html-validate.org/), runs `npm run build`, validates

@@ -1,9 +1,12 @@
-# Validates the static site on pull requests. Deployment is handled by
-# Cloudflare Pages, which runs `npm run build` and publishes dist/.
-name: PR Validation
+# Validates the static site on pull requests and on pushes to master
+# (including merged PRs). Deployment is handled by Cloudflare Pages, which
+# runs `npm run build` and publishes dist/.
+name: Validation
 
 on:
   pull_request:
+    branches: ["master"]
+  push:
     branches: ["master"]
   workflow_dispatch:
 
@@ -11,8 +14,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: pr-validation-${{ github.ref }}
-  cancel-in-progress: true
+  group: validation-${{ github.ref }}
+  # Supersede stale PR runs, but let every master commit finish validating.
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
   build:
@@ -20,10 +24,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -54,7 +58,7 @@ jobs:
           exit $missing
 
       - name: Upload build
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dist
           path: dist/
@@ -66,10 +70,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
           cache: npm
@@ -78,7 +82,7 @@ jobs:
         run: npm ci
 
       - name: Download build
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v8
         with:
           name: dist
           path: dist/
@@ -93,7 +97,7 @@ jobs:
 
       - name: Upload report
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-results
           path: test-results/
