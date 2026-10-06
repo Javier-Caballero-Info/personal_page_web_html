@@ -23,7 +23,8 @@ module.exports = defineConfig({
   ],
   webServer: {
     // Tests run against the built site, the same files that get deployed.
-    command: `npm run build && npx serve dist --listen ${PORT} --no-clipboard`,
+    // `npm test` builds it first; CI downloads it from the build job.
+    command: `npx serve dist --listen ${PORT} --no-clipboard`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
   },

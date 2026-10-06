@@ -53,12 +53,19 @@ The build command lives in the Cloudflare Pages project settings
 ## Pull request validation
 
 The `PR Validation` workflow (`.github/workflows/pr-validation.yml`) runs on
-pull requests to `master`. It validates the HTML in `public/` with
-[html-validate](https://html-validate.org/) and checks that every local asset
-referenced from the pages exists. Run the same HTML check locally with:
+pull requests to `master` in two jobs:
+
+1. **Build site** validates the HTML in `public/` with
+   [html-validate](https://html-validate.org/), runs `npm run build`, validates
+   the built HTML in `dist/`, checks that every local asset the pages reference
+   exists, and uploads `dist/` as the `dist` artifact.
+2. **End-to-end tests** downloads that artifact and runs the tests against it.
+
+Run the same HTML checks locally with:
 
 ```sh
 npx html-validate public
+npm run build && npx html-validate dist
 ```
 
 ## Tests
@@ -67,8 +74,8 @@ End-to-end tests in `tests/` use [Playwright](https://playwright.dev/) to load
 the page on desktop and mobile viewports. They check the content, social links,
 images, layout, that no requests fail, and run an
 [axe](https://github.com/dequelabs/axe-core) accessibility scan in light and
-dark mode. They build the site first and run against `dist/`, the files that
-get deployed. They also run in the `PR Validation` workflow.
+dark mode. They run against `dist/`, the files that get deployed: `npm test`
+builds the site first (`npx playwright test` alone reuses the current `dist/`).
 
 ```sh
 npm install

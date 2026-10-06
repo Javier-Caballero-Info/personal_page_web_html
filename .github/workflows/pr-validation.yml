@@ -15,36 +15,8 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate:
-    name: Validate site
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v5
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-
-      - name: Validate HTML
-        run: npx --yes html-validate@9 public
-
-      - name: Check local asset references
-        run: |
-          missing=0
-          for file in public/*.html; do
-            for ref in $(grep -oE '(src|href)="[^"#?]+"' "$file" | sed -E 's/^(src|href)="(.*)"$/\2/' | grep -vE '^([a-z]+:|//)'); do
-              if [ ! -e "public/${ref#/}" ]; then
-                echo "::error file=$file::Missing asset: $ref"
-                missing=1
-              fi
-            done
-          done
-          exit $missing
-
-  test:
-    name: End-to-end tests
+  build:
+    name: Build site
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -59,11 +31,65 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Validate source HTML
+        run: npx --yes html-validate@9 public
+
+      - name: Build
+        run: npm run build
+
+      - name: Validate built HTML
+        run: npx --yes html-validate@9 dist
+
+      - name: Check local asset references
+        run: |
+          missing=0
+          for file in dist/*.html; do
+            for ref in $(grep -oE '(src|href)="[^"#?]+"' "$file" | sed -E 's/^(src|href)="(.*)"$/\2/' | grep -vE '^([a-z]+:|//)'); do
+              if [ ! -e "dist/${ref#/}" ]; then
+                echo "::error file=$file::Missing asset: $ref"
+                missing=1
+              fi
+            done
+          done
+          exit $missing
+
+      - name: Upload build
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist/
+          retention-days: 7
+
+  test:
+    name: End-to-end tests
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Download build
+        uses: actions/download-artifact@v5
+        with:
+          name: dist
+          path: dist/
+
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
+      # Runs Playwright directly, not `npm test`, so the tests use the
+      # downloaded build instead of rebuilding.
       - name: Run tests
-        run: npm test
+        run: npx playwright test
 
       - name: Upload report
         if: failure()

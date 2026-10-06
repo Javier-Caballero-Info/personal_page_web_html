@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "serve public --listen 3000",
     "build": "node scripts/build.js",
-    "test": "playwright test"
+    "test": "npm run build && playwright test"
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
