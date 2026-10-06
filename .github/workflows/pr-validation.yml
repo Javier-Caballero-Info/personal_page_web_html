@@ -1,5 +1,5 @@
 # Validates the static site on pull requests. Deployment is handled by
-# Cloudflare Pages, which publishes public/ (see wrangler.toml).
+# Cloudflare Pages, which runs `npm run build` and publishes dist/.
 name: PR Validation
 
 on:

@@ -22,7 +22,8 @@ module.exports = defineConfig({
     { name: 'mobile', use: { ...devices['Pixel 7'] } },
   ],
   webServer: {
-    command: `npx serve public --listen ${PORT} --no-clipboard`,
+    // Tests run against the built site, the same files that get deployed.
+    command: `npm run build && npx serve dist --listen ${PORT} --no-clipboard`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
   },
