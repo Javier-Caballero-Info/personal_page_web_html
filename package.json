@@ -1,0 +1,17 @@
+{
+  "name": "personal-page-web-html",
+  "private": true,
+  "description": "Source for javiercaballero.info, the personal web CV of Javier Caballero.",
+  "license": "GPL-3.0",
+  "scripts": {
+    "dev": "serve public --listen 3000",
+    "build": "node scripts/build.js",
+    "test": "npm run build && playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "html-minifier-terser": "^7.2.0",
+    "serve": "^14.2.6"
+  }
+}
