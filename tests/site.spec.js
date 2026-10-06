@@ -2,6 +2,12 @@
 const { test, expect } = require('@playwright/test');
 const AxeBuilder = require('@axe-core/playwright').default;
 
+const SOCIAL_LINKS = {
+  GitHub: 'https://github.com/jayc13',
+  LinkedIn: 'https://www.linkedin.com/in/caballerojavier13/',
+  Medium: 'https://medium.com/@caballerojavier',
+};
+
 test.describe('home page', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
@@ -35,15 +41,10 @@ test.describe('home page', () => {
   });
 
   test('links to the social profiles in a new tab', async ({ page }) => {
-    const expected = {
-      GitHub: 'https://github.com/jayc13',
-      LinkedIn: 'https://www.linkedin.com/in/caballerojavier13/',
-      Medium: 'https://medium.com/@caballerojavier',
-    };
     const links = page.locator('.links a');
-    await expect(links).toHaveCount(Object.keys(expected).length);
+    await expect(links).toHaveCount(Object.keys(SOCIAL_LINKS).length);
 
-    for (const [name, href] of Object.entries(expected)) {
+    for (const [name, href] of Object.entries(SOCIAL_LINKS)) {
       const link = page.getByRole('link', { name });
       await expect(link).toBeVisible();
       await expect(link).toHaveAttribute('href', href);
@@ -81,6 +82,39 @@ test.describe('home page', () => {
     const results = await new AxeBuilder({ page }).analyze();
     expect(results.violations).toEqual([]);
   });
+});
+
+test.describe('social links', () => {
+  test.beforeEach(async ({ context }) => {
+    // Stub the external sites so the tests do not depend on them being
+    // reachable or on what they serve (LinkedIn, for one, redirects to a login).
+    await context.route(/^https:\/\/(github\.com|www\.linkedin\.com|medium\.com)\//, (route) =>
+      route.fulfill({ contentType: 'text/html', body: '<!DOCTYPE html><title>External site</title>' }),
+    );
+  });
+
+  for (const [name, href] of Object.entries(SOCIAL_LINKS)) {
+    test(`${name} opens in a new tab`, async ({ page, context }) => {
+      await page.goto('/');
+      const homeUrl = page.url();
+
+      const [newTab] = await Promise.all([
+        context.waitForEvent('page'),
+        page.getByRole('link', { name }).click(),
+      ]);
+      await newTab.waitForLoadState();
+
+      expect(newTab).not.toBe(page);
+      expect(context.pages()).toHaveLength(2);
+      await expect(newTab).toHaveURL(href);
+      await expect(newTab).toHaveTitle('External site');
+      // rel="noopener" keeps the new site from controlling this page.
+      expect(await newTab.evaluate(() => window.opener)).toBeNull();
+      // The site stays open in the original tab.
+      expect(page.url()).toBe(homeUrl);
+      await expect(page.getByRole('heading', { level: 1 })).toHaveText('Javier Caballero');
+    });
+  }
 });
 
 test.describe('layout', () => {
